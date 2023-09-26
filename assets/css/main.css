@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --torange:#ff685e; 
+    --tpurple:#7c4bc1;
+    --tblue: #3435a8;
+    --tpink: #ff1179;
+}
+
+.bg-torange{
+ background-color:var(--torange);
+}
+
+.bg-tpurple{
+    background-color:var(--tpurple);
+}
+
+.bg-tblue{
+    background-color:var(--tblue);
+}
+
+.bg-tpink{
+    background-color:var(--tpink);
+}
+
+.text-torange{
+    color:var(--torange);
+}
+
+.text-tpurple{
+    color:var(--tpurple);
+}
+
+.text-tblue{
+    color:var(--tblue);
+}
+
+.text-tpink{
+    color:var(--tpink);
+}
