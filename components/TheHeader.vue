@@ -167,49 +167,107 @@
             <nuxt-link to="/" class="text-lg"> About </nuxt-link>
           </div>
 
-          <div class="relative">
-            <nuxt-link to="" class="text-lg"               
-              @mouseenter="toggleVisible"
-              @mouseleave="toggleVisible">
+          <div class="relative" @mouseleave="toggleVisible">
+            <nuxt-link to="" class="text-lg" @mouseenter="toggleVisible">
               Products
               <Icon name="teenyicons:down-solid" size="8" color="black" />
             </nuxt-link>
             <div
-              :class="{'mega-menu-visible': menuVisible}"
-              class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg mt-2"
+              :class="{ 'mega-menu-visible': menuVisible }"
+              class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg"
             >
               <div class="container mx-auto px-5">
                 <div class="grid grid-cols-4 gap-4 p-4">
                   <div class="">
                     <h2 class="font-semibold text-lg mb-2">Category 1</h2>
                     <ul>
-                      <li><a href="#">Subcategory 1</a></li>
-                      <li><a href="#">Subcategory 2</a></li>
-                      <li><a href="#">Subcategory 3</a></li>
+                      <li>
+                        <nuxt-link to="">Product 1</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 2</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 3</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 4</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 5</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 6</nuxt-link>
+                      </li>
                     </ul>
                   </div>
                   <div class="">
                     <h2 class="font-semibold text-lg mb-2">Category 2</h2>
                     <ul>
-                      <li><a href="#">Subcategory 1</a></li>
-                      <li><a href="#">Subcategory 2</a></li>
-                      <li><a href="#">Subcategory 3</a></li>
+                      <li>
+                        <nuxt-link to="">Product 1</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 2</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 3</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 4</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 5</nuxt-link>
+                      </li>
+
+                      <li>
+                        <nuxt-link to="">Product 6</nuxt-link>
+                      </li>
                     </ul>
                   </div>
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2">Category 3</h2>
                     <ul>
-                      <li><a href="#">Subcategory 1</a></li>
-                      <li><a href="#">Subcategory 2</a></li>
-                      <li><a href="#">Subcategory 3</a></li>
+                      <li class="relative">
+                        <nuxt-link to="">
+                          <img
+                            src="../public/menu-product-image/menu-product-img-1.jpg"
+                            alt="product image1"
+                            class="w-full h-auto rounded-md"
+                          />
+                        </nuxt-link>
+                        <nuxt-link
+                          to=""
+                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold"
+                          >Phones</nuxt-link
+                        >
+                      </li>
                     </ul>
                   </div>
-                  <div class="">
-                    <h2 class="font-semibold text-lg mb-2">Category 4</h2>
+                  <div class="relative">
                     <ul>
-                      <li><a href="#">Subcategory 1</a></li>
-                      <li><a href="#">Subcategory 2</a></li>
-                      <li><a href="#">Subcategory 3</a></li>
+                      <li>
+                        <nuxt-link to="">
+                          <img
+                            src="../public/menu-product-image/menu-product-img-2.jpg"
+                            alt="product image 2"
+                            class="w-full h-auto rounded-md"
+                          />
+                        </nuxt-link>
+                        <nuxt-link
+                          to=""
+                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold"
+                          >Cameras</nuxt-link
+                        >
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -249,13 +307,11 @@
 </template>
 
 <script setup>
-const menuVisible = ref(false);
+const menuVisible = ref(true);
 
-const toggleVisible =  () => {
-  menuVisible.value = ! menuVisible.value
+const toggleVisible = () => {
+  menuVisible.value = !menuVisible.value;
 };
-
-
 </script>
 
 <style scoped>
@@ -264,9 +320,10 @@ const toggleVisible =  () => {
 }
 
 .mega-menu {
-  width: 960px;
+  width: 991px;
   visibility: hidden;
   opacity: 0;
+  border-radius: 10px;
   transition-duration: 0.1s;
   transform-origin: top;
   -webkit-transform: perspective(300px) rotateX(-18deg);
@@ -284,5 +341,17 @@ const toggleVisible =  () => {
   -ms-transform: perspective(300px) rotateX(0deg);
   -o-transform: perspective(300px) rotateX(0deg);
   transform: perspective(300px) rotateX(0deg);
+}
+
+.mega-menu li {
+  line-height: 34px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 1280px) {
+  .mega-menu {
+    width: 800px;
+  }
 }
 </style>
