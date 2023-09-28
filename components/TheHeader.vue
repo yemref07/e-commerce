@@ -32,16 +32,6 @@
                   class="flex justify-end items-center flex-nowrap flex-grow"
                 >
                   <div class="relative">
-                    <span
-                      class="text-xs lg:text-base text-slate-600 font-thin mr-5"
-                    >
-                      Select Category
-                      <Icon
-                        name="teenyicons:down-solid"
-                        size="8"
-                        color="black"
-                      />
-                    </span>
 
                     <ul class="absolute bg-white px-3 py-2 space-y-2 hidden">
                       <li class="font-medium mb-2">Select Category</li>
