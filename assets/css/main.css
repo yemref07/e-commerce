@@ -12,6 +12,7 @@
     --tpurple:#7c4bc1;
     --tblue: #3435a8;
     --tpink: #ff1179;
+    --black:#121f2b;
 }
 
 .bg-torange{
@@ -44,4 +45,8 @@
 
 .text-tpink{
     color:var(--tpink);
+}
+
+.text-tblack{
+    color:var(--tblack);
 }
