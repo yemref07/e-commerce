@@ -71,8 +71,10 @@
             </div>
 
             <div class="hidden xl:flex flex-col mr-10">
-              <span class="line-clamp-1">Hello, Sign In</span>
-              <h3 class="font-semibold">Your Account</h3>
+              <nuxt-link to="/sign-in" class="cursor-pointer">
+                <span class="line-clamp-1">Hello, Sign In</span>
+                <h3 class="font-semibold">Your Account</h3>
+              </nuxt-link>
             </div>
 
             <div class="flex space-x-2">
