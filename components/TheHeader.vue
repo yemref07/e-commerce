@@ -4,7 +4,7 @@
   <nav>
     <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden md:block">
       <div class="flex py-5 items-center justify-between">
-        <div class="basis-1/5 lg:basis-1/4">
+        <div class="basis-1/4 lg:basis-1/3">
           <img
             src="../public/logos/commerce-logo.svg"
             alt=""
@@ -12,12 +12,12 @@
           />
         </div>
 
-        <div class="basis-3/5 lg:basis-2/5">
+        <div class="basis-2/4 lg:basis-1/3">
           <form>
             <div
               class="flex flex-nowrap border-2 border-sky-800 justify-between items-center py-1 px-2 xl:py-2 xl:px-4"
             >
-              <div class="basis-1/3 text-sm items-center">
+              <div class="basis-2/4 text-sm items-center">
                 <input
                   type="text"
                   name=""
@@ -27,7 +27,7 @@
                 />
               </div>
 
-              <div class="basis-2/3 grow">
+              <div class="basis-2/4 grow">
                 <div
                   class="flex justify-end items-center flex-nowrap flex-grow"
                 >
@@ -59,7 +59,7 @@
           </form>
         </div>
 
-        <div class="basis-1/5 lg:basis-1/4">
+        <div class="basis-1/4 lg:basis-1/3">
           <div class="flex items-center justify-end">
             <div class="">
               <Icon
