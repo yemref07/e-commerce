@@ -1,58 +1,8 @@
 <template>
-  <div class="hidden md:block">
-    <div class="w-full bg-header-top relative z-10">
-      <div class="container mx-auto xl:px-40 text-white">
-        <div class="flex py-1 justify-between">
-          <div class="flex gap-3 items-center basis-2/4">
-            <Icon name="mdi:truck-outline" color="orange" size="24" />
-            <p class="text-sm">Free Express Shipping On Orders $400+</p>
-          </div>
-
-          <div
-            class="flex space-x-5 items-center basis-2/4 justify-end divide-x"
-          >
-            <div class="px-2 relative">
-              <span class="mr-2">USD</span>
-              <Icon name="teenyicons:down-solid" size="12" color="white" />
-            </div>
-
-            <div class="px-2 relative">
-              <span class="mr-2">English</span>
-              <Icon name="teenyicons:down-solid" size="12" color="white" />
-            </div>
-
-            <div class="px-6 relative">
-              <span class="mr-2">Settings</span>
-              <Icon name="teenyicons:down-solid" size="12" color="white" />
-
-              <div
-                class="absolute top-full bg-header-top px-6 py-3 right-3 mt-1 rounded-sm hidden"
-              >
-                <ul>
-                  <li>
-                    <nuxt-link to="">My Profile</nuxt-link>
-                  </li>
-                  <li>
-                    <nuxt-link to="">Wishlist</nuxt-link>
-                  </li>
-                  <li>
-                    <nuxt-link to="">Cart</nuxt-link>
-                  </li>
-                  <li>
-                    <nuxt-link to="">Logout</nuxt-link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <topHeader />
   <!-- main nav -->
   <nav>
-    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20">
+    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden md:block">
       <div class="flex py-5 items-center justify-between">
         <div class="basis-1/5 lg:basis-1/4">
           <img
@@ -156,7 +106,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20">
+    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden md:block">
       <div class="flex flex-row items-center justify-between border-t-2 py-3">
         <div class="flex flex-item space-x-5 lg:space-x-10 relative">
           <div class="">
@@ -179,7 +129,7 @@
               <div class="container mx-auto px-5">
                 <div class="grid grid-cols-4 gap-4 p-4">
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2">Category 1</h2>
+                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Category 1</h2>
                     <ul>
                       <li>
                         <nuxt-link to="">Product 1</nuxt-link>
@@ -207,7 +157,7 @@
                     </ul>
                   </div>
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2">Category 2</h2>
+                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Category 2</h2>
                     <ul>
                       <li>
                         <nuxt-link to="">Product 1</nuxt-link>
@@ -237,7 +187,7 @@
                   <div class="">
                     <ul>
                       <li class="relative">
-                        <nuxt-link to="">
+                        <nuxt-link to="" class=" cursor-pointer">
                           <img
                             src="../public/menu-product-image/menu-product-img-1.jpg"
                             alt="product image1"
@@ -246,7 +196,7 @@
                         </nuxt-link>
                         <nuxt-link
                           to=""
-                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold"
+                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold cursor-pointer"
                           >Phones</nuxt-link
                         >
                       </li>
@@ -255,7 +205,7 @@
                   <div class="relative">
                     <ul>
                       <li>
-                        <nuxt-link to="">
+                        <nuxt-link to="/" class=" cursor-pointer">
                           <img
                             src="../public/menu-product-image/menu-product-img-2.jpg"
                             alt="product image 2"
@@ -263,8 +213,8 @@
                           />
                         </nuxt-link>
                         <nuxt-link
-                          to=""
-                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold"
+                          to="/"
+                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold cursor-pointer"
                           >Cameras</nuxt-link
                         >
                       </li>
@@ -301,9 +251,10 @@
         </div>
       </div>
     </div>
+
+    <mobileMenu />
   </nav>
 
-  <!-- <Icon name="clarity:dollar-solid" color="black"  size="24"/> -->
 </template>
 
 <script setup>
@@ -315,9 +266,7 @@ const toggleVisible = () => {
 </script>
 
 <style scoped>
-.bg-header-top {
-  background-color: #010f1c;
-}
+
 
 .mega-menu {
   width: 991px;
