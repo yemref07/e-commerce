@@ -7,12 +7,37 @@
     font-family: 'Roboto', sans-serif;
 }
 
+@font-face {
+    font-family: 'Oregano Italic';
+    src: url('../../public/fonts/Oregano-Italic.eot');
+    src: url('../../public/fonts/Oregano-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../../public/fonts/Oregano-Italic.woff2') format('woff2'),
+        url('../../public/fonts/Oregano-Italic.woff') format('woff'),
+        url('../../public/fonts/Oregano-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oregano Regular';
+    src: url('../../public/fonts/Oregano-Regular.eot');
+    src: url('../../public/fonts/Oregano-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../public/fonts/Oregano-Regular.woff2') format('woff2'),
+        url('../../public/fonts/Oregano-Regular.woff') format('woff'),
+        url('../../public/fonts/Oregano-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --torange:#ff685e; 
     --tpurple:#7c4bc1;
     --tblue: #3435a8;
     --tpink: #ff1179;
-    --black:#121f2b;
+    --tblack:#121f2b;
+    --tgreen:#115061;
 }
 
 .bg-torange{
@@ -29,6 +54,10 @@
 
 .bg-tpink{
     background-color:var(--tpink);
+}
+
+.bg-tgreen{
+    background-color:var(--tgreen);
 }
 
 .text-torange{
@@ -50,3 +79,4 @@
 .text-tblack{
     color:var(--tblack);
 }
+
