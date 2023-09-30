@@ -110,13 +110,13 @@
           </div>
 
           <div class="relative" @mouseleave="toggleVisible">
-            <nuxt-link to="" class="text-lg" @mouseenter="toggleVisible">
+            <nuxt-link to="" class="text-lg cursor-pointer" @mouseenter="toggleVisible">
               Products
               <Icon name="teenyicons:down-solid" size="8" color="black" />
             </nuxt-link>
             <div
               :class="{ 'mega-menu-visible': menuVisible }"
-              class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg"
+              class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg z-30"
             >
               <div class="container mx-auto px-5">
                 <div class="grid grid-cols-4 gap-4 p-4">
@@ -250,7 +250,7 @@
 </template>
 
 <script setup>
-const menuVisible = ref(true);
+const menuVisible = ref(false);
 
 const toggleVisible = () => {
   menuVisible.value = !menuVisible.value;
