@@ -15,7 +15,7 @@
   </div>
 
   <div
-    class="w-full fixed top-0 left-0 right-0 bg-white h-screen text-black overflow-y-auto scroll-smooth delay-400 transition-transform"
+    class="w-full fixed top-0 left-0 right-0 bg-white h-screen text-black overflow-y-auto scroll-smooth delay-400 transition-transform z-30"
     :class="{
       '-translate-x-full': !mobileVisible,
       'transform-none': mobileVisible,
