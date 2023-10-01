@@ -39,41 +39,64 @@
         catLink="/"
         bgColor="#115061"
         img="/slider/slider-img-3.png"
-    />
-  </swiper-slide>
+      />
+    </swiper-slide>
   </swiper-container>
 
   <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
-    <div class="flex flex-row justify-center md:justify-between items-center flex-wrap gap-5">
-        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-1.png"/>
-        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-2.png"/>
-        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-3.png"/>
-        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-4.png"/>
-        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-5.png"/>
+    <div
+      class="flex flex-row justify-center md:justify-between items-center flex-wrap gap-5"
+    >
+      <catCardCircle
+        title="Headphones"
+        link="/"
+        product-stock="25"
+        img="/produtc-cat-images/product-cat-1.png"
+      />
+      <catCardCircle
+        title="Headphones"
+        link="/"
+        product-stock="25"
+        img="/produtc-cat-images/product-cat-2.png"
+      />
+      <catCardCircle
+        title="Headphones"
+        link="/"
+        product-stock="25"
+        img="/produtc-cat-images/product-cat-3.png"
+      />
+      <catCardCircle
+        title="Headphones"
+        link="/"
+        product-stock="25"
+        img="/produtc-cat-images/product-cat-4.png"
+      />
+      <catCardCircle
+        title="Headphones"
+        link="/"
+        product-stock="25"
+        img="/produtc-cat-images/product-cat-5.png"
+      />
     </div>
   </div>
 
   <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
-    <div class="grid grid-cols-4">
-      <div class="">
-        <img src="" alt="">
-        <h4>Free Delivary</h4>
-        <p>Orders from all item</p>
-      </div>
-      <div class=""></div>
-      <div class=""></div>
-      <div class=""></div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
+
+      <featureCard icon-size="42" title="Free Delivary" desc="Orders from all item" icon-name="ph:truck-light" /> 
+      <featureCard icon-size="42" title="Return & Refund" desc="Monet back guarentee" icon-name="clarity:dollar-line" /> 
+      <featureCard icon-size="42" title="Member Discount" desc="Onevery order over $140.00" icon-name="iconamoon:discount-light" /> 
+      <featureCard icon-size="42" title="Support 24/7" desc="Contact us 24 hours a day" icon-name="bx:support" /> 
     </div>
   </div>
-
 </template>
 
 <script setup>
 import catCardCircle from "~/components/UI/catCardCircle.vue";
 import slideItem from "~/components/UI/slideItem.vue";
+import featureCard from "~/components/UI/featureCard.vue";
 import { register } from "swiper/element/bundle";
 register();
-
 </script>
 
 <style scoped>
