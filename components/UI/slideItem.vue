@@ -1,6 +1,6 @@
 <template>
      <div class="w-full relative" :style="{backgroundColor:backgroundColor}">
-        <div class="container mx-auto px-10 lg:px-20 xl:px-40">
+        <div class="container mx-auto px-10 lg:px-20 xl:px-32">
           <div class="slide flex flex-col justify-center items-center">
             <div class="grid lg:grid-cols-2">
   
