@@ -43,7 +43,7 @@
     </swiper-slide>
   </swiper-container>
 
-  <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
+  <container class="mt-20">
     <div
       class="flex flex-row justify-center md:justify-between items-center flex-wrap gap-5"
     >
@@ -78,24 +78,59 @@
         img="/produtc-cat-images/product-cat-5.png"
       />
     </div>
-  </div>
+  </container>
 
-  <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
+  <container class="mt-20">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
-
-      <featureCard icon-size="42" title="Free Delivary" desc="Orders from all item" icon-name="ph:truck-light" /> 
-      <featureCard icon-size="42" title="Return & Refund" desc="Monet back guarentee" icon-name="clarity:dollar-line" /> 
-      <featureCard icon-size="42" title="Member Discount" desc="Onevery order over $140.00" icon-name="iconamoon:discount-light" /> 
-      <featureCard icon-size="42" title="Support 24/7" desc="Contact us 24 hours a day" icon-name="bx:support" /> 
+      <featureCard
+        icon-size="42"
+        title="Free Delivary"
+        desc="Orders from all item"
+        icon-name="ph:truck-light"
+      />
+      <featureCard
+        icon-size="42"
+        title="Return & Refund"
+        desc="Monet back guarentee"
+        icon-name="clarity:dollar-line"
+      />
+      <featureCard
+        icon-size="42"
+        title="Member Discount"
+        desc="Onevery order over $140.00"
+        icon-name="iconamoon:discount-light"
+      />
+      <featureCard
+        icon-size="42"
+        title="Support 24/7"
+        desc="Contact us 24 hours a day"
+        icon-name="bx:support"
+      />
     </div>
-  </div>
+  </container>
+
+  <container class="mt-20">
+    <div class="flex flex-row justify-between">
+      <div class="">
+        <h2>Trending Product</h2>
+      </div>
+      <div class=""></div>
+      <div class="">
+        <h4>New</h4>
+        <h4>Featured</h4>
+        <h4>Top Sellers</h4>
+      </div>
+    </div>
+  </container>
 </template>
 
 <script setup>
 import catCardCircle from "~/components/UI/catCardCircle.vue";
 import slideItem from "~/components/UI/slideItem.vue";
 import featureCard from "~/components/UI/featureCard.vue";
+import container from "~/components/UI/container.vue";
 import { register } from "swiper/element/bundle";
+
 register();
 </script>
 
