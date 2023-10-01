@@ -6,7 +6,7 @@
       <div class="flex py-5 items-center justify-between">
         <div class="basis-1/4 lg:basis-1/3">
           <img
-            src="../public/logos/commerce-logo.svg"
+            src="/logos/commerce-logo.svg"
             alt=""
             class="w-32 lg:w-40 xl:w-56"
           />
@@ -181,7 +181,7 @@
                       <li class="relative">
                         <nuxt-link to="" class=" cursor-pointer">
                           <img
-                            src="../public/menu-product-image/menu-product-img-1.jpg"
+                            src="/menu-product-image/menu-product-img-1.jpg"
                             alt="product image1"
                             class="w-full h-auto rounded-md"
                           />
@@ -199,7 +199,7 @@
                       <li>
                         <nuxt-link to="/" class=" cursor-pointer">
                           <img
-                            src="../public/menu-product-image/menu-product-img-2.jpg"
+                            src="/menu-product-image/menu-product-img-2.jpg"
                             alt="product image 2"
                             class="w-full h-auto rounded-md"
                           />

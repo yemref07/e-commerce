@@ -17,7 +17,7 @@
                 toggleMenu(langMenu)
               }">
                 <span class="mr-2">
-                    <img src="../public/lang/england.svg" alt="" width="18" class=" inline-block mr-1">
+                    <img src="/lang/england.svg" alt="" width="18" class=" inline-block mr-1">
                     English
                 </span>
                 <Icon name="teenyicons:down-solid" size="12" color="white" />
@@ -30,7 +30,7 @@
                 <ul class="space-y-2">
                   <li>
                     <img
-                      src="../public/lang/england.svg"
+                      src="/lang/england.svg"
                       alt=""
                       width="24"
                       class="inline-block mr-2"
@@ -40,7 +40,7 @@
 
                   <li>
                     <img
-                      src="../public/lang/turkey.svg"
+                      src="/lang/turkey.svg"
                       alt=""
                       width="24"
                       class="inline-block mr-2"

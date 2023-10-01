@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between items-center px-3 py-5 md:px-10 md:hidden">
     <div class="">
-      <img src="../public/logos/commerce-logo.svg" alt="" width="150" />
+      <img src="/logos/commerce-logo.svg" alt="" width="150" />
     </div>
     <div class="flex">
       <cart />
@@ -23,7 +23,7 @@
   >
     <div class="flex flex-col px-8 py-20 relative">
       <div class="mb-10">
-        <img src="../public/logos/commerce-logo.svg" alt="" width="220" />
+        <img src="/logos/commerce-logo.svg" alt="" width="220" />
       </div>
 
       <div class="">
