@@ -38,6 +38,7 @@
     --tpink: #ff1179;
     --tblack:#121f2b;
     --tgreen:#115061;
+    --muted:#a0a2a4;
 }
 
 .bg-torange{
@@ -80,3 +81,6 @@
     color:var(--tblack);
 }
 
+.text-muted{
+    color:var(--muted);
+}
