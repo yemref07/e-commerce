@@ -110,16 +110,116 @@
   </container>
 
   <container class="mt-20">
-    <div class="flex flex-row justify-between">
-      <div class="">
-        <h2>Trending Product</h2>
+    <div class="flex flex-row justify-between items-center">
+      <div class="relative">
+        <h2 class="font-semibold lg:text-4xl z-20 relative">
+          Trending Product
+        </h2>
+        <svg
+          class="text-torange absolute top-5 left-2 z-10"
+          width="120"
+          height="35"
+          viewBox="0 0 114 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M112 23.275C1.84952 -10.6834 -7.36586 1.48086 7.50443 32.9053"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-miterlimit="3.8637"
+            stroke-linecap="round"
+          ></path>
+        </svg>
       </div>
-      <div class=""></div>
-      <div class="">
-        <h4>New</h4>
-        <h4>Featured</h4>
-        <h4>Top Sellers</h4>
+
+      <div class="grow">
+        <hr class="w-2/3 mx-auto" />
       </div>
+
+      <div class="flex gap-5">
+        <div class="">
+          <button
+            class="text-black text-xl"
+            @click="
+              () => {
+                setActiveTab(1);
+              }
+            "
+          >
+            New
+          </button>
+        </div>
+
+        <div class="">
+          <button
+            class="text-muted text-xl"
+            @click="
+              () => {
+                setActiveTab(2);
+              }
+            "
+          >
+            Featured
+          </button>
+        </div>
+
+        <div class="">
+          <button
+            class="text-muted text-xl"
+            @click="
+              () => {
+                setActiveTab(3);
+              }
+            "
+          >
+            Top Sellers
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-4 mt-10 gap-5">
+      <div class="">
+        <productCard
+          cat="Smart Phone"
+          name="Iphone 15 Pro Max"
+          rate="4"
+          price="400"
+        />
+      </div>
+    </div>
+  </container>
+
+  <container class="mt-20">
+    <div class="grid xl:grid-cols-3 gap-5">
+
+      <div class="flex flex-col xl:col-span-2 product-bg-1">
+        <span class="mb-2 inline-block">Sale 20% off all store</span>
+        <h3 class="font-semibold text-3xl lg:w-2/4">
+          Smartphone DMX S24 Pro 2023
+        </h3>
+        <nuxt-link
+          to=""
+          class="inline-block mt-5 text-lg text-tblack hover:text-orange-500 cursor-pointer delay-100"
+        >
+          Shop Now
+          <Icon name="formkit:arrowright" class=" " size="28" />
+        </nuxt-link>
+      </div>
+
+      <div class="flex flex-col xl:col-span-1 product-bg-2">
+        <h3 class="font-semibold text-lg">HyperX Cloud II Wireless</h3>
+        <span class="mb-2 block">Sale 24% off all store</span>
+        <nuxt-link
+          to=""
+          class="inline-block mt-5 text-lg text-tblack  cursor-pointer delay-100"
+        >
+          Shop Now
+          <Icon name="formkit:arrowright" class=" " size="28" />
+        </nuxt-link>
+      </div>
+
     </div>
   </container>
 </template>
@@ -129,7 +229,14 @@ import catCardCircle from "~/components/UI/catCardCircle.vue";
 import slideItem from "~/components/UI/slideItem.vue";
 import featureCard from "~/components/UI/featureCard.vue";
 import container from "~/components/UI/container.vue";
+import productCard from "~/components/UI/productCard.vue";
 import { register } from "swiper/element/bundle";
+
+const activeTab = ref(1);
+
+const setActiveTab = (tab) => {
+  activeTab.value = tab;
+};
 
 register();
 </script>
@@ -137,5 +244,27 @@ register();
 <style scoped>
 swiper-container::part(bullet-active) {
   background-color: white;
+}
+
+.product-bg-1 {
+  background: url(../public/product-banners/product-banner-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 260px;
+  padding: 80px 40px;
+  border-radius: 12px;
+  width: 100%;
+
+}
+.product-bg-2 {
+  background: url(../public/product-banners/product-banner-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 260px;
+  padding: 80px 40px;
+  border-radius: 12px;
+  width: 100%;
 }
 </style>
