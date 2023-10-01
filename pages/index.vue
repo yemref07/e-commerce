@@ -2,8 +2,6 @@
   <swiper-container
     slides-per-view="1"
     speed="500"
-    loop="true"
-    css-mode="true"
     pagination="true"
     :autoplay="{
       delay: 25000,
@@ -44,14 +42,38 @@
     />
   </swiper-slide>
   </swiper-container>
+
+  <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
+    <div class="flex flex-row justify-center md:justify-between items-center flex-wrap gap-5">
+        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-1.png"/>
+        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-2.png"/>
+        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-3.png"/>
+        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-4.png"/>
+        <catCardCircle title="Headphones" link="/" product-stock="25" img="/produtc-cat-images/product-cat-5.png"/>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-10 lg:px-20 xl:px-32 mt-20">
+    <div class="grid grid-cols-4">
+      <div class="">
+        <img src="" alt="">
+        <h4>Free Delivary</h4>
+        <p>Orders from all item</p>
+      </div>
+      <div class=""></div>
+      <div class=""></div>
+      <div class=""></div>
+    </div>
+  </div>
+
 </template>
 
 <script setup>
+import catCardCircle from "~/components/UI/catCardCircle.vue";
 import slideItem from "~/components/UI/slideItem.vue";
 import { register } from "swiper/element/bundle";
 register();
 
-const swiper = ref(null);
 </script>
 
 <style scoped>
