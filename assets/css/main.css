@@ -39,6 +39,11 @@
     --tblack:#121f2b;
     --tgreen:#115061;
     --muted:#a0a2a4;
+    --ice:#ecf2f7;
+}
+
+.bg-ice{
+    background-color:var(--ice);
 }
 
 .bg-torange{
