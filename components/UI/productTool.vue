@@ -1,15 +1,15 @@
 <template>
-    <div class="flex flex-col border toolbox rounded-md space-y-2" :class="{'toolbox-hover': hover}">
+    <div class="flex flex-col border toolbox rounded-md  items-center  justify-center" :class="{'toolbox-hover': hover}">
 
-        <div class="tool border-b-2">
+        <div class="tool border-b-2 p-2">
             <Icon name="clarity:shopping-cart-line" class="" size="28" />
         </div>
 
-        <div class="tool border-b-2">
+        <div class="tool border-b-2 p-2">
             <Icon name="ph:heart" class="" size="28" />
         </div>
         
-        <div class="tool">
+        <div class="tool p-2">
             <nuxt-link to="">
                 <Icon name="solar:eye-broken" class="" size="28" />
             </nuxt-link>
@@ -43,8 +43,8 @@ const props = defineProps({
 
 .tool{
     color: var(--tblack);
-    padding: 8px 6px;
     cursor: pointer;
+    transition: all 0.2s 0s ease-out;
 }
 
 .tool:hover{
