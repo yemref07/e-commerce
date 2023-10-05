@@ -21,6 +21,11 @@ export default defineNuxtConfig({
     },
   },
 
+  components: {
+    global: true,
+    dirs: ['~/components']
+  },
+
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   modules: ['@pinia/nuxt','nuxt-icon'],
