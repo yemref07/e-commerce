@@ -112,7 +112,7 @@
   <container class="mt-20">
     <div class="flex flex-row justify-between items-center">
       <div class="relative">
-        <h2 class="font-semibold lg:text-4xl z-20 relative">
+        <h2 class="font-semibold text-xl lg:text-4xl z-20 relative">
           Trending Product
         </h2>
         <svg
@@ -140,7 +140,7 @@
       <div class="flex gap-5">
         <div class="">
           <button
-            class="text-black text-xl"
+            class="text-black text-base lg:text-xl"
             @click="
               () => {
                 setActiveTab(1);
@@ -153,7 +153,7 @@
 
         <div class="">
           <button
-            class="text-muted text-xl"
+            class="text-muted text-base lg:text-xl"
             @click="
               () => {
                 setActiveTab(2);
@@ -166,7 +166,7 @@
 
         <div class="">
           <button
-            class="text-muted text-xl"
+            class="text-muted text-base lg:text-xl"
             @click="
               () => {
                 setActiveTab(3);
@@ -179,7 +179,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-4 mt-10 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
       <div class="">
         <productCard
           cat="Smart Phone"
@@ -193,7 +193,6 @@
 
   <container class="mt-20">
     <div class="grid xl:grid-cols-3 gap-5">
-
       <div class="flex flex-col xl:col-span-2 product-bg-1">
         <span class="mb-2 inline-block">Sale 20% off all store</span>
         <h3 class="font-semibold text-3xl lg:w-2/4">
@@ -213,15 +212,56 @@
         <span class="mb-2 block">Sale 24% off all store</span>
         <nuxt-link
           to=""
-          class="inline-block mt-5 text-lg text-tblack  cursor-pointer delay-100"
+          class="inline-block mt-5 text-lg text-tblack cursor-pointer delay-100"
         >
           Shop Now
           <Icon name="formkit:arrowright" class=" " size="28" />
         </nuxt-link>
       </div>
-
     </div>
   </container>
+
+  <div class="w-full bg-ice py-12 mt-20">
+    <container class="mt-20">
+      <div
+        class="flex flex-row justify-between items-center gap-5 lg:gap-10 xl:gap-12"
+      >
+        <div class="relative">
+          <h2 class="font-semibold text-xl lg:text-4xl z-20 relative">
+            Deal of The Day
+          </h2>
+          <svg
+            class="text-torange absolute top-5 left-2 z-10"
+            width="120"
+            height="35"
+            viewBox="0 0 114 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M112 23.275C1.84952 -10.6834 -7.36586 1.48086 7.50443 32.9053"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-miterlimit="3.8637"
+              stroke-linecap="round"
+            ></path>
+          </svg>
+        </div>
+        <div class="grow hidden lg:block">
+          <hr class="w-2/3 mx-auto bg-white h-1" />
+        </div>
+        <div class="">
+          <nuxt-link
+            to="/"
+            class="bg-torange text-white px-4 py-3 md:px-8 md:py-4 rounded-lg hover:bg-slate-900 transition-all delay-75"
+            >View All Deals</nuxt-link
+          >
+        </div>
+      </div>
+
+      <dealSlider class="mt-20" />
+    </container>
+  </div>
 </template>
 
 <script setup>
@@ -230,6 +270,7 @@ import slideItem from "~/components/UI/slideItem.vue";
 import featureCard from "~/components/UI/featureCard.vue";
 import container from "~/components/UI/container.vue";
 import productCard from "~/components/UI/productCard.vue";
+import dealSlider from "~/components/dealSlider.vue";
 import { register } from "swiper/element/bundle";
 
 const activeTab = ref(1);
@@ -255,7 +296,6 @@ swiper-container::part(bullet-active) {
   padding: 80px 40px;
   border-radius: 12px;
   width: 100%;
-
 }
 .product-bg-2 {
   background: url(../public/product-banners/product-banner-2.jpg);
