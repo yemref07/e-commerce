@@ -46,6 +46,11 @@
     background-color:var(--ice);
 }
 
+.bg-tblack{
+    background-color:var(--tblack);
+
+}
+
 .bg-torange{
  background-color:var(--torange);
 }
