@@ -297,6 +297,24 @@
     <instagramPost />
   </container>
 
+  <div class="w-full bg-torange py-12 lg:py-20 xl:py-32 mt-20">
+    <container>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
+  
+        <div class="">
+          <span class='text-gray-200 text-base md:text-lg'>Sale %30 Of All Electronics</span>
+          <h3 class="text-2xl md:text-3xl lg:text-4xl  font-semibold text-white mt-2">Subscribe our Newsletter</h3>
+        </div>
+        
+        <div class="mt-5 md:mt-0">
+          <input type="text" v-model="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-md focus:outline-none rounded-l-md inline-block h-10 md:h-16 px-2 md:px-6 w-2/3" placeholder="johndoe@email.com" required>
+          <button class="bg-tblack text-white  h-10 md:h-16 rounded-r-md inline-block text-sm px-2 md:px-6">Subscribe</button>
+        </div>
+  
+      </div>
+    </container>
+
+  </div>
 
 </template>
 
@@ -310,7 +328,7 @@ import dealSlider from "~/components/dealSlider.vue";
 import { register } from "swiper/element/bundle";
 
 const activeTab = ref(1);
-
+const email =  ref(null);
 const setActiveTab = (tab) => {
   activeTab.value = tab;
 };
