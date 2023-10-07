@@ -5,9 +5,10 @@
     :pagination-clickable="true"
     slides-per-view="1"
     class="banner-slider"
+    @slidechange="onSlideChange"
   >
     <swiper-slide
-      class="bg-torange grid lg:grid-cols-2 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-torange grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -16,11 +17,12 @@
         price="1200"
         reduced-price="900"
         productID="lorem"
+        :is-visible="setActiveSlide(0)"
       />
     </swiper-slide>
 
     <swiper-slide
-      class="bg-tpurple grid lg:grid-cols-2 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-tpurple grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -29,11 +31,12 @@
         price="1200"
         reduced-price="900"
         productID="lorem"
+        :is-visible="setActiveSlide(1)"
       />
     </swiper-slide>
 
     <swiper-slide
-      class="bg-tpink grid lg:grid-cols-2 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-tpink grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -42,6 +45,7 @@
         price="1200"
         reduced-price="900"
         productID="lorem"
+        :is-visible="setActiveSlide(2)"
       />
     </swiper-slide>
 
@@ -53,6 +57,16 @@
 import bannerSlideItem from "./UI/bannerSlideItem.vue";
 import { register } from "swiper/element/bundle";
 register();
+const activeIndex = ref(null);
+
+const onSlideChange = (e) => {
+  activeIndex.value = e.detail[0].activeIndex;
+};
+
+const setActiveSlide = (param) => {
+  return param === activeIndex.value ? true : false;
+}
+
 </script>
 
 <style scoped>
