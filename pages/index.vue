@@ -269,10 +269,10 @@
   </container>
 
   <container  class='mt-20'>
-    <div class="flex flex-row items-center mb-20">
+    <div class="flex flex-row items-center mb-20 justify-between">
 
       <div class="">
-        <h2 class="text-tblack font-semibold text-3xl">Latest News & Articles</h2>
+        <h2 class="text-tblack font-semibold text-xl lg:text-3xl">Latest News <br> & Articles</h2>
       </div>
 
       <div class="grow hidden lg:block">
