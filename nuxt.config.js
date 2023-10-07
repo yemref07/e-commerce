@@ -23,10 +23,16 @@ export default defineNuxtConfig({
 
   components: {
     global: true,
-    dirs: ['~/components']
+    dirs: ['~/components','~/components/UI']
   },
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   css: ['~/assets/css/main.css'],
   modules: ['@pinia/nuxt','nuxt-icon'],
   postcss: {
