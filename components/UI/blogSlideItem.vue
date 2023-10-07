@@ -1,14 +1,15 @@
 <template>
   <div class="flex flex-col gap-5 justify-center">
-    <div class="">
+    <div class="relative">
         <nuxt-link to="/">
             <img :src="img" alt="" class="w-full h-auto rounded-md" />
         </nuxt-link>
+        <span class="bg-tblack text-white px-6 py-2 absolute left-0 top-0">10 Sep 2023</span>
     </div>
 
     <div class="">
       <nuxt-link to="/">
-        <h3 class="text-tblack text-2xl mb-2 font-semibold">
+        <h3 class="text-tblack text-2xl mb-2 font-semibold hover:text-orange-600 transition-all delay-50">
           {{ title }}
         </h3>
       </nuxt-link>
