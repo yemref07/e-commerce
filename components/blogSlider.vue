@@ -5,6 +5,7 @@
       delay: 2500,
       disableOnInteraction: false,
     }"
+    @slidechange="onSlideChange"
     :space-between="30"
     :breakpoints="{
       '640': {
@@ -60,7 +61,6 @@
         img="/blog-demo-images/blog-3.jpg"
       />
     </swiper-slide>
-
   </swiper-container>
 </template>
 
