@@ -260,8 +260,38 @@
       </div>
 
       <dealSlider class="mt-20" />
+      <BannerSlider class="mt-20"/>
     </container>
   </div>
+
+  <container class="mt-20">
+    <ProductGrid/>
+  </container>
+
+  <container  class='mt-20'>
+    <div class="flex flex-row items-center mb-20">
+
+      <div class="">
+        <h2 class="text-tblack font-semibold text-3xl">Latest News & Articles</h2>
+      </div>
+
+      <div class="grow hidden lg:block">
+          <hr class="w-3/4 ml-auto  bg-gray-100 h-1 mr-12" /> 
+      </div>
+
+      <div class="">
+        <nuxt-link
+          to="/"
+          class="bg-torange text-white font-semibold px-4 py-3 md:px-8 md:py-4 rounded-lg hover:bg-slate-900 transition-all delay-75"
+          >View All Post</nuxt-link
+        >
+      </div>
+
+    </div>
+      
+
+    <blogSlider />
+  </container>
 </template>
 
 <script setup>
