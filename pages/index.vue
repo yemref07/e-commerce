@@ -292,6 +292,12 @@
 
     <blogSlider />
   </container>
+
+  <container class = 'mt-20'>
+    <instagramPost />
+  </container>
+
+
 </template>
 
 <script setup>
