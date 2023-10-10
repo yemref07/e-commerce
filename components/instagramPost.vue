@@ -59,7 +59,6 @@ const posts = ref([
 
 const hover = (id,param) => {
   isHover.value[id] = param;
-  console.log(isHover.value)
 };
 
 </script>
