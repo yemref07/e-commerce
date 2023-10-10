@@ -9,7 +9,7 @@
 
     <div class="">
       <nuxt-link to="/">
-        <h3 class="text-tblack text-2xl mb-2 font-semibold hover:text-orange-600 transition-all delay-50">
+        <h3 class="text-tblack text-xl lg:text-xl xl:text-2xl mb-2 font-semibold hover:text-orange-600 transition-all delay-50">
           {{ title }}
         </h3>
       </nuxt-link>
