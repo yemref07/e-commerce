@@ -176,20 +176,21 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="">
+                  <div class="relative">
                     <ul>
-                      <li class="relative">
+                      <li class="">
                         <nuxt-link to="" class=" cursor-pointer">
                           <img
-                            src="/menu-product-image/menu-product-img-1.jpg"
+                            src="/menu-product-image/women.jpg"
                             alt="product image1"
                             class="w-full h-auto rounded-md"
                           />
                         </nuxt-link>
                         <nuxt-link
                           to=""
-                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold cursor-pointer"
-                          >Phones</nuxt-link
+                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 
+                          transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
+                          >Women Clothing</nuxt-link
                         >
                       </li>
                     </ul>
@@ -199,15 +200,15 @@
                       <li>
                         <nuxt-link to="/" class=" cursor-pointer">
                           <img
-                            src="/menu-product-image/menu-product-img-2.jpg"
+                            src="/menu-product-image/man.jpg"
                             alt="product image 2"
                             class="w-full h-auto rounded-md"
                           />
                         </nuxt-link>
                         <nuxt-link
                           to="/"
-                          class="text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/4 text-md font-semibold cursor-pointer"
-                          >Cameras</nuxt-link
+                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md font-semibold cursor-pointer"
+                          >Man Clothing</nuxt-link
                         >
                       </li>
                     </ul>
