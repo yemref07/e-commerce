@@ -34,7 +34,7 @@ const props = defineProps({
 .toolbox{
     position: absolute;
     right: -5px;
-    bottom: 50%;
+    bottom: 60%;
     z-index: 1;
     visibility: hidden;
     opacity: 0;
