@@ -8,7 +8,7 @@
     @slidechange="onSlideChange"
   >
     <swiper-slide
-      class="bg-torange grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-torange rounded-md grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -22,7 +22,7 @@
     </swiper-slide>
 
     <swiper-slide
-      class="bg-tpurple grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-tpurple rounded-md grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -36,7 +36,7 @@
     </swiper-slide>
 
     <swiper-slide
-      class="bg-tpink grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
+      class="bg-tpink rounded-md grid grid-cols-1 lg:grid-cols-2 py-6 px-3 md:py-10 md:px-6 lg:py-14 lg:px-20 place-content-center"
     >
       <bannerSlideItem
         title1="Best Selling Tablets"
@@ -86,7 +86,7 @@ const setActiveSlide = (param) => {
   }
 }
 
-@media only screen and (max-width: 7681px) {
+@media only screen and (max-width: 768px) {
   .banner-slider {
     height: 500px;
   }
