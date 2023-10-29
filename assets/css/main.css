@@ -40,6 +40,7 @@
     --tgreen:#115061;
     --muted:#a0a2a4;
     --ice:#ecf2f7;
+    --tyellow:#ffc130;
 }
 
 .bg-ice{
@@ -89,6 +90,10 @@
 
 .text-tblack{
     color:var(--tblack);
+}
+
+.text-yellow{
+    color:var(--tyellow);
 }
 
 .text-muted{
