@@ -71,7 +71,7 @@
             </div>
 
             <div class="hidden xl:flex flex-col mr-10">
-              <nuxt-link to="/sign-in" class="cursor-pointer">
+              <nuxt-link to="/signin" class="cursor-pointer">
                 <span class="line-clamp-1">Hello, Sign In</span>
                 <h3 class="font-semibold">Your Account</h3>
               </nuxt-link>
@@ -121,7 +121,7 @@
               <div class="container mx-auto px-5">
                 <div class="grid grid-cols-4 gap-4 p-4">
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Category 1</h2>
+                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Electronics</h2>
                     <ul>
                       <li>
                         <nuxt-link to="">Product 1</nuxt-link>
@@ -223,7 +223,7 @@
           </div>
 
           <div class="">
-            <nuxt-link to="/" class="text-lg"> Contact </nuxt-link>
+            <nuxt-link to="/contact" class="text-lg"> Contact </nuxt-link>
           </div>
         </div>
 
@@ -251,7 +251,12 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
+import { useProductStore } from '~/store/products';
+const productStore = useProductStore();
 const menuVisible = ref(false);
+
+const {producstData} = storeToRefs(productStore);
 
 const toggleVisible = () => {
   menuVisible.value = !menuVisible.value;
