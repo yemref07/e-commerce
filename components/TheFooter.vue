@@ -5,7 +5,7 @@
     >
       <div class="lg:col-span-2">
         <img src="/logos/commerce-logo.svg" alt="" width="240" class="mb-5" />
-        <p>
+        <p class="md:w-3/4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit
           dignissimos ipsam quidem.
         </p>
