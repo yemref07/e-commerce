@@ -2,9 +2,9 @@
   <Breadcrumb  title = "My Account" subtitle="Sign In" />
 
   <container class="mt-20 relative z-50">
-    <img src="shape/slider-shape-1.png" alt="" class="absolute right-0 top-5 opacity-25 lg:opacity-75" />
-    <img src="shape/slider-shape-2.png" alt="" class="absolute left-0 top-1/2 opacity-25 lg:opacity-75" />
-    <img src="shape/slider-shape-3.png" alt="" class="absolute opacity-25 lg:opacity-75" />
+    <img src="/shape/slider-shape-1.png" alt="" class="absolute right-0 top-5 opacity-25 lg:opacity-75" />
+    <img src="/shape/slider-shape-2.png" alt="" class="absolute left-0 top-1/2 opacity-25 lg:opacity-75" />
+    <img src="/shape/slider-shape-3.png" alt="" class="absolute opacity-25 lg:opacity-75" />
     <div class="flex flex-col mx-auto login w-full lg:w-3/4 xl:w-2/4 gap-5 relative z-30">
       <div class="text-center text-base md:text-lg">
         <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-3">Login To Dummy E-Commerce</h2>
