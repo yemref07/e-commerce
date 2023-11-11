@@ -92,10 +92,14 @@
     color:var(--tblack);
 }
 
-.text-yellow{
+.text-tyellow{
     color:var(--tyellow);
 }
 
 .text-muted{
     color:var(--muted);
+}
+
+.text-desc{
+    color:#55585b;
 }

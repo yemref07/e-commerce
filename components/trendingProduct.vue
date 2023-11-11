@@ -42,7 +42,7 @@
             class="text-muted text-base lg:text-xl"
             @click="setActiveTab(2)"
           >
-          Mens Clothing
+            Mens Clothing
           </button>
         </div>
 
@@ -57,7 +57,10 @@
       </div>
     </div>
 
-    <div v-if="activeTab === 1" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+    <div
+      v-if="activeTab === 1"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
+    >
       <div class="" v-for="(item, index) in electronics" :key="index">
         <productCard
           :cat="item.category"
@@ -70,7 +73,10 @@
       </div>
     </div>
 
-    <div v-else-if="activeTab === 2" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+    <div
+      v-else-if="activeTab === 2"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
+    >
       <div class="" v-for="(item, index) in mensCloth" :key="index">
         <productCard
           :cat="item.category"
@@ -83,7 +89,10 @@
       </div>
     </div>
 
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+    <div
+      v-else
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
+    >
       <div class="" v-for="(item, index) in womensCloth" :key="index">
         <productCard
           :cat="item.category"
@@ -95,38 +104,75 @@
         />
       </div>
     </div>
-
   </container>
 </template>
 
 <script setup>
-import container from './UI/container.vue';
+import container from "./UI/container.vue";
 import productCard from "~/components/UI/productCard.vue";
+import { useProductStore } from "~/store/products";
+const productStore = useProductStore();
 
+const { dataToStore, refreshEl, updateStoreData, callRefresh } = productStore;
 
-
-const { data:electronics, pending:elPending, error:elError, refresh:elRefresh } =
- await useFetch(`https://fakestoreapi.com/products/category/electronics?limit=4`, {
-  server: false
+const {
+  data: electronics,
+  pending: elPending,
+  error: elError,
+  refresh: elRefresh,
+} = await useFetch(`https://fakestoreapi.com/products/category/electronics`, {
+  server: false,
 });
 
-const {data:womensCloth,pending:womenPending,error:womenError,refresh:womenRefresh} = 
-await useFetch(`https://fakestoreapi.com/products/category/women's%20clothing?limit=4`, {
-  server: false
+updateStoreData("electronics", {
+  data: electronics,
+  error: elError,
+  pending: elPending,
 });
 
-const {data:mensCloth,pending:menPending,error:menError,refresh:menRefresh} = 
-await useFetch(`https://fakestoreapi.com/products/category/men's%20clothing?limit=4`, {
-  server: false
-});
+callRefresh(elRefresh, "electronics");
+
+const {
+  data: womensCloth,
+  pending: womenPending,
+  error: womenError,
+  refresh: womenRefresh,
+} = await useFetch(
+  `https://fakestoreapi.com/products/category/women's%20clothing`,
+  {
+    server: false,
+  }
+);
+
+const {
+  data: mensCloth,
+  pending: menPending,
+  error: menError,
+  refresh: menRefresh,
+} = await useFetch(
+  `https://fakestoreapi.com/products/category/men's%20clothing`,
+  {
+    server: false,
+  }
+);
+
+const {
+  data: jewelery,
+  pending: jeweleryPending,
+  error: jeweleryError,
+  refresh: jeweleryRefresh,
+} = await useFetch(
+  `https://fakestoreapi.com/products/category/men's%20jewelery`,
+  {
+    server: false,
+  }
+);
 
 const activeTab = ref(1);
 
-const setActiveTab = (param)=> {
-activeTab.value = param;
-}
-
-
+const setActiveTab = (param) => {
+  activeTab.value = param;
+};
 </script>
 
 <style scoped></style>
