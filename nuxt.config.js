@@ -21,9 +21,13 @@ export default defineNuxtConfig({
     },
   },
 
+  image: {
+    provider: "ipx"
+  },
+
   components: {
     global: true,
-    dirs: ['~/components','~/components/UI']
+    dirs: ['~/components', '~/components/UI']
   },
 
   devtools: {
@@ -33,8 +37,12 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  iconifyApiOptions: {
+    publicApiFallback: true 
+  },
+
   css: ['~/assets/css/main.css'],
-  modules: ['@pinia/nuxt','nuxt-icon'],
+  modules: ['@pinia/nuxt', 'nuxt-icon'],
   postcss: {
     plugins: {
       tailwindcss: {},
