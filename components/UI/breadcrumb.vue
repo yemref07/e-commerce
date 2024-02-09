@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import container from './container.vue';
+import container from '~/components/UI/container.vue';
 const props = defineProps({
     title:String,
     subtitle:String
