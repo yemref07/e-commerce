@@ -83,25 +83,25 @@
   <container class="mt-20">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
       <featureCard
-        icon-size="42"
+        icon-size=42
         title="Free Delivary"
         desc="Orders from all item"
         icon-name="ph:truck-light"
       />
       <featureCard
-        icon-size="42"
+        icon-size=42
         title="Return & Refund"
         desc="Monet back guarentee"
         icon-name="clarity:dollar-line"
       />
       <featureCard
-        icon-size="42"
+        icon-size=42
         title="Member Discount"
         desc="Onevery order over $140.00"
         icon-name="iconamoon:discount-light"
       />
       <featureCard
-        icon-size="42"
+        icon-size=42
         title="Support 24/7"
         desc="Contact us 24 hours a day"
         icon-name="bx:support"
@@ -109,7 +109,7 @@
     </div>
   </container>
 
-  <TrendingProduct />
+  <productsTrend />
 
   <container class="mt-20">
     <div class="grid xl:grid-cols-3 gap-5">
@@ -180,12 +180,12 @@
       </div>
 
       <dealSlider class="mt-20" />
-      <BannerSlider class="mt-20" />
+      <bannerSlider class="mt-20" />
     </container>
   </div>
 
   <container class="mt-20">
-    <ProductGrid />
+    <productGrid />
   </container>
 
   <container class="mt-20">
@@ -252,11 +252,15 @@
 
 <script setup>
 import catCardCircle from "~/components/UI/catCardCircle.vue";
-import slideItem from "~/components/UI/slideItem.vue";
+import slideItem from "~/components/sliders/mainSlideItem.vue";
 import featureCard from "~/components/UI/featureCard.vue";
 import container from "~/components/UI/container.vue";
-import dealSlider from "~/components/dealSlider.vue";
+import productsTrend from "~/components/products/productsTrend.vue";
+import productGrid from "~/components/products/productGrid.vue";
+import dealSlider from "~/components/sliders/dealSlider.vue";
+import blogSlider from "~/components/sliders/blogSlider.vue";
 import { register } from "swiper/element/bundle";
+import bannerSlider from "~/components/sliders/bannerSlider.vue";
 register();
 const email = ref(null);
 
@@ -269,7 +273,7 @@ swiper-container::part(bullet-active) {
 }
 
 .product-bg-1 {
-  background: url(../public/product-banners/product-banner-1.jpg);
+  background: url(/product-banners/product-banner-1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -279,7 +283,7 @@ swiper-container::part(bullet-active) {
   width: 100%;
 }
 .product-bg-2 {
-  background: url(../public/product-banners/product-banner-2.jpg);
+  background: url(/product-banners/product-banner-2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
