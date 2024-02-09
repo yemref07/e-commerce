@@ -20,7 +20,7 @@
 <script setup>
 const props = defineProps({
     title:String,
-    productStock:Number,
+    productStock:String,
     img:String,
     link:String
 })

@@ -15,7 +15,7 @@ const props =  defineProps({
     iconName:String,
     title:String,
     desc:String,
-    iconSize:Number
+    iconSize:String
 })
 
 </script>
