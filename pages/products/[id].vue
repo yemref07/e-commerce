@@ -42,6 +42,7 @@
             ref="splide"
             @splide:visible="setThumb"
             :options="{
+              height:'600px',
               direction: 'ttb',
               arrows: false,
               perPage: 1,
@@ -614,6 +615,11 @@ const { getAllComments, sendComment } = commentStore;
 const { allComments } = storeToRefs(commentStore);
 const initialCommentsLimit = ref(6);
 
+
+const getImageHeight = computed(()=>{
+  return 1
+})
+
 const errorModal = reactive({
   isVisible: false,
   title: "Opps",
@@ -713,6 +719,7 @@ const orderDetail = reactive({
 //Change active slide with using thumnail images
 const setThumb = function (splide: any) {
   console.log(splide);
+  console.log(splide?.root?.clientHeight,'client height')
 };
 
 // Set desired color of product
@@ -736,6 +743,7 @@ const goToSlide = (index: number) => {
   if (splide.value && splide.value.splide) {
     splide.value.go(index);
   }
+  setThumb()
 };
 </script>
 
