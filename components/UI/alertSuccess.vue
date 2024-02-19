@@ -48,13 +48,11 @@ const showSuccess = () => {
   }).then((result) => {
 
     if (result.dismiss === Swal.DismissReason.timer) {
-      console.log("closed by timer",result);
       emit('isVisible',false)
     }
 
     if(result.isConfirmed){
       emit('isVisible',false)
-      console.log("confirmed",result);
     }
 
 
