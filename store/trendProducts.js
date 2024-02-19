@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useProductStore = defineStore("product", () => {
+export const useTrendProductStore = defineStore("tredProduct", () => {
   const producstData = ref({
     electronics:{
       data: "",
