@@ -110,8 +110,8 @@
 <script setup>
 import container from "~/components/UI/container.vue";
 import productCard from "./productCard.vue";
-import { useProductStore } from "~/store/trendProducts";
-const productStore = useProductStore();
+import { useTrendProductStore } from "~/store/trendProducts";
+const productStore = useTrendProductStore();
 
 const { dataToStore, refreshEl, updateStoreData, callRefresh } = productStore;
 
