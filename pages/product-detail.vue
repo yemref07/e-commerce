@@ -317,6 +317,26 @@
         Reviews
       </button>
     </div>
+    <alertError
+        :title="errorModal.title"
+        :desc="errorModal.desc"
+        :confirm-btn="errorModal.confirmBtn"
+        :show="errorModal.isVisible"
+        :error-code="errorModal.errorCode"
+        @is-visible="errorModal.isVisible = false"
+      />
+      <alertSuccess
+        :title="successModal.title"
+        :desc="successModal.desc"
+        :show="successModal.isVisible"
+        @is-visible="successModal.isVisible = false"
+        :confirm-btn="successModal.confirmBtn"
+      />
+      <alertNotification
+        :title="notificationModal.title"
+        :show="notificationModal.isVisible"
+        @is-visible="notificationModal.isVisible = false"
+      />
   </container>
 
   <transition name="fade">
@@ -483,7 +503,7 @@
 
                 <div class="relative">
                   <textarea
-                    v-model="review.reviewMsg"
+                    v-model="review.msg"
                     rows="4"
                     type="text"
                     class="lg:w-2/3 border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-4"
@@ -492,9 +512,9 @@
                   ></textarea>
                   <p
                     class="text-xs text-red-500 mt-2"
-                    v-if="review.reviewMsg === ''"
+                    v-if="review.msg === ''"
                   >
-                    Message is required field
+                    Message is required field 
                   </p>
                 </div>
 
@@ -516,15 +536,15 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 mt-20">
-        <productReviewCard
-          v-for="(item, index) in allComments"
-          :key="item.postId"
-          :comment="item.body"
+      <div class="grid lg:grid-cols-2 mt-20" >
+        <ProductReviewCard
+          v-for="(comment, index) in allComments"
+          :key="comment.postId"
+          :comment="comment.body"
           img-src="/users/male.png"
           rate="4"
-          date="06 March, 2023"
-          :name="item.user.username"
+          date="24 May"
+          :name="comment.user.username"
         />
       </div>
 
@@ -534,25 +554,6 @@
       >
         See More Comments
       </button>
-      <alertError
-        :title="errorModal.title"
-        :desc="errorModal.desc"
-        :confirm-btn="errorModal.confirmBtn"
-        :show="errorModal.isVisible"
-        :error-code="errorModal.errorCode"
-        @is-visible="errorModal.isVisible = false"
-      />
-      <alertSuccess
-        :title="successModal.title"
-        :desc="successModal.desc"
-        :show="successModal.isVisible"
-        @is-visible="successModal.isVisible = false"
-      />
-      <alertNotification
-        :title="notificationModal.title"
-        :show="notificationModal.isVisible"
-        @is-visible="notificationModal.isVisible = false"
-      />
     </container>
   </transition>
 </template>
@@ -565,7 +566,7 @@ import colorSelectInput from "~/components/UI/colorSelectInput.vue";
 import customInput from "~/components/UI/customInput.vue";
 import { useCommentStore } from "../store/comment";
 import { storeToRefs } from "pinia";
-import productReviewCard from "../../components/products/product-review-card.vue";
+import ProductReviewCard from "../../components/products/product-review-card.vue";
 import alertError from "~/components/UI/alertError.vue";
 import alertNotification from "~/components/UI/alertNotification.vue";
 import alertSuccess from "~/components/UI/alertSuccess.vue";
@@ -620,7 +621,7 @@ const descVisible = ref(true);
 
 //reviews form data
 const review = reactive({
-  reviewMsg: "",
+  msg: "",
   name: "",
   email: "",
   check: false,
@@ -630,7 +631,7 @@ const review = reactive({
 // Send New Review - Due to result it'll display error or success alert
 const addNewReview = async () => {
   if (
-    review.reviewMsg !== "" &&
+    review.msg !== "" &&
     review.name !== "" &&
     review.email !== "" &&
     review.check !== false
@@ -645,6 +646,10 @@ const addNewReview = async () => {
       successModal.isVisible = true;
       successModal.desc =
         " Review is succesfully send , please continute contribute more review in the future";
+      review.msg = ""  
+      review.name = ""  
+      review.email = ""  
+      review.check = false 
     }
   } else {
     errorModal.isVisible = true;
@@ -682,9 +687,10 @@ const orderDetail = reactive({
   quantity: 1,
 });
 
-const addProductToChart = (param:object) =>{
+const addProductToChart = () =>{
   if(orderDetail.quantity > 0){
-    notificationModal.isVisible = true
+    notificationModal.isVisible = true;
+    notificationModal.title = "Product added to cart"
   }
 }
 
