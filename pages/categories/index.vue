@@ -11,17 +11,18 @@
         v-for="(item, index) in allCategories"
         :key="index"
       >
-        <div
-          class="bg-gray-100 text-tblack py-12 px-4 text-center border-b cursor-pointer"
-          @click="goCatProducts(item)"
-        >
-          <nuxt-link :to="`categories/${item}`">
-              <h2 class="text-xl lg:text-2xl font-semibold text-tblack capitalize">
-                {{ item }}
-              </h2>
-              <p class="mt-2 text-muted text-sm">10 Products</p>
-          </nuxt-link>
-        </div>
+        <nuxt-link :to="`categories/${item}`">
+          <div
+            class="bg-gray-100 text-tblack py-12 px-4 text-center border-b cursor-pointer"
+          >
+            <h2
+              class="text-xl lg:text-2xl font-semibold text-tblack capitalize"
+            >
+              {{ item }}
+            </h2>
+            <p class="mt-2 text-muted text-sm">10 Products</p>
+          </div>
+        </nuxt-link>
       </div>
     </div>
   </container>
@@ -54,9 +55,9 @@ const goCatProducts = async (category: string) => {
   //   },
   // });
   // console.log(route.params,'route')
-  // if(router){
-  //   router.push({ name: "categories" ,params:{id:category}})
-  // }
+  if (router) {
+    router.push({ name: "categories", params: { id: category } });
+  }
 };
 </script>
 
