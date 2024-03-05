@@ -2,7 +2,9 @@
   <topHeader />
   <!-- main nav -->
   <nav>
-    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden md:block">
+    <div
+      class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden lg:block"
+    >
       <div class="flex py-5 items-center justify-between">
         <div class="basis-1/4 lg:basis-1/3">
           <nuxt-link to="/" title="Home Page">
@@ -34,7 +36,6 @@
                   class="flex justify-end items-center flex-nowrap flex-grow"
                 >
                   <div class="relative">
-
                     <ul class="absolute bg-white px-3 py-2 space-y-2 hidden">
                       <li class="font-medium mb-2">Select Category</li>
                       <li>Mobile</li>
@@ -100,7 +101,9 @@
       </div>
     </div>
 
-    <div class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden md:block">
+    <div
+      class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden lg:block"
+    >
       <div class="flex flex-row items-center justify-between border-t-2 py-3">
         <div class="flex flex-item space-x-5 lg:space-x-10 relative">
           <div class="">
@@ -108,99 +111,119 @@
           </div>
 
           <div class="">
-            <nuxt-link to="/" class="text-lg"> About </nuxt-link>
+            <nuxt-link to="/categories" class="text-lg"> All Cagories</nuxt-link>
           </div>
 
-          <div class="relative" @mouseleave="toggleVisible">
-            <nuxt-link to="" class="text-lg cursor-pointer" @mouseenter="toggleVisible">
+          <div
+            class="relative"
+            @mouseleave="toggleVisible(false)"
+            @mouseenter="toggleVisible(true)"
+          >
+            <span class="text-lg cursor-pointer">
               Products
               <Icon name="teenyicons:down-solid" size="8" color="black" />
-            </nuxt-link>
+            </span>
             <div
               :class="{ 'mega-menu-visible': menuVisible }"
               class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg z-30"
             >
-              <div class="container mx-auto px-5">
+              <div class="container mx-auto px-2 md:px-5 mt-8">
                 <div class="grid grid-cols-4 gap-4 p-4">
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Electronics</h2>
                     <ul>
-                      <li>
-                        <nuxt-link to="">Product 1</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 2</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 3</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 4</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 5</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 6</nuxt-link>
+                      <li
+                        class="font-medium text-lg mb-4"
+                        v-for="(cat, index) in catFirstpart"
+                        :key="index"
+                      >
+                        <nuxt-link
+                          :to="`/categories/${cat}`"
+                          class="hover:text-orange-500 hover:ms-2 transition-all duration-75 capitalize"
+                        >
+                          <Icon
+                            name="bi:arrow-right"
+                            size="12"
+                            color="black"
+                            class="me-1"
+                          />
+                          {{ cat.replace(/-/g, ' ') }}
+                        </nuxt-link>
                       </li>
                     </ul>
                   </div>
+
                   <div class="">
-                    <h2 class="font-semibold text-lg mb-2 border-b-2 pb-2 lg:w-2/3">Category 2</h2>
                     <ul>
-                      <li>
-                        <nuxt-link to="">Product 1</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 2</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 3</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 4</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 5</nuxt-link>
-                      </li>
-
-                      <li>
-                        <nuxt-link to="">Product 6</nuxt-link>
+                      <li
+                        class="font-medium text-lg mb-4"
+                        v-for="(cat, index) in catSecondpart"
+                        :key="index"
+                      >
+                        <nuxt-link
+                          :to="`/categories/${cat}`"
+                          class="hover:text-orange-500 transition-colors duration-75 capitalize"
+                        >
+                          <Icon
+                            name="bi:arrow-right"
+                            size="12"
+                            color="black"
+                            class="me-1"
+                          />
+                          {{ cat.replace(/-/g, ' ') }}
+                        </nuxt-link>
                       </li>
                     </ul>
                   </div>
-                  <div class="relative">
+
+                  <div class="">
                     <ul>
-                      <li class="">
-                        <nuxt-link to="" class=" cursor-pointer">
+                      <li class="relative">
+                        <nuxt-link
+                          to="/categories/womens-dresses"
+                          class="cursor-pointer"
+                        >
                           <img
                             src="/menu-product-image/women.jpg"
                             alt="product image1"
                             class="w-full h-auto rounded-md"
                           />
                         </nuxt-link>
+
                         <nuxt-link
                           to=""
-                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 
-                          transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
+                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
                           >Women Clothing</nuxt-link
+                        >
+                      </li>
+
+                      <li class="relative mt-3">
+                        <nuxt-link
+                          to="/categories/smartphones"
+                          class="cursor-pointer"
+                        >
+                          <img
+                            src="/menu-product-image/phones.jpg"
+                            alt="Smart Phones"
+                            class="w-full h-auto rounded-md"
+                          />
+                        </nuxt-link>
+
+                        <nuxt-link
+                          to="/categories/smartphones"
+                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
+                          >Smart Phones</nuxt-link
                         >
                       </li>
                     </ul>
                   </div>
-                  <div class="relative">
+
+                  <div class="">
                     <ul>
-                      <li>
-                        <nuxt-link to="/" class=" cursor-pointer">
+                      <li class="relative">
+                        <nuxt-link
+                          to="/categories/mens-shirts"
+                          class="cursor-pointer"
+                        >
                           <img
                             src="/menu-product-image/man.jpg"
                             alt="product image 2"
@@ -208,9 +231,24 @@
                           />
                         </nuxt-link>
                         <nuxt-link
-                          to="/"
+                          to="/categories/mens-shirts"
                           class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md font-semibold cursor-pointer"
                           >Man Clothing</nuxt-link
+                        >
+                      </li>
+
+                      <li class="relative mt-3">
+                        <nuxt-link to="" class="cursor-pointer">
+                          <img
+                            src="/menu-product-image/cameras.jpg"
+                            alt="Smart Phones"
+                            class="w-full h-auto rounded-md"
+                          />
+                        </nuxt-link>
+                        <nuxt-link
+                          to=""
+                          class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
+                          >Cameras</nuxt-link
                         >
                       </li>
                     </ul>
@@ -249,25 +287,59 @@
 
     <mobileMenu />
   </nav>
-
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import mobileMenu from './mobileMenu.vue';
-import topHeader from './topHeader.vue';
+import { storeToRefs } from "pinia";
+import mobileMenu from "./mobileMenu.vue";
+import topHeader from "./topHeader.vue";
+import { useProductsStore } from "~/store/products";
 
+const productStore = useProductsStore();
+const { getAllProductsCat } = productStore;
+const { allProductsCat } = storeToRefs(productStore);
+
+onMounted(async () => {
+  await getAllProductsCat();
+});
+
+//mega menu categories first part
+const catFirstpart = computed(() => {
+  let chunk = Math.ceil(allProductsCat.value.length / 2);
+
+  if (chunk !== 0) {
+    return allProductsCat.value.slice(0, chunk);
+  }
+});
+
+//mega menu categories second part
+const catSecondpart = computed(() => {
+  let chunk = Math.ceil(allProductsCat.value.length / 2);
+
+  if (chunk !== 0) {
+    return allProductsCat.value.slice(chunk);
+  }
+});
+
+//manage visiblity of mega menu
 const menuVisible = ref(false);
+const router = useRouter();
 
-
-const toggleVisible = () => {
-  menuVisible.value = !menuVisible.value;
+const toggleVisible = (param) => {
+  menuVisible.value = param;
 };
+
+//close mega menu in every route change - 
+//if you prefer to use wath/watchEffect detect to route change and planning close mega menu with this method its can be bother some because 
+//dymic part of the routes params change cannot detect with this
+
+router.afterEach((to, from) => {
+  toggleVisible(false);
+})
+
 </script>
 
 <style scoped>
-
-
 .mega-menu {
   width: 991px;
   visibility: hidden;
@@ -290,12 +362,6 @@ const toggleVisible = () => {
   -ms-transform: perspective(300px) rotateX(0deg);
   -o-transform: perspective(300px) rotateX(0deg);
   transform: perspective(300px) rotateX(0deg);
-}
-
-.mega-menu li {
-  line-height: 34px;
-  font-size: 14px;
-  font-weight: 400;
 }
 
 @media only screen and (max-width: 1280px) {
