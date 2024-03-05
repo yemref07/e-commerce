@@ -49,31 +49,31 @@
     >
       <catCardCircle
         title="Headphones"
-        link="/"
+        link="categories/fragrances"
         product-stock="25"
         img="/produtc-cat-images/product-cat-1.png"
       />
       <catCardCircle
-        title="Headphones"
-        link="/"
+        title="Smartphones"
+        link="categories/smartphones"
         product-stock="25"
         img="/produtc-cat-images/product-cat-2.png"
       />
       <catCardCircle
-        title="Headphones"
-        link="/"
+        title="Laptops"
+        link="categories/laptops"
         product-stock="25"
         img="/produtc-cat-images/product-cat-3.png"
       />
       <catCardCircle
-        title="Headphones"
-        link="/"
+        title="Watchs"
+        link="categories/womens-shoes"
         product-stock="25"
         img="/produtc-cat-images/product-cat-4.png"
       />
       <catCardCircle
         title="Headphones"
-        link="/"
+        link="categories/womens-dress"
         product-stock="25"
         img="/produtc-cat-images/product-cat-5.png"
       />
