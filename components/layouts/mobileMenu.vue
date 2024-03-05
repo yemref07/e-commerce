@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center px-3 py-5 md:px-10 md:hidden">
+  <div class="flex justify-between items-center px-3 py-5 md:px-10 lg:hidden">
     <div class="">
       <img src="/logos/commerce-logo.svg" alt="" width="150" />
     </div>
@@ -105,7 +105,7 @@
                 }
               "
             >
-              <nuxt-link to="/products" class="text-xl"
+              <nuxt-link to="/" class="text-xl"
                 >Trend Products
               </nuxt-link>
               <Icon
