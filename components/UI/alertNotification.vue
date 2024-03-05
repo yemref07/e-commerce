@@ -1,5 +1,5 @@
 <template>
-  <div  class="" @click="showNotification()">Alert notification</div>
+  <div  class=""></div>
 </template>
 
 <script setup lang="ts">
@@ -13,9 +13,9 @@ const props = defineProps({
   show: {
     type: Boolean,
     required: true,
-    default: false,
   },
-});
+})
+
 
 const emit = defineEmits<{
   (event: "isVisible", status: boolean): void;
@@ -49,7 +49,7 @@ const showNotification = () => {
 watch(
   () => props.show,
   (newValue, oldValue) => {
-    if (props.show) {
+    if (newValue) {
       showNotification();
       console.log('asdasd')
     } 
@@ -57,7 +57,8 @@ watch(
       Toast.close();
       emit("isVisible",false)
     }
-  }
+  },
+  { immediate: true }
 );
 </script>
 
