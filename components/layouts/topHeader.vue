@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden md:block">
+  <div class="hidden lg:block">
     <div class="w-full bg-header-top relative z-10">
       <div class="container mx-auto xl:px-40 text-white">
         <div class="flex py-1 justify-between">
