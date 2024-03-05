@@ -61,14 +61,16 @@
       v-if="activeTab === 1"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
-      <div class="" v-for="(item, index) in electronics" :key="index">
+
+      <div class="" v-for="(item, index) in electronics?.products" :key="index">
         <productCard
           :cat="item.category"
           :name="item.title"
-          :rate="item.rating.rate"
+          :rate="item.rating"
           :price="item.price"
-          :img="item.image"
-          :review="item.rating.count"
+          :img="item.images[0]"
+          :productID="item.id"
+          review="25"
         />
       </div>
     </div>
@@ -77,30 +79,29 @@
       v-else-if="activeTab === 2"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
-      <div class="" v-for="(item, index) in mensCloth" :key="index">
+      <div class="" v-for="(item, index) in mensCloth?.products" :key="index">
         <productCard
           :cat="item.category"
           :name="item.title"
-          :rate="item.rating.rate"
+          :rate="item.rating"
           :price="item.price"
-          :img="item.image"
-          :review="item.rating.count"
+          :img="item.images[0]"
+          review="25"
         />
       </div>
     </div>
-
     <div
       v-else
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
-      <div class="" v-for="(item, index) in womensCloth" :key="index">
+      <div class="" v-for="(item, index) in womensCloth?.products" :key="index">
         <productCard
-          :cat="item.category"
-          :name="item.title"
-          :rate="item.rating.rate"
-          :price="item.price"
-          :img="item.image"
-          :review="item.rating.count"
+          :cat="item?.category"
+          :name="item?.title"
+          :rate="item?.rating"
+          :price="item?.price"
+          :img="item?.images[0]"
+          review="25"
         />
       </div>
     </div>
@@ -112,15 +113,15 @@ import container from "~/components/UI/container.vue";
 import productCard from "./productCard.vue";
 import { useTrendProductStore } from "~/store/trendProducts";
 const productStore = useTrendProductStore();
-
 const { dataToStore, refreshEl, updateStoreData, callRefresh } = productStore;
+
 
 const {
   data: electronics,
   pending: elPending,
   error: elError,
   refresh: elRefresh,
-} = await useFetch(`https://fakestoreapi.com/products/category/electronics`, {
+} = await useFetch(`https://dummyjson.com/products/category/smartphones`, {
   server: false,
 });
 
@@ -138,7 +139,7 @@ const {
   error: womenError,
   refresh: womenRefresh,
 } = await useFetch(
-  `https://fakestoreapi.com/products/category/women's%20clothing`,
+  `https://dummyjson.com/products/category/womens-dresses`,
   {
     server: false,
   }
@@ -150,19 +151,7 @@ const {
   error: menError,
   refresh: menRefresh,
 } = await useFetch(
-  `https://fakestoreapi.com/products/category/men's%20clothing`,
-  {
-    server: false,
-  }
-);
-
-const {
-  data: jewelery,
-  pending: jeweleryPending,
-  error: jeweleryError,
-  refresh: jeweleryRefresh,
-} = await useFetch(
-  `https://fakestoreapi.com/products/category/men's%20jewelery`,
+  `https://dummyjson.com/products/category/mens-shirts`,
   {
     server: false,
   }
@@ -176,4 +165,3 @@ const setActiveTab = (param) => {
 </script>
 
 <style scoped></style>
-~/store/trendProducts
