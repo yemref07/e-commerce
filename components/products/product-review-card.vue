@@ -10,6 +10,14 @@
         :key="index"
       />
 
+      <Icon
+        name="solar:star-bold"
+        size="16"
+        class="block text-gray-300"
+        v-for="(item, index) in emptyStars"
+        :key="index"
+      />
+
       <p class="text-sm font-semibold mt-2">
         {{ name || 'John Doe'}}
         <span class="text-muted text-sm">{{ date }}</span>
@@ -48,6 +56,11 @@ const props = defineProps({
     required: false,
   },
 });
+
+//Calc Empty Start
+const emptyStars = computed(()=>{
+  return 5 - parseInt(props.rate)
+})
 </script>
 
 <style lang="css" scoped></style>
