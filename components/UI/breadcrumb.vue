@@ -7,15 +7,20 @@
         'items-baseline': alignment === 'baseline',
       }"
     >
-      <div :class="{'text-start': alignment === 'baseline','text-center': alignment === 'center'}">
+      <div
+        :class="{
+          'text-start': alignment === 'baseline',
+          'text-center': alignment === 'center',
+        }"
+      >
         <h1 class="text-tblack font-semibold text-xl md:text-2xl lg:text-4xl">
           {{ title }}
         </h1>
-        <p class="text-muted text-lg">
+        <p class="text-muted text-lg capitalize">
           <nuxt-link to="/" title="Home" class="hover:text-orange-500"
             >Home</nuxt-link
           >
-          - {{ subtitle }}
+          - {{ formattedSubtitle }}
         </p>
       </div>
     </div>
@@ -41,6 +46,13 @@ const props = defineProps({
     required: true,
   },
 });
+
+
+// remove - char from subtitle
+const formattedSubtitle = computed(() => {
+  return props.subtitle.replace(/-/g, " ");
+});
+
 </script>
 
 <style scoped></style>
