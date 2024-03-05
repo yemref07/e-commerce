@@ -1,16 +1,16 @@
 import { defineStore } from "pinia";
 
 
-interface review {
-    reviewMsg: String,
+interface comment {
+    msg: String,
     name: String,
     email: String
     rate: Number
 }
 
 export const useCommentStore = defineStore('commentStore', () => {
-    const allComments = ref<review[] | null>()
-    const newComment = ref<review>()
+    const allComments = ref<comment[] | null>()
+    const newComment = ref<comment>()
     const isDeleted = ref(false)
 
     const getAllComments = async (limit: number = 4, skip: number = 4) => {
@@ -26,13 +26,13 @@ export const useCommentStore = defineStore('commentStore', () => {
         }
     }
 
-    const sendComment = async (comment: review) => {
+    const sendComment = async (comment: comment) => {
         try {
             const response = await fetch('https://dummyjson.com/comments/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    body: comment.reviewMsg,
+                    body: comment.msg,
                     postId: 3,
                     userId: 5,
                 })
