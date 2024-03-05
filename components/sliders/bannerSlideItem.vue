@@ -35,8 +35,8 @@
 const props = defineProps({
   title1: String,
   title2: String,
-  reducedPrice: Number,
-  price: Number,
+  reducedPrice: String,
+  price: String,
   img: String,
   productID: String,
   isVisible: Boolean,
