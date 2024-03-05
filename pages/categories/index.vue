@@ -13,14 +13,14 @@
       >
         <nuxt-link :to="`categories/${item}`">
           <div
-            class="bg-gray-100 text-tblack py-12 px-4 text-center border-b cursor-pointer"
+            class="bg-gray-100 text-tblack py-12 px-4 text-center border-b cursor-pointer hover:translate-y-2.5 duration-75"
           >
             <h2
               class="text-xl lg:text-2xl font-semibold text-tblack capitalize"
             >
-              {{ item }}
+              {{ item.replace(/-/g, ' ') }}
             </h2>
-            <p class="mt-2 text-muted text-sm">10 Products</p>
+            <p class="mt-2 text-muted text-sm">6 Products</p>
           </div>
         </nuxt-link>
       </div>
