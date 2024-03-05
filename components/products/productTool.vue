@@ -9,19 +9,23 @@
             <Icon name="ph:heart" class="" size="28" />
         </div>
         
-        <div class="tool p-2">
-            <nuxt-link to="">
+        <nuxt-link :to="`/categories/${category}/${name}`">
+            <div class="tool p-2">
                 <Icon name="solar:eye-broken" class="" size="28" />
-            </nuxt-link>
-        </div>
+            </div>
+        </nuxt-link>
 
     </div>
 </template>
 
 <script setup>
 const props = defineProps({
+    hover:Boolean,
+    link:String,
     productID:String,
-    hover:Boolean
+    category:String,
+    name:String
+
 })
 
 </script>
