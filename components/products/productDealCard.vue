@@ -71,7 +71,7 @@ const props = defineProps({
   cat: String,
   title: String,
   img: String,
-  price: Number,
+  price: String,
 });
 
 const hover = ref(false);
