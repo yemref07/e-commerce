@@ -15,7 +15,7 @@
         title2="Samsung Galaxy Tab S10, 8GB Ram"
         img="/product-banners/product-banner-3.png"
         price=1200
-        reduced-price=900
+        reduced-price="900"
         productID="lorem"
         :is-visible="setActiveSlide(0)"
       />
@@ -28,8 +28,8 @@
         title1="Best Selling Tablets"
         title2="Samsung Galaxy Tab S10, 8GB Ram"
         img="/product-banners/product-banner-3.png"
-        price=1200
-        reduced-price=900
+        price="1200"
+        reduced-price="900"
         productID="lorem"
         :is-visible="setActiveSlide(1)"
       />
@@ -42,8 +42,8 @@
         title1="Best Selling Tablets"
         title2="Samsung Galaxy Tab S10, 8GB Ram"
         img="/product-banners/product-banner-3.png"
-        price=1200
-        reduced-price=900
+        price="1200"
+        reduced-price="900"
         productID="lorem"
         :is-visible="setActiveSlide(2)"
       />
