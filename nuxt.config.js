@@ -47,7 +47,7 @@ export default defineNuxtConfig({
   },
 
   css: ["~/assets/css/main.css"],
-  modules: ["@pinia/nuxt", "nuxt-icon"],
+  modules: ["@pinia/nuxt", "nuxt-icon",'@stefanobartoletti/nuxt-social-share'],
   postcss: {
     plugins: {
       tailwindcss: {},
