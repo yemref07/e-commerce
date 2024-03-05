@@ -13,18 +13,18 @@
     "
   >
     <div class="relative border-b-2 border-slate-100 p-5">
-      <nuxt-link to="/" class="cursor-pointer">
+      <nuxt-link :to="`/categories/${props.cat}/${props.name}?productId=${props.productID}`" class="cursor-pointer">
         <img :src="props.img" alt="" class="ml-auto mr-auto w-46 h-36" />
       </nuxt-link>
     </div>
     <div class="p-5">
-      <nuxt-link to="/" class="cursor-pointer">
-        <span class="text-sm text-tpurple">{{ cat }}</span>
+      <nuxt-link :to="`/categories/${props.cat}/${props.name}`" class="cursor-pointer">
+        <span class="text-sm text-tpurple capitalize font-semibold">{{ props.cat.replace(/-/g, ' ') }}</span>
         <h3 class="font-semibold">{{ title }}</h3>
 
         <div class="flex items-center space-x-1 mt-4 mb-1 justify-start">
           <svg
-            v-for="(item, index) in rate"
+            v-for="(item, index) in productRating "
             :key="index"
             class="w-4 h-4 text-yellow-500"
             aria-hidden="true"
@@ -37,7 +37,7 @@
             />
           </svg>
           <svg
-            v-for="(item, index) in remain"
+            v-for="(item, index) in emptyStars"
             :key="index"
             class="w-4 h-4 text-gray-300"
             aria-hidden="true"
@@ -52,11 +52,16 @@
 
           <p class="text-muted text-sm">({{ review }} review)</p>
         </div>
-        <p class="text-torange text-xl font-semibold">$ {{ price }}.00</p>
+        <p class="text-torange text-xl font-semibold mt-4">$ {{ parseInt(price) }}.00</p>
       </nuxt-link>
     </div>
 
-    <productTool :hover="toolHover" productID="lorem" />
+    <productTool 
+    :hover="toolHover" 
+    :productID="props.productID" 
+    :name="props.name"
+    :category = "props.cat"
+    />
   </div>
 </template>
 
@@ -73,7 +78,8 @@ const props = defineProps({
   rate: Number,
   price: Number,
   img: String,
-  review:Number
+  review:Number,
+  productID:String,
 });
 
 const setRateStar = (param) => {
@@ -89,15 +95,34 @@ const setHover = (param) => {
   toolHover.value = param;
 };
 
+const productRating = computed(()=>{
+  if(props.rate){
+    return Math.round(props.rate)
+  }
+})
+
+//Empty Stars
+const emptyStars = computed(()=>{
+  if(productRating.value){
+    return 5 - productRating.value
+  }
+})
+
+
 const title = computed(() => {
-  return props.name.substring(0, 50);
+  if(props.name){
+    return props.name.substring(0, 50);
+  }
+  else{
+    return "No Name"
+  }
 });
 </script>
 
 <style scoped>
 .product-card {
   transition: ease 0.5s;
-  min-height: 400px;
+  min-height: 380px;
 }
 
 @media only screen and (max-width: 768px) {
