@@ -20,6 +20,8 @@ export const useProductsStore = defineStore("productsStore", () => {
     const singleProduct = ref<productData>();
     const searchResult = ref<productData[]>();
     const loadStatus = ref<boolean>(false);
+
+    //Cateries products (all smartphones)
     const categoryProducts = ref<productData[]>();
 
     //fetch all product categories
@@ -28,7 +30,6 @@ export const useProductsStore = defineStore("productsStore", () => {
         try {
             const response = await fetch("https://dummyjson.com/products/categories");
             const data = await response.json();
-            console.log(response);
 
             //check reponse status because non-200 responses won't throw JavaScript errors by default
             if (!response.ok) {
@@ -52,19 +53,20 @@ export const useProductsStore = defineStore("productsStore", () => {
             return false;
         }
 
-        finally{
+        finally {
             loadStatus.value = false;
         }
     };
 
+
+
     //Fetch data of single product with using ID
-    const getSingleProduct = async (productID: number) => {
+    const getSingleProduct = async (productID: string) => {
         loadStatus.value = true;
         try {
             const response = await fetch(
                 `https://dummyjson.com/product/${productID}`
             );
-            console.log(response);
             const data = await response.json();
 
             if (!response.ok) {
@@ -76,19 +78,19 @@ export const useProductsStore = defineStore("productsStore", () => {
             if (typeof data === "object") {
                 singleProduct.value = data;
                 return true;
-            } 
-            
+            }
+
             else {
                 throw new Error("Recieved product data format is not valid");
             }
-        } 
-        
+        }
+
         catch (error) {
             console.error(error, "Cant fetch to product data");
             return false;
         }
 
-        finally{
+        finally {
             loadStatus.value = false;
         }
     };
@@ -100,7 +102,7 @@ export const useProductsStore = defineStore("productsStore", () => {
             const response = await fetch(
                 `https://dummyjson.com/products/search?q=${type}`
             );
-           
+
             if (!response.ok) {
                 throw new Error("Failed search product by type of the product");
             }
@@ -110,43 +112,43 @@ export const useProductsStore = defineStore("productsStore", () => {
             if (data) {
                 searchResult.value = data?.products;
                 return true;
-            } 
-            
+            }
+
             else {
                 searchResult.value = [];
             }
-        } 
-        
+        }
+
         catch (error) {
             console.error(error, "Failed to fect products with type ");
-        } 
-        
+        }
+
         finally {
             loadStatus.value = false;
         }
     };
 
     //  Function to fetch all products of a given category
-    const getProductsOfCategory = async (catName:string) => {
-        loadStatus.value =  true;
+    const getProductsOfCategory = async (catName: string) => {
+        loadStatus.value = true;
         try {
             const response = await fetch(`https://dummyjson.com/products/category/${catName}`)
 
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error(`Failed to fetch products for category ${catName}. Status: ${response.status}`);
                 return false;
             }
-    
+
             const data = await response.json();
             categoryProducts.value = data?.products;
-        } 
-        
+        }
+
         catch (error) {
-            console.error("Failed fetch categorys products",error)
+            console.error("Failed fetch categorys products", error)
             return false;
         }
 
-        finally{
+        finally {
             loadStatus.value = false;
         }
 
@@ -159,6 +161,8 @@ export const useProductsStore = defineStore("productsStore", () => {
         getAllProductsCat,
         getSingleProduct,
         searchProducts,
-        getProductsOfCategory
+        getProductsOfCategory,
+        categoryProducts,
+        singleProduct
     };
 });
