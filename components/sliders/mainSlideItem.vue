@@ -34,11 +34,6 @@
           <div
             class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center"
           >
-            <!-- <img
-                  :src="props.img"
-                  :alt="props.title1"
-                  class="w-3/4 z-20"
-                /> -->
             <img
               format="webp"
               :src="props.img"
