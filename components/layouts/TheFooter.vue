@@ -59,7 +59,7 @@
             <nuxt-link to="/" title="Dummy E-Commerce Blog" class="hover:text-orange-500 duration-75">Blog</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/terms-and-condition" title="Dummy E-Commerce Terms And Condition" class="hover:text-orange-500 duration-75">Terms And Condition</nuxt-link>
+            <nuxt-link to="/terms-and-conditions" title="Dummy E-Commerce Terms And Condition" class="hover:text-orange-500 duration-75">Terms And Condition</nuxt-link>
           </li>
           <li>
             <nuxt-link to="/contact" title="Dummy E-Commerce Contact" class="hover:text-orange-500 duration-75">Contact</nuxt-link>
