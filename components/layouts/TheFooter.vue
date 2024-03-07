@@ -4,30 +4,30 @@
       class="grid md:grid-cols-2 lg:grid-cols-5 py-20 gap-10 md:gap-14 lg:gap-5 w-full"
     >
       <div class="lg:col-span-2">
-        <img src="/logos/commerce-logo.svg" alt="" width="240" class="mb-5" />
+        <img src="/logos/commerce-logo.svg" alt="Dummy E-Commerce Logo" width="240" class="mb-5" />
         <p class="md:w-3/4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit
           dignissimos ipsam quidem.
         </p>
         <div class="block mt-5 space-x-3">
-          <a href="/">
+          <a href="/" title="Dummy E-Commerce Facebook">
             <div class="p-2 footer-icon inline-block rounded-md">
               <icon name="ri:facebook-fill" size="28" />
             </div>
           </a>
-          <a href="/">
+          <a href="/" title="Dummy E-Commerce Twitter">
             <div class="p-2 footer-icon inline-block rounded-md">
               <icon name="ri:twitter-fill" size="28" />
             </div>
           </a>
 
-          <a href="">
+          <a href="" title="Dummy E-Commerce Instagram">
             <div class="p-2 footer-icon inline-block rounded-md">
               <icon name="ri:instagram-fill" size="28" />
             </div>
           </a>
 
-          <a href="">
+          <a href="" title="Dummy E-Commerce Youtube">
             <div class="p-2 footer-icon inline-block rounded-md">
               <icon name="ri:youtube-fill" size="28" />
             </div>
@@ -38,41 +38,31 @@
       <div class="">
         <h2 class="mb-5 text-2xl font-semibold">Categories</h2>
         <ul class="space-y-3">
-          <li>
-            <nuxt-link to="/">Category 1</nuxt-link>
+
+          <li v-for="(item, index) in trendCategories" :key="index" class=" capitalize ">
+            <nuxt-link :to="`/categories/${item}`" :title="item" class="hover:text-orange-500 duration-75">{{item.replace('/g'," ")}}</nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">Category 2</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/">Category 3</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/">Category 4</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/">Category 5</nuxt-link>
-          </li>
+  
         </ul>
       </div>
 
       <div class="">
-        <h2 class="mb-5 text-2xl font-semibold">Infomation</h2>
-        <ul class="space-y-3">
+        <h2 class="mb-5 text-2xl font-semibold">Information</h2>
+        <ul class="space-y-3 ">
           <li>
-            <nuxt-link to="/">Home</nuxt-link>
+            <nuxt-link to="/" title="Home" class="hover:text-orange-500 duration-75">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/">Abount</nuxt-link>
+            <nuxt-link to="/about" title="Dummy E-Commerce About" class="hover:text-orange-500 duration-75">About</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/">Blog</nuxt-link>
+            <nuxt-link to="/" title="Dummy E-Commerce Blog" class="hover:text-orange-500 duration-75">Blog</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/">Terms And Condition</nuxt-link>
+            <nuxt-link to="/terms-and-condition" title="Dummy E-Commerce Terms And Condition" class="hover:text-orange-500 duration-75">Terms And Condition</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/">Contact</nuxt-link>
+            <nuxt-link to="/contact" title="Dummy E-Commerce Contact" class="hover:text-orange-500 duration-75">Contact</nuxt-link>
           </li>
         </ul>
       </div>
@@ -83,7 +73,7 @@
         </h2>
         <ul class="space-y-3">
           <li>
-            <a href="tel:">
+            <a href="tel:" title="Dummy E-Commerce Phone Line">
               Got Questions? Call us
               <h4
                 class="font-semibold text-torange text-md lg:text-xl xxl:text-2xl mt-2"
@@ -93,13 +83,13 @@
             </a>
           </li>
           <li>
-            <a href="mailto:">
+            <a href="mailto:" title="Dummy E-Commerce Email">
               <icon name="ph:envelope-light" size="28" class="text-tblack" />
               info@dummy.com
             </a>
           </li>
           <li>
-            <a href="mailto:">
+            <a href="" title="Dummy E-Commerce Address">
               <icon
                 name="system-uicons:location"
                 size="28"
@@ -114,8 +104,24 @@
   </container>
 </template>
 
-<script setup>
+<script setup lang='ts'>
 import container from "~/components/UI/container.vue";
+import { useProductsStore } from "~/store/products";
+import { storeToRefs } from "pinia";
+
+const productStore = useProductsStore()
+const { allProductsCat } = storeToRefs(productStore)
+const { getAllProductsCat } = productStore
+
+const trendCategories = computed(()=>{
+  return allProductsCat.value.slice(0,5)
+})
+
+
+onMounted( async() => {
+  await getAllProductsCat()
+})
+
 </script>
 
 <style scoped>
