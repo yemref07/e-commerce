@@ -42,11 +42,11 @@
                   :alt="props.title1"
                   class="w-3/4 z-20"
                 /> -->
-                <NuxtPicture 
+                <NuxtImg
                 format="webp,png,jpg"     
                 :src="props.img"
                 :alt="props.title1"
-                class="w-3/4 z-20"/>>
+                class="w-3/4 z-20"/>
               </div>
             </div>
           </div>
