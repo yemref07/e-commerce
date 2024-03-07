@@ -1,0 +1,13 @@
+<template>
+    <div>
+        <h1>Terms And Conditions</h1>
+    </div>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style lang="css" scoped>
+
+</style>
