@@ -37,11 +37,16 @@
               </div>
   
               <div class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center">
-                <img
+                <!-- <img
                   :src="props.img"
-                  alt=""
+                  :alt="props.title1"
                   class="w-3/4 z-20"
-                />
+                /> -->
+                <NuxtPicture 
+                format="webp,png,jpg"     
+                :src="props.img"
+                :alt="props.title1"
+                class="w-3/4 z-20"/>>
               </div>
             </div>
           </div>

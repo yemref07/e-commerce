@@ -20,7 +20,7 @@
         title2="Exclusive offer %10 off this week"
         catLink="/"
         bgColor="#115061"
-        img="/slider/slider-img-1.png"
+        img="/slider/slider-img-1.webp"
       />
     </swiper-slide>
     <swiper-slide>
@@ -29,7 +29,7 @@
         title2="Exclusive offer %10 off this week"
         catLink="/"
         bgColor="#115061"
-        img="/slider/slider-img-2.png"
+        img="/slider/slider-img-2.webp"
       />
     </swiper-slide>
     <swiper-slide>
@@ -38,7 +38,7 @@
         title2="Exclusive offer %10 off this week"
         catLink="/"
         bgColor="#115061"
-        img="/slider/slider-img-3.png"
+        img="/slider/slider-img-3.webp"
       />
     </swiper-slide>
   </swiper-container>
@@ -66,7 +66,7 @@
         img="/produtc-cat-images/product-cat-3.png"
       />
       <catCardCircle
-        title="Watchs"
+        title="Watches"
         link="categories/womens-shoes"
         product-stock="25"
         img="/produtc-cat-images/product-cat-4.png"
