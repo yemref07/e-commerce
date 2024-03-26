@@ -18,7 +18,7 @@
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/"
+        catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-1.webp"
       />
@@ -27,7 +27,7 @@
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/"
+        catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-2.webp"
       />
@@ -36,14 +36,14 @@
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/"
+        catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-3.webp"
       />
     </swiper-slide>
   </swiper-container>
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div
       class="flex flex-row justify-center md:justify-between items-center flex-wrap gap-5"
     >
@@ -80,7 +80,7 @@
     </div>
   </container>
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
       <featureCard
         icon-size=42
@@ -111,19 +111,20 @@
 
   <productsTrend />
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div class="grid xl:grid-cols-3 gap-5">
       <div class="flex flex-col xl:col-span-2 product-bg-1">
         <span class="mb-2 inline-block">Sale 20% off all store</span>
         <h3 class="font-semibold text-3xl lg:w-2/4">
-          Smartphone DMX S24 Pro 2023
+          Smartphone Iphone X Pro 2024
         </h3>
         <nuxt-link
-          to=""
+          to="/categories/smartphones/iPhone%20X?productId=2"
           class="inline-block mt-5 text-lg text-tblack hover:text-orange-500 cursor-pointer delay-100"
+          title="Smartphone Iphone X Pro 2024"
         >
           Shop Now
-          <Icon name="formkit:arrowright" class=" " size="28" />
+          <Icon name="formkit:arrowright" size="28" />
         </nuxt-link>
       </div>
 
@@ -131,7 +132,8 @@
         <h3 class="font-semibold text-lg">HyperX Cloud II Wireless</h3>
         <span class="mb-2 block">Sale 24% off all store</span>
         <nuxt-link
-          to=""
+          title="HyperX Cloud II Wireless"
+          to="/categories/laptops/MacBook%20Pro?productId=6"
           class="inline-block mt-5 text-lg text-tblack cursor-pointer delay-100"
         >
           Shop Now
@@ -141,8 +143,8 @@
     </div>
   </container>
 
-  <div class="w-full bg-ice py-12 mt-20">
-    <container class="mt-20">
+  <div class="w-full bg-ice py-12 lg:mt-20 md:mt-10 mt-6">
+    <container class="lg:mt-20 md:mt-10 mt-6">
       <div
         class="flex flex-row justify-between items-center gap-5 lg:gap-10 xl:gap-12"
       >
@@ -172,6 +174,7 @@
         </div>
         <div class="">
           <nuxt-link
+            title="View All Details"
             to="/"
             class="bg-torange text-white px-4 py-3 md:px-8 md:py-4 rounded-lg hover:bg-slate-900 transition-all delay-75"
             >View All Deals</nuxt-link
@@ -179,16 +182,16 @@
         </div>
       </div>
 
-      <dealSlider class="mt-20" />
-      <bannerSlider class="mt-20" />
+      <dealSlider class="lg:mt-20 md:mt-10 mt-6" />
+      <bannerSlider class="lg:mt-20 md:mt-10 mt-6" />
     </container>
   </div>
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <productGrid />
   </container>
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div class="flex flex-row items-center mb-20 justify-between">
       <div class="">
         <h2 class="text-tblack font-semibold text-xl lg:text-3xl">
@@ -203,6 +206,7 @@
 
       <div class="">
         <nuxt-link
+          title="View All Post"
           to="/"
           class="bg-torange text-white font-semibold px-4 py-3 md:px-8 md:py-4 rounded-lg hover:bg-slate-900 transition-all delay-75"
           >View All Post</nuxt-link
@@ -213,11 +217,11 @@
     <blogSlider />
   </container>
 
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <instagramPost />
   </container>
 
-  <div class="w-full bg-torange py-12 lg:py-20 xl:py-32 mt-20">
+  <div class="w-full bg-torange py-12 lg:py-20 xl:py-32 lg:mt-20 md:mt-10 mt-6">
     <container>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
         <div class="">
