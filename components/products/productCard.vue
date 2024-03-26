@@ -58,9 +58,13 @@
 
     <productTool 
     :hover="toolHover" 
+
     :productID="props.productID" 
-    :name="props.name"
     :category = "props.cat"
+    :name="props.name"
+    :image="props.img"
+    :price="props.price"
+
     />
   </div>
 </template>
@@ -78,8 +82,8 @@ const props = defineProps({
   rate: Number,
   price: Number,
   img: String,
-  review:Number,
-  productID:String,
+  review:String,
+  productID:Number,
 });
 
 const setRateStar = (param) => {
