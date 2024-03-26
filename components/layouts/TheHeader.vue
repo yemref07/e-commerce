@@ -10,24 +10,23 @@
           <nuxt-link to="/" title="Home Page">
             <img
               src="/logos/commerce-logo.svg"
-              alt=""
+              alt="Dummy E-Commerce Logo"
               class="w-32 lg:w-40 xl:w-56"
             />
           </nuxt-link>
         </div>
 
         <div class="basis-2/4 lg:basis-1/3">
-          <form>
+          <form @submit.prevent="onSubmit">
             <div
-              class="flex flex-nowrap border-2 border-sky-800 justify-between items-center py-1 px-2 xl:py-2 xl:px-4"
+              class="flex flex-nowrap border-2 rounded-md border-gray-500 justify-between items-center py-1 px-2 xl:py-2 xl:px-4"
             >
               <div class="basis-2/4 text-sm items-center">
                 <input
                   type="text"
-                  name=""
-                  id=""
                   class="text-black focus:outline-none w-full"
                   placeholder="Search For Products"
+                  v-model="searchInput"
                 />
               </div>
 
@@ -35,20 +34,11 @@
                 <div
                   class="flex justify-end items-center flex-nowrap flex-grow"
                 >
-                  <div class="relative">
-                    <ul class="absolute bg-white px-3 py-2 space-y-2 hidden">
-                      <li class="font-medium mb-2">Select Category</li>
-                      <li>Mobile</li>
-                      <li>Digital Watch</li>
-                      <li>Digital Watch</li>
-                      <li>Digital Watch</li>
-                    </ul>
-                  </div>
-
                   <div class="">
                     <button
-                      type="button"
+                      type="submit"
                       class="text-white bg-torange px-2 py-1 lg:px-2 lg:py-1 rounded-md"
+                      @click.prevent="search"
                     >
                       Search
                       <div class="hidden xl:inline-block">
@@ -65,35 +55,68 @@
         <div class="basis-1/4 lg:basis-1/3">
           <div class="flex items-center justify-end">
             <div class="">
-              <Icon
-                name="iconamoon:profile-thin"
-                size="32"
-                color="black"
-                class="ms-10 mr-3"
-              />
+
+              <nuxt-link
+                to="/user-profile"
+                title="User Profile"
+                v-if="isAuthenticated"
+              >
+                <img
+                  :src="userData?.image"
+                  alt="User Profile Image"
+                  width="40"
+                  class="ms-10 mr-3 cursor-pointer"
+                />
+              </nuxt-link>
+
+              <nuxt-link to="/signin" v-else title="Sıgn In">
+                <Icon
+                  name="carbon:user"
+                  size="32"
+                  class="ms-10 mr-3 cursor-pointer"
+                />
+              </nuxt-link>
+
             </div>
 
-            <div class="hidden xl:flex flex-col mr-10">
-              <nuxt-link to="/signin" class="cursor-pointer">
-                <span class="line-clamp-1">Hello, Sign In</span>
-                <h3 class="font-semibold">Your Account</h3>
+            <div class="hidden xl:flex flex-col mr-10" v-if="isAuthenticated">
+              <nuxt-link
+                to="/user-profile"
+                class="cursor-pointer"
+                title="Sign In Dummy E-commerce"
+              >
+                <span class="line-clamp-1"
+                  >Welcome {{ userData?.firstName }}</span
+                >
+                <h3 class="font-semibold text-tpurple">My Account</h3>
               </nuxt-link>
             </div>
 
-            <div class="flex space-x-2">
+            <div class="hidden xl:flex flex-col mr-10" v-else>
+              <nuxt-link
+                to="/signin"
+                class="cursor-pointer"
+                title="Sign In Dummy E-commerce"
+              >
+                <span class="line-clamp-1">Hello, Sign In</span>
+                <h3 class="font-semibold text-tpurple">Your Account</h3>
+              </nuxt-link>
+            </div>
+
+            <div class="flex space-x-4">
               <div class="">
                 <Icon
                   name="ph:arrows-down-up-thin"
-                  size="32"
+                  size="26"
                   color="black"
                   class="block"
                 />
               </div>
-              <div class="">
-                <Icon name="mdi:heart" size="32" color="red" class="block" />
+              <div class="cursor-pointer">
+                <wishIcon :quantity="wishCount" />
               </div>
-              <div class="">
-                <Icon name="gala:bag" size="32" color="black" class="block" />
+              <div class="cursor-pointer" @click="showSideBar">
+                <cartIcon :quantity="cartCount" />
               </div>
             </div>
           </div>
@@ -101,30 +124,40 @@
       </div>
     </div>
 
-    <div
-      class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden lg:block"
-    >
+    <div class="container mx-auto lg:px-10 xl:px-10 2xl:px-20 hidden lg:block">
       <div class="flex flex-row items-center justify-between border-t-2 py-3">
-        <div class="flex flex-item space-x-5 lg:space-x-10 relative">
+        <div class="flex gap-4 lg:gap-8 relative">
           <div class="">
-            <nuxt-link to="/" class="text-lg"> Home </nuxt-link>
+            <nuxt-link
+              to="/"
+              class="text-lg hover:text-orange-500 delay-75 duration-75"
+            >
+              Home
+            </nuxt-link>
           </div>
 
           <div class="">
-            <nuxt-link to="/categories" class="text-lg"> All Cagories</nuxt-link>
+            <nuxt-link
+              to="/categories"
+              class="text-lg hover:text-orange-500 delay-75 duration-75"
+            >
+              All Categories</nuxt-link
+            >
           </div>
 
           <div
             class="relative"
-            @mouseleave="toggleVisible(false)"
-            @mouseenter="toggleVisible(true)"
+            @mouseleave="toggleMegaMenu(false)"
+            @mouseenter="toggleMegaMenu(true)"
           >
-            <span class="text-lg cursor-pointer">
+            <span
+              class="text-lg cursor-pointer hover:text-orange-500 delay-75 duration-75"
+            >
               Products
               <Icon name="teenyicons:down-solid" size="8" color="black" />
             </span>
             <div
-              :class="{ 'mega-menu-visible': menuVisible }"
+              :class="{ 'mega-menu-visible': megaMenuVisible }"
               class="mega-menu absolute left-0 top-full bg-white border-gray-300 shadow-lg z-30"
             >
               <div class="container mx-auto px-2 md:px-5 mt-8">
@@ -146,7 +179,7 @@
                             color="black"
                             class="me-1"
                           />
-                          {{ cat.replace(/-/g, ' ') }}
+                          {{ cat.replace(/-/g, " ") }}
                         </nuxt-link>
                       </li>
                     </ul>
@@ -169,7 +202,7 @@
                             color="black"
                             class="me-1"
                           />
-                          {{ cat.replace(/-/g, ' ') }}
+                          {{ cat.replace(/-/g, " ") }}
                         </nuxt-link>
                       </li>
                     </ul>
@@ -259,16 +292,27 @@
           </div>
 
           <div class="">
-            <nuxt-link to="/" class="text-lg"> Blog </nuxt-link>
+            <nuxt-link
+              to="/"
+              class="text-lg hover:text-orange-500 delay-75 duration-75"
+            >
+              Blog
+            </nuxt-link>
           </div>
 
           <div class="">
-            <nuxt-link to="/contact" class="text-lg"> Contact </nuxt-link>
+            <nuxt-link
+              to="/contact"
+              class="hover:text-orange-500 delay-75 duration-75 text-lg"
+              title="Dummy E-Commerce Contact"
+            >
+              Contact
+            </nuxt-link>
           </div>
         </div>
 
-        <div class="flex-item flex items-center">
-          <div class="mr-3">
+        <div class="flex items-center gap-4">
+          <div class="">
             <Icon
               name="mingcute:phone-call-line"
               class="text-tblue"
@@ -287,21 +331,53 @@
 
     <mobileMenu />
   </nav>
+  <cartSideBar />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from "pinia";
 import mobileMenu from "./mobileMenu.vue";
 import topHeader from "./topHeader.vue";
 import { useProductsStore } from "~/store/products";
+import { useCartStore } from "~/store/cart";
+import { useWishlistStore } from "~/store/wishlist";
+import cartSideBar from "~/components/layouts/cartSideBar.vue";
+import { useAuthStore } from "~/store/auth";
 
+//User Auth Store Initializing
+const authStore = useAuthStore();
+const { isAuthenticated, userData } = storeToRefs(authStore);
+const { logout } = authStore;
+
+//Cart Store
+const cartStore = useCartStore();
+const { cartList, cartCount } = storeToRefs(cartStore);
+
+//Wish List Store
+const wishlistStore = useWishlistStore();
+const { wishlist } = storeToRefs(wishlistStore);
+const wishCount = computed(() => {
+  return wishlist.value?.length ?? 0;
+});
+
+//Product Store
 const productStore = useProductsStore();
-const { getAllProductsCat } = productStore;
+const { getAllProductsCat, searchProducts } = productStore;
 const { allProductsCat } = storeToRefs(productStore);
+const searchInput = ref("");
+const router = useRouter();
 
+// fetch all each products category
 onMounted(async () => {
   await getAllProductsCat();
 });
+
+//search product
+const search = async () => {
+  await searchProducts(searchInput.value);
+  router.push({ path: "/search-result", query: { qr: searchInput.value } });
+  searchInput.value = "";
+};
 
 //mega menu categories first part
 const catFirstpart = computed(() => {
@@ -322,25 +398,26 @@ const catSecondpart = computed(() => {
 });
 
 //manage visiblity of mega menu
-const menuVisible = ref(false);
-const router = useRouter();
+const megaMenuVisible = ref(false);
 
-const toggleVisible = (param) => {
-  menuVisible.value = param;
+const toggleMegaMenu = (param: boolean) => {
+  megaMenuVisible.value = param;
 };
 
-//close mega menu in every route change - 
-//if you prefer to use wath/watchEffect detect to route change and planning close mega menu with this method its can be bother some because 
-//dymic part of the routes params change cannot detect with this
-
+// Close the mega menu on every route change.
+// Although it's possible to detect route changes using watch or watchEffect,
+// it can be cumbersome because you need to listen for changes not only in queries but also for dynamic parameters.
 router.afterEach((to, from) => {
-  toggleVisible(false);
-})
+  toggleMegaMenu(false);
+});
 
+import { useCartSideBar } from "~/store/cartSideBar";
+const { showSideBar } = useCartSideBar();
 </script>
 
 <style scoped>
 .mega-menu {
+  z-index: 999;
   width: 991px;
   visibility: hidden;
   opacity: 0;
@@ -353,6 +430,7 @@ router.afterEach((to, from) => {
   -o-transform: perspective(300px) rotateX(-18deg);
   transform: perspective(300px) rotateX(-18deg);
 }
+
 .mega-menu-visible {
   visibility: visible !important;
   opacity: 1 !important;
@@ -370,4 +448,3 @@ router.afterEach((to, from) => {
   }
 }
 </style>
-~/store/trendProducts
