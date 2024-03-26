@@ -40,7 +40,6 @@ export const useTrendProductStore = defineStore("tredProduct", () => {
       console.error(`${productCat} is not exist in the productsData ref , store/product.js`)
     }
 
-    console.log(trendProducstData.value.electronics,"Hi theress")
   };
 
 
