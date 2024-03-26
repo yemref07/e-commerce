@@ -1,5 +1,5 @@
 <template>
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div
       class="flex flex-col justify-center align-baseline"
       :class="{
