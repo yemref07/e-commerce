@@ -1,25 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  html: {
-    head: {
-      link: [
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: true,
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap",
-        },
-      ],
-    },
-  },
-
   image: {
     provider: "ipx",
   },
@@ -32,6 +12,7 @@ export default defineNuxtConfig({
       "~/components/sliders",
       "~/components/products",
       "~/components/layouts",
+       'composables',
     ],
   },
 
@@ -46,12 +27,51 @@ export default defineNuxtConfig({
     publicApiFallback: true,
   },
 
+  googleFonts: {
+    display: 'swap'
+  },
+
   css: ["~/assets/css/main.css"],
-  modules: ["@pinia/nuxt", "nuxt-icon",'@stefanobartoletti/nuxt-social-share'],
+  modules: [
+    "@pinia/nuxt",
+    "nuxt-icon",
+    "@stefanobartoletti/nuxt-social-share",
+    "@nuxt/image",
+    '@vueuse/nuxt',
+    '@vee-validate/nuxt',
+    ['@nuxtjs/google-fonts', {
+      families: {
+        Poppins: {
+          wght: [100,200,300,400,500,600],
+          ital: [300,400]
+        },
+        Lato : {
+          wght: [100,200,300,400,500,600],
+          ital: [300,400]
+        },
+
+      }
+  }],
+
+
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+  image: {
+    // Options
+    format: ['webp','jpg','avif','jpeg'],
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+  }
 });
