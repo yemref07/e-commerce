@@ -18,7 +18,6 @@ export const useCommentStore = defineStore('commentStore', () => {
             const response = await fetch(`https://dummyjson.com/comments?limit=${limit}&skip=${skip}&select=body,postId`)
             const data = await response.json();
             allComments.value = data.comments
-            console.log('commets data', data)
         }
         catch (error: any) {
             console.error('Error Fetching Commets', error.message)
