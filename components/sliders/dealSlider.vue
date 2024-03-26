@@ -17,7 +17,8 @@
         cat="Mobile"
         title="Samsung Tablet 4 GB Ram"
         img="/product-demo-images/product-offer-1.jpg"
-        price="400"
+        price=400
+        productID=1
       />
     </swiper-slide>
     <swiper-slide class="py-10">
@@ -25,35 +26,39 @@
         cat="Consoles"
         title="Sony Play Station 5 1 TB"
         img="/product-demo-images/product-offer2.jpg"
-        price="1200"
+        price=1200
+        productID=1
+    /></swiper-slide>
+    <swiper-slide class="py-10">
+      <productDealCard
+        cat="Camera"
+        title="4K Digidal Video Camera"
+        img="/product-demo-images/product-offer3.jpg"
+        price=400
+        productID=1
+    /></swiper-slide>
+    <swiper-slide class="py-10">
+      <productDealCard
+        cat="Camera"
+        title="4K Digidal Video Camera"
+        img="/product-demo-images/product-offer3.jpg"
+        price=400
+        productID=1
+    /></swiper-slide>
+    <swiper-slide class="py-10">
+      <productDealCard
+        cat="Camera"
+        title="4K Digidal Video Camera"
+        img="/product-demo-images/product-offer3.jpg"
+        price=400
+        productID=1
     /></swiper-slide>
     <swiper-slide class="py-10">
       <productDealCard
         cat="Camera"
         title="4K Digidal Video Kamera"
         img="/product-demo-images/product-offer3.jpg"
-        price="400"
-    /></swiper-slide>
-    <swiper-slide class="py-10">
-      <productDealCard
-        cat="Camera"
-        title="4K Digidal Video Kamera"
-        img="/product-demo-images/product-offer3.jpg"
-        price="400"
-    /></swiper-slide>
-    <swiper-slide class="py-10">
-      <productDealCard
-        cat="Camera"
-        title="4K Digidal Video Kamera"
-        img="/product-demo-images/product-offer3.jpg"
-        price="400"
-    /></swiper-slide>
-    <swiper-slide class="py-10">
-      <productDealCard
-        cat="Camera"
-        title="4K Digidal Video Kamera"
-        img="/product-demo-images/product-offer3.jpg"
-        price="400"
+        price=400
     /></swiper-slide>
   </swiper-container>
 </template>

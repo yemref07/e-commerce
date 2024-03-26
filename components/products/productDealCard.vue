@@ -61,7 +61,7 @@
   
       </div>
     </div>
-    <productTool :hover="hover" productID="lorem" />
+    <productTool :hover="hover" />
   </div>
 </template>
 
@@ -71,7 +71,8 @@ const props = defineProps({
   cat: String,
   title: String,
   img: String,
-  price: String,
+  price: Number,
+  productID:Number
 });
 
 const hover = ref(false);
