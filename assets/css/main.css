@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 *{
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 @font-face {
