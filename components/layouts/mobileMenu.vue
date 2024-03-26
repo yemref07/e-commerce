@@ -1,34 +1,79 @@
 <template>
   <div class="flex justify-between items-center px-3 py-5 md:px-10 lg:hidden">
-    <div class="">
-      <img src="/logos/commerce-logo.svg" alt="" width="150" />
-    </div>
-    <div class="flex">
-      <cart />
+
+    <div class="flex justify-start items-center">
+      <nuxt-link to="/" title="Dummy E-Commerce Home Page" class="mr-3">
+        <img
+          src="/logos/mobile-logo.svg"
+          alt="Dummy Commerce Mobile Logo"
+          width="110"
+        />
+      </nuxt-link>
       <Icon
-        name="ep:menu"
-        size="32"
+        name="pepicons-print:menu"
+        size="28"
         class="block text-tblack"
         @click="openMobile"
       />
     </div>
+
+
+    <div class="flex gap-1">
+      <nuxt-link to="/cart">
+        <cartIcon :quantity="cartCount" />
+      </nuxt-link>
+
+      <WishIcon />
+
+      <nuxt-link to="/user-profile" v-if="isAuthenticated">
+        <Icon
+          name="solar:user-bold-duotone"
+          size="28"
+          color="black"
+          class="cursor-pointer"
+        />
+      </nuxt-link>
+
+      <nuxt-link to="/signin" v-else>
+        <Icon
+          name="solar:user-bold-duotone"
+          size="28"
+          color="black"
+          class="cursor-pointer"
+        />
+      </nuxt-link>
+
+    </div>
   </div>
 
   <div
-    class="w-full fixed top-0 left-0 right-0 bg-white h-screen text-black overflow-y-auto scroll-smooth delay-400 transition-transform z-30"
+    style="z-index: 999"
+    class="w-full fixed top-0 left-0 right-0 bg-white h-screen text-black overflow-y-auto scroll-smooth delay-400 transition-transform"
     :class="{
       '-translate-x-full': !mobileVisible,
       'transform-none': mobileVisible,
     }"
   >
     <div class="flex flex-col px-8 py-20 relative">
-      <div class="mb-10">
-        <img src="/logos/commerce-logo.svg" alt="" width="220" />
+      <div class="mb-10 flex flex-row justify-between items-center">
+        <nuxt-link to="/" title="Dummy E-Commerce Home Page">
+          <img
+            src="/logos/commerce-logo.svg"
+            alt="Dummy Commerce Logo"
+            width="180"
+          />
+        </nuxt-link>
+        <Icon
+          name="ion:search"
+          size="26"
+          class="block text-tblack"
+          @click="openSearchModal"
+        />
       </div>
 
       <div class="">
         <div
-          class="bg-tpink text-white py-2 px-5 flex items-center justify-between"
+          class="bg-torange text-white py-2 px-5 flex items-center justify-between"
           @click="
             () => {
               toggleSubMenu(menuCategory);
@@ -36,51 +81,65 @@
           "
         >
           <div class="">
-            <Icon name="ion:menu" size="32" class="block text-tblack mr-2" />
-            <span class="font-medium text-xl align-bottom">All Categories</span>
+            <Icon name="ion:menu" size="24" class="block text-white mr-2" />
+            <span class="font-medium text-lg align-middle"
+              >Popular Categories</span
+            >
           </div>
 
           <div class="">
-            <Icon name="mdi:menu-down" size="32" class="block text-tblack" />
+            <Icon
+              name="ph:caret-down"
+              size="24"
+              class="block text-white transition-all duration-75"
+              :class="{ 'rotate-180': menuCategory.visibility }"
+            />
           </div>
         </div>
 
-        <div class="" :class="{ hidden:menuCategory.visibility }">
-          <ul class="pl-5 space-y-3 mt-5 divide-y-2 text-lg bg-white">
+        <div class="" :class="{ hidden: menuCategory.visibility }">
+          <ul class="pl-5 space-y-3 mt-5 divide-y-2 text-base bg-white">
             <li class="py-1">
               <Icon
-                name="solar:camera-broken"
-                size="32"
+                name="pepicons-pencil:smartphone-home-button"
+                size="24"
                 class="block text-tblack"
               />
-              <span class="align-bottom"> Cameras </span>
+              <nuxt-link to="/categories/smartphones" title="Smart Phones">
+                <span class="align-bottom ms-2"> Smartphone </span>
+              </nuxt-link>
             </li>
-
             <li class="py-1">
               <Icon
                 name="game-icons:intricate-necklace"
-                size="32"
+                size="24"
                 class="block text-tblack"
               />
-              <span class="align-bottom"> Jewelery </span>
+              <nuxt-link to="/categories/jewellery" title="Jewellery">
+                <span class="align-bottom ms-2">Jewellery</span>
+              </nuxt-link>
             </li>
 
             <li class="py-1">
               <Icon
                 name="streamline:shopping-catergories-shirt-clothing-t-shirt-men-top"
-                size="32"
+                size="24"
                 class="block text-tblack"
               />
-              <span class="align-bottom"> Mans Clothing </span>
+              <nuxt-link to="/categories/mens-shirts" title="Mens Shirts">
+                <span class="align-bottom ms-2"> Mens Shirts </span>
+              </nuxt-link>
             </li>
 
             <li class="py-1">
               <Icon
                 name="streamline:shopping-catergories-dress-clothing-dress-skirt-women"
-                size="32"
+                size="24"
                 class="block text-tblack"
               />
-              <span class="align-bottom"> Women Clothing </span>
+              <nuxt-link to="/categories/womens-dresses" title="Women Dresses">
+                <span class="align-bottom ms-2"> Womens Dresses</span>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -89,11 +148,16 @@
       <div class="mt-12">
         <div class="flex flex-col space-y-3">
           <div class="border-b-2 py-2">
-            <nuxt-link to="/" class="text-xl">Home</nuxt-link>
+            <nuxt-link to="/" class="text-lg" title="Home Page">Home</nuxt-link>
           </div>
 
           <div class="border-b-2 py-2">
-            <nuxt-link to="/about" class="text-xl">About</nuxt-link>
+            <nuxt-link
+              to="/about"
+              class="text-lg"
+              title="Dummy E-Commerce About"
+              >About</nuxt-link
+            >
           </div>
 
           <div class="border-b-2 py-2">
@@ -105,12 +169,12 @@
                 }
               "
             >
-              <nuxt-link to="/" class="text-xl"
-                >Trend Products
+              <nuxt-link to="/" class="text-lg" title="All Categories"
+                >All Categories
               </nuxt-link>
               <Icon
                 name="raphael:arrowright"
-                size="28"
+                size="20"
                 class="block text-tblack transition-all ease-in duration-200"
                 :class="{ 'rotate-90': menuProduct.visibility }"
               />
@@ -118,44 +182,121 @@
 
             <ul
               class="pl-5 space-y-3 mt-5 divide-y-2 text-lg"
-              :class="{ 'hidden': !menuProduct.visibility }"
+              :class="{ hidden: !menuProduct.visibility }"
             >
-              <li class="py-1">Category 1</li>
-              <li class="py-1">Category 2</li>
-              <li class="py-1">Category 3</li>
-              <li class="py-1">Category 4</li>
-              <li class="py-1">Category 5</li>
-              <li class="py-1">Category 6</li>
+              <li
+                class="py-1 capitalize text-base"
+                v-for="(item, index) in allProductsCat"
+                :key="index"
+              >
+                <nuxt-link :to="`/categories/${item}`" :title="item">
+                  {{ item.replace(/-/g, " ") }}
+                </nuxt-link>
+              </li>
             </ul>
           </div>
 
           <div class="border-b-2 py-2">
-            <nuxt-link to="/blog" class="text-xl">Blog</nuxt-link>
+            <nuxt-link to="/blog" class="text-lg" title="Dummy E-Commerce Blog"
+              >Blog</nuxt-link
+            >
           </div>
 
           <div class="border-b-2 py-2">
-            <nuxt-link to="/contact" class="text-xl">Contact</nuxt-link>
+            <nuxt-link
+              to="/contact"
+              class="text-lg"
+              title="Dummy E-Commerce Contact"
+              >Contact</nuxt-link
+            >
           </div>
         </div>
       </div>
 
       <Icon
         name="material-symbols:close"
-        size="32"
+        size="24"
         class="absolute text-tblack right-5 top-5"
         @click="closeMobile"
       />
     </div>
   </div>
+  <div
+    :class="{ 'hidden-search': !searchModalVisibility }"
+    class="z-1000 fixed transition-all opacity-100 visible duration-75 top-0 left-0 right-0 justify-center items-center w-full h-screen flex flex-col bg-gray-200 gap-5"
+  >
+    <Icon
+      name="material-symbols:close"
+      size="24"
+      class="absolute text-tblack right-5 top-5"
+      @click="() => (searchModalVisibility = false)"
+    />
+    <nuxt-link to="/" title="Dummy E-Commerce Home Page">
+      <img
+        src="/logos/commerce-logo.svg"
+        alt="Dummy Commerce Logo"
+        width="250"
+      />
+    </nuxt-link>
+
+    <input
+      type="text"
+      ref="searchInput"
+      placeholder="Type Here..."
+      class="px-5 rounded-md w-3/4 mt-10 py-4"
+      v-model="searchText"
+    />
+
+    <div
+      @click="search"
+      class="bg-torange text-center text-lg rounded-md text-white py-2 w-3/4"
+    >
+      Search Product
+    </div>
+  </div>
 </template>
 
 <script setup>
-const mobileVisible = ref(false);
-// const menuProduct = ref(false);
-// const menuCategory = ref(false);
+import { storeToRefs } from "pinia";
+import { useProductsStore } from "~/store/products";
+import { useCartStore } from "~/store/cart";
+import { useAuthStore } from "~/store/auth";
 
-const menuCategory = reactive({visibility:false});
-const menuProduct  = reactive({visibility:false});
+const mobileVisible = ref(false);
+const menuCategory = reactive({ visibility: false });
+const menuProduct = reactive({ visibility: false });
+
+const productStore = useProductsStore();
+const { searchProducts } = productStore;
+const { allProductsCat } = storeToRefs(productStore);
+const router = useRouter();
+const searchModalVisibility = ref(false);
+const searchText = ref("");
+const searchInput = ref(null);
+
+const cartStore = useCartStore();
+const { cartCount } = storeToRefs(cartStore);
+
+const authStore = useAuthStore()
+const {isAuthenticated} = storeToRefs(authStore)
+
+//search product
+const search = async () => {
+  await searchProducts(searchText.value);
+  router.push({ path: "/search-result", query: { qr: searchText.value } });
+  searchText.value = "";
+};
+
+// close mobile menu before each route change and navigate
+router.beforeEach((to, from) => {
+  if (mobileVisible.value === true) {
+    mobileVisible.value = false;
+  }
+  if (searchModalVisibility.value === true) {
+    searchModalVisibility.value = false;
+  }
+  return true;
+});
 
 const toggleSubMenu = (param) => {
   param.visibility = !param.visibility;
@@ -167,6 +308,18 @@ const closeMobile = () => {
 
 const openMobile = () => {
   mobileVisible.value = true;
+};
+
+const openSearchModal = () => {
+  searchModalVisibility.value = true;
+
+  // Use $nextTick to wait for the DOM to update
+  //Its not working ıdk why
+  nextTick(() => {
+    if (searchInput.value) {
+      searchInput.value.focus();
+    }
+  });
 };
 </script>
 
@@ -195,5 +348,14 @@ const openMobile = () => {
     -webkit-transform: translateY(-100px);
     transform: translateY(-100px);
   }
+}
+
+.hidden-search {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.z-1000 {
+  z-index: 1000;
 }
 </style>
