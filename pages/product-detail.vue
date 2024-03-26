@@ -536,7 +536,7 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 mt-20" >
+      <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6" >
         <ProductReviewCard
           v-for="(comment, index) in allComments"
           :key="comment.postId"
