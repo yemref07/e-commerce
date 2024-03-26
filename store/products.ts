@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import {object,string,number,array} from 'yup';
 
 interface productData {
     id: number;
@@ -14,15 +15,33 @@ interface productData {
     images: string[];
 }
 
+const productSchema = object().shape({
+    id: number().required(),
+    title: string().required(),
+    description: string().required(),
+    price: number().required(),
+    discountPercentage: number().required(),
+    rating: number().required(),
+    stock: number().required(),
+    brand: string().required(),
+    category: string().required(),
+    thumbnail: string().required(),
+    images: array().of(string()).required(),
+});
+
 export const useProductsStore = defineStore("productsStore", () => {
     //All products categories
     const allProductsCat = ref<string[]>([]);
+
     const singleProduct = ref<productData>();
+
     const searchResult = ref<productData[]>();
+
     const loadStatus = ref<boolean>(false);
 
-    //Cateries products (all smartphones)
+    //Categories products (all smartphones)
     const categoryProducts = ref<productData[]>();
+
 
     //fetch all product categories
     const getAllProductsCat = async () => {
@@ -50,15 +69,12 @@ export const useProductsStore = defineStore("productsStore", () => {
             return true;
         } catch (error) {
             console.error(error, "all products can not fetch");
-            return false;
         }
 
         finally {
             loadStatus.value = false;
         }
     };
-
-
 
     //Fetch data of single product with using ID
     const getSingleProduct = async (productID: string) => {
@@ -70,23 +86,21 @@ export const useProductsStore = defineStore("productsStore", () => {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error("Failed to fetch signle products");
+                throw new Error(`Product data couldn't fetch because ${data.message}`);
                 return false;
             }
 
-            //ensure the fetched response in correct data format
-            if (typeof data === "object") {
-                singleProduct.value = data;
-                return true;
-            }
+            // Validate the fetched data against the schema
+            await productSchema.validate(data);
 
-            else {
-                throw new Error("Recieved product data format is not valid");
-            }
+            // If validation succeeds, update the singleProduct value
+            singleProduct.value = data;
+
+            return true;
         }
 
-        catch (error) {
-            console.error(error, "Cant fetch to product data");
+        catch (error:any) {
+            console.error('Error fetching or validating product data:', error.message);
             return false;
         }
 
@@ -96,31 +110,36 @@ export const useProductsStore = defineStore("productsStore", () => {
     };
 
     // It takes product types as a param like phone, notebook ....
-    const searchProducts = async (type: string) => {
+    const searchProducts = async (param: string) => {
         loadStatus.value = true;
         try {
             const response = await fetch(
-                `https://dummyjson.com/products/search?q=${type}`
+                `https://dummyjson.com/products/search?q=${param}`
             );
 
             if (!response.ok) {
-                throw new Error("Failed search product by type of the product");
+                throw new Error("Failed search to product");
+                return false
             }
+
 
             const data = await response.json();
 
             if (data) {
                 searchResult.value = data?.products;
-                return true;
             }
 
             else {
                 searchResult.value = [];
             }
+
+            return true
+
+
         }
 
         catch (error) {
-            console.error(error, "Failed to fect products with type ");
+            console.error(error, "Failed to fetch products with type ");
         }
 
         finally {
@@ -138,14 +157,12 @@ export const useProductsStore = defineStore("productsStore", () => {
                 throw new Error(`Failed to fetch products for category ${catName}. Status: ${response.status}`);
                 return false;
             }
-
             const data = await response.json();
             categoryProducts.value = data?.products;
         }
 
         catch (error) {
             console.error("Failed fetch categorys products", error)
-            return false;
         }
 
         finally {
@@ -163,6 +180,7 @@ export const useProductsStore = defineStore("productsStore", () => {
         searchProducts,
         getProductsOfCategory,
         categoryProducts,
-        singleProduct
+        singleProduct,
+        searchResult
     };
 });
