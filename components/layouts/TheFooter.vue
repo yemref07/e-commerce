@@ -4,7 +4,7 @@
       class="grid md:grid-cols-2 lg:grid-cols-5 py-20 gap-10 md:gap-14 lg:gap-5 w-full"
     >
       <div class="lg:col-span-2">
-        <img src="/logos/commerce-logo.svg" alt="Dummy E-Commerce Logo" width="240" class="mb-5" />
+        <img src="/logos/commerce-logo.svg" alt="Dummy E-Commerce Logo" class="mb-5  w-44 md:w-60" />
         <p class="md:w-3/4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit
           dignissimos ipsam quidem.
@@ -12,31 +12,31 @@
         <div class="block mt-5 space-x-3">
           <a href="/" title="Dummy E-Commerce Facebook">
             <div class="p-2 footer-icon inline-block rounded-md">
-              <icon name="ri:facebook-fill" size="28" />
+              <icon name="ri:facebook-fill"  class="w-6 h-6" />
             </div>
           </a>
           <a href="/" title="Dummy E-Commerce Twitter">
             <div class="p-2 footer-icon inline-block rounded-md">
-              <icon name="ri:twitter-fill" size="28" />
+              <icon name="ri:twitter-fill" class="w-6 h-6" />
             </div>
           </a>
 
           <a href="" title="Dummy E-Commerce Instagram">
             <div class="p-2 footer-icon inline-block rounded-md">
-              <icon name="ri:instagram-fill" size="28" />
+              <icon name="ri:instagram-fill" class="w-6 h-6" />
             </div>
           </a>
 
           <a href="" title="Dummy E-Commerce Youtube">
             <div class="p-2 footer-icon inline-block rounded-md">
-              <icon name="ri:youtube-fill" size="28" />
+              <icon name="ri:youtube-fill" class="w-6 h-6" />
             </div>
           </a>
         </div>
       </div>
 
       <div class="">
-        <h2 class="mb-5 text-2xl font-semibold">Categories</h2>
+        <h2 class="mb-5 text-lg md:text-xl lg:text-2xl font-semibold">Categories</h2>
         <ul class="space-y-3">
 
           <li v-for="(item, index) in trendCategories" :key="index" class=" capitalize ">
@@ -47,7 +47,7 @@
       </div>
 
       <div class="">
-        <h2 class="mb-5 text-2xl font-semibold">Information</h2>
+        <h2 class="mb-5 text-lg md:text-xl lg:text-2xl font-semibold">Information</h2>
         <ul class="space-y-3 ">
           <li>
             <nuxt-link to="/" title="Home" class="hover:text-orange-500 duration-75">Home</nuxt-link>
