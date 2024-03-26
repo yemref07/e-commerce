@@ -1,7 +1,7 @@
 <template>
     <Breadcrumb title="Register Now" subtitle="Register" />
 
-    <container class="mt-20 relative z-50">
+    <container class="lg:mt-20 md:mt-10 mt-6 relative z-50">
       <img src="/shape/slider-shape-1.png" alt="" class="absolute right-0 top-5 opacity-25 lg:opacity-75" />
       <img src="/shape/slider-shape-2.png" alt="" class="absolute left-0 top-1/2 opacity-25 lg:opacity-75" />
       <img src="/shape/slider-shape-3.png" alt="" class="absolute opacity-25 lg:opacity-75" />
