@@ -1,5 +1,5 @@
 <template>
-  <container class="mt-20">
+  <container class="lg:mt-20 md:mt-10 mt-6">
     <div class="flex flex-row justify-between items-center">
       <div class="relative">
         <h2 class="font-semibold text-xl lg:text-4xl z-20 relative">
@@ -70,7 +70,7 @@
           :price="item.price"
           :img="item.images[0]"
           :productID="item.id"
-          review="25"
+          review="200+"
         />
       </div>
     </div>
@@ -81,6 +81,7 @@
     >
       <div class="" v-for="(item, index) in mensCloth?.products" :key="index">
         <productCard
+          :productID="item.id"
           :cat="item.category"
           :name="item.title"
           :rate="item.rating"
@@ -96,10 +97,11 @@
     >
       <div class="" v-for="(item, index) in womensCloth?.products" :key="index">
         <productCard
+          :productID="item.id"
           :cat="item?.category"
           :name="item?.title"
           :rate="item?.rating"
-          :price="item?.price"
+          :price="parseFloat(item?.price)"
           :img="item?.images[0]"
           review="25"
         />
