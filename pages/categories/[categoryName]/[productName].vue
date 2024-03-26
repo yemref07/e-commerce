@@ -1,12 +1,14 @@
 <template>
-  
   <container class="mt-5">
     <div class="grid lg:grid-cols-12 gap-5 md:gap-12">
       <div class="col-span-6">
         <div class="flex gap-5">
           <div class="flex flex-col space-y-6">
-
-            <div class="" v-for="(item, index) in singleProduct?.images" :key="index">
+            <div
+              class=""
+              v-for="(item, index) in singleProduct?.images"
+              :key="index"
+            >
               <img
                 :src="item"
                 :alt="getSEOTitle"
@@ -15,12 +17,10 @@
                 @click="goToSlide(index)"
               />
             </div>
-          
           </div>
 
           <Splide
             ref="splide"
-            @splide:visible="setThumb"
             :options="{
               height: '600px',
               direction: 'ttb',
@@ -31,26 +31,25 @@
             }"
             aria-label="My Favorite Images"
           >
-
-            <SplideSlide v-for="(item, index) in singleProduct?.images" :key="index">
+            <SplideSlide
+              v-for="(item, index) in singleProduct?.images"
+              :key="index"
+            >
               <img :src="item" :alt="getSEOTitle" />
             </SplideSlide>
-
-
           </Splide>
         </div>
       </div>
 
       <div class="col-span-6">
-        <h2 class="text-muted">{{singleProduct?.category}}</h2>
+        <h2 class="text-muted">{{ singleProduct?.category }}</h2>
         <h1
           class="text-black text-xl md:text-2xl lg:text-3xl font-semibold product-title"
         >
-          {{singleProduct?.title}}
+          {{ singleProduct?.title }}
         </h1>
-  
-        <div class="flex flex-row justify-start items-center gap-3 mt-5">
 
+        <div class="flex flex-row justify-start items-center gap-3 mt-5">
           <div class="" v-if="stockStatus">
             <span class="bg-sky-100 px-3 py-2 mt-2 rounded-md text-blue-800">
               in stock
@@ -73,13 +72,15 @@
             <Icon
               name="solar:star-bold"
               size="16"
-              class=" text-gray-400"
+              class="text-gray-400"
               v-for="(item, index) in emptyStars"
               :key="index"
             />
           </div>
           <div class="">
-            <span class="text-muted">{{ singleProduct?.stock || 0 }} Review</span>
+            <span class="text-muted"
+              >{{ singleProduct?.stock || 0 }} Review</span
+            >
           </div>
         </div>
 
@@ -88,8 +89,13 @@
             class="text-desc text-sm leading-7"
             :class="{ 'line-clamp-3': descVisible }"
           >
-          {{ singleProduct?.description || "lorem ıpsum"}}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione quasi quibusdam neque nesciunt sed dolorem perferendis quod at tenetur totam, ab accusamus sint! Consectetur assumenda suscipit consequatur voluptatum aliquid excepturi reiciendis expedita eaque perspiciatis laudantium, illo, fugiat adipisci. Corrupti illo cumque nostrum doloribus asperiores atque optio libero labore cum ipsam.
+            {{ singleProduct?.description || "No Text" }}
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
+            quasi quibusdam neque nesciunt sed dolorem perferendis quod at
+            tenetur totam, ab accusamus sint! Consectetur assumenda suscipit
+            consequatur voluptatum aliquid excepturi reiciendis expedita eaque
+            perspiciatis laudantium, illo, fugiat adipisci. Corrupti illo cumque
+            nostrum doloribus asperiores atque optio libero labore cum ipsam.
           </p>
           <span
             class="text-torange cursor-pointer"
@@ -99,9 +105,11 @@
         </div>
 
         <div class="mt-4">
-          <span class="text-gray-400 text-sm mr-3 line-through">${{ singleProduct?.price || "Free"}}.00</span>
+          <span class="text-gray-400 text-sm mr-3 line-through"
+            >${{ singleProduct?.price || "Free" }}.00</span
+          >
           <span class="font-semibold lg:text-xl xl:text-2xl text-tblack"
-            >${{finalCost}}</span
+            >${{ finalCost }}</span
           >
         </div>
 
@@ -190,10 +198,21 @@
             <Icon name="teenyicons:git-compare-outline" size="22" class="" />
             Compare
           </div>
-
-          <div class="text-gray-600 mx-3 text-sm cursor-pointer">
+          <div
+            v-if="!wishStatus"
+            class="text-gray-600 mx-3 text-sm cursor-pointer"
+            @click="addWish"
+          >
             <Icon name="ph:heart" size="24" class="" />
             Add Wishlist
+          </div>
+          <div
+            v-else
+            class="text-gray-600 mx-3 text-sm cursor-pointer"
+            @click="removeFromWishlist"
+          >
+            <Icon name="ph:heart-fill" size="24" color="red" />
+            Remove
           </div>
 
           <div class="text-gray-600 text-sm cursor-pointer">
@@ -234,11 +253,10 @@
           <div class="border-2 border-gray-100 rounded-full p-1 text-gray-600">
             <SocialShare network="whatsapp" :label="false" />
           </div>
-          
+
           <div class="border-2 border-gray-100 rounded-full p-1 text-gray-600">
             <SocialShare network="telegram" :label="false" />
           </div>
-
         </div>
 
         <div class="mt-6 flex flex-row justify-start items-center">
@@ -318,7 +336,9 @@
   <transition name="fade">
     <container class="mt-10" v-if="activeTab === 1">
       <div class="flex flex-col lg:px-10 xl:px-20">
-        <h2 class="text-lg capitalize">{{singleProduct?.category || "Category"}}</h2>
+        <h2 class="text-lg capitalize">
+          {{ singleProduct?.category || "Category" }}
+        </h2>
         <h1 class="text-2xl xl:text-3xl mt-2 font-semibold">
           {{ singleProduct?.title || "Title" }}
         </h1>
@@ -382,14 +402,22 @@
             <h3 class="text-tblack text-lg mb-2">Customer Reviews</h3>
 
             <div class="mb-5">
-              <span class="text-tblack font-semibold text-4xl me-3 align-middle"
+              <span
+                class="text-tblack font-semibold text-4xl me-3 align-middle"
                 >{{ singleProduct?.rating || "5" }}</span
               >
               <Icon
                 name="solar:star-bold"
                 size="16"
                 class="text-tyellow"
-                v-for="(item, index) in rate"
+                v-for="(item, index) in productRating"
+                :key="index"
+              />
+              <Icon
+                name="solar:star-bold"
+                size="16"
+                class="text-gray-400"
+                v-for="(item, index) in emptyStars"
                 :key="index"
               />
               <span class="ms-2">200 (reviews)</span>
@@ -505,7 +533,7 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 mt-20">
+      <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6">
         <ProductReviewCard
           v-for="(comment, index) in allComments"
           :key="comment.postId"
@@ -542,6 +570,8 @@ import alertSuccess from "~/components/UI/alertSuccess.vue";
 import customCheckbox from "~/components/UI/customCheckbox.vue";
 import starRating from "~/components/UI/starRating.vue";
 import { useProductsStore } from "~/store/products";
+import { useCartStore } from "~/store/cart";
+import { useWishlistStore } from "~/store/wishlist";
 
 const route = useRoute();
 
@@ -555,6 +585,15 @@ const initialCommentsLimit = ref(6);
 const productStore = useProductsStore();
 const { singleProduct } = storeToRefs(productStore);
 const { getSingleProduct } = productStore;
+
+//Cart Store
+const cartStore = useCartStore();
+const { addCart } = cartStore;
+
+//Wishlist Store
+const wishlistStore = useWishlistStore();
+const { addWishList, removeWishList } = wishlistStore;
+const { wishlist } = storeToRefs(wishlistStore);
 
 const getImageHeight = computed(() => {
   return 1;
@@ -583,29 +622,27 @@ const notificationModal = reactive({
 onMounted(async () => {
   //get product data with using product id
   // Check if productId is not null and is a string
-  
+
   if (
     typeof route.query.productId === "string" &&
     route.query.productId !== ""
   ) {
-    await getSingleProduct(route.query.productId );
+    await getSingleProduct(route.query.productId);
   }
 
   //fetch All comments (its defualt get 6comments)
   await getAllComments(initialCommentsLimit.value);
 });
 
-
 //Watch query - product ID and if it changes get new products data
-watch(() => route.params.id, async (newValue,oldValue)=>{
-  if (
-    typeof newValue === "string" &&
-    newValue !== ""
-  ) {
-    await getSingleProduct(newValue);
+watch(
+  () => route.params.id,
+  async (newValue, oldValue) => {
+    if (typeof newValue === "string" && newValue !== "") {
+      await getSingleProduct(newValue);
+    }
   }
-})
-
+);
 
 // Load More Reviews
 const getMoreComments = (param: number) => {
@@ -640,7 +677,7 @@ const addNewReview = async () => {
     if (!isSuccess) {
       errorModal.isVisible = true;
       errorModal.desc =
-        "Sorry we couldnt send your review please try again later";
+        "Sorry we couldn't send your review please try again later";
     } else {
       successModal.isVisible = true;
       successModal.desc =
@@ -686,17 +723,46 @@ const orderDetail = reactive({
   quantity: 1,
 });
 
-const addProductToChart = () => {
-  if (orderDetail.quantity > 0) {
-    notificationModal.isVisible = true;
-    notificationModal.title = "Product added to cart";
-  }
+//Products Cart Data
+const productCoreData = computed(() => {
+  const product = singleProduct.value;
+  return {
+    id: product?.id ?? 0,
+    name: product?.title ?? "No Name",
+    category: product?.category ?? "No Category",
+    image: product?.images[0] ?? "No Image",
+    price: parseFloat(finalCost.value),
+    quantity: orderDetail.quantity,
+  };
+});
+
+// Is product in wishlist
+const wishStatus = computed(() => {
+  return wishlist.value.some((item: any) => {
+    return item.id === singleProduct.value?.id;
+  });
+});
+
+// Add product to wishlist and show notification
+const addWish = () => {
+  addWishList(productCoreData.value);
+  notificationModal.isVisible = true;
+  notificationModal.title = "Product added to Wish List";
 };
 
-//Change active slide with using thumnail images
-const setThumb = function (splide: any) {
-  console.log(splide);
-  console.log(splide?.root?.clientHeight, "client height");
+//Remove product from wiishlist and show notification
+const removeFromWishlist = () => {
+  const productId = singleProduct.value?.id;
+  productId && removeWishList(productId);
+  notificationModal.isVisible = true;
+  notificationModal.title = "Product removed from Wish List";
+};
+
+//Add product to cart and show notification
+const addProductToChart = () => {
+  addCart(productCoreData.value);
+  notificationModal.isVisible = true;
+  notificationModal.title = "Product added to Cart";
 };
 
 // Set desired color of product
@@ -720,54 +786,58 @@ const goToSlide = (index: number) => {
   if (splide.value && splide.value.splide) {
     splide.value.go(index);
   }
-  setThumb();
 };
 
-
 // SEO Compable text for alt and title attirubute
-const getSEOTitle = computed(()=>{
-  if(singleProduct.value?.title && singleProduct.value?.brand)
-  return singleProduct.value?.title + "-" + singleProduct.value?.brand
-  else
-  return ""
-})
-
+const getSEOTitle = computed(() => {
+  if (singleProduct.value?.title && singleProduct.value?.brand)
+    return singleProduct.value?.title + "-" + singleProduct.value?.brand;
+  else return "";
+});
 
 // Stock Status Of Product
-const stockStatus = computed(()=>{
-  if(singleProduct.value?.stock){
+const stockStatus = computed(() => {
+  if (singleProduct.value?.stock) {
     return singleProduct.value?.stock > 0;
   }
-})
+});
 
 // Rating Score Of Product
-const productRating = computed(()=>{
-  if(singleProduct.value?.rating){
-    return Math.round(singleProduct.value?.rating)
+const productRating = computed(() => {
+  if (singleProduct.value?.rating) {
+    return Math.round(singleProduct.value?.rating);
   }
-})
+});
 
-//Empty Stars
-const emptyStars = computed(()=>{
-  if(productRating.value){
-    return 5 - productRating.value
+//Compute Empty Stars
+const emptyStars = computed(() => {
+  if (productRating.value) {
+    return 5 - productRating.value;
   }
-})
+});
 
+// Calc Discount Amount
+const discountAmount = computed(() => {
+  if (singleProduct.value?.price && singleProduct.value?.discountPercentage)
+    return (
+      (singleProduct.value?.price * singleProduct.value?.discountPercentage) /
+      100
+    );
+});
 
-
-const discountAmount = computed(()=>{
-  if(singleProduct.value.price)
-  return ( singleProduct.value?.price * singleProduct.value?.discountPercentage ) / 100
-})
-
-const finalCost = computed(()=>{
-  if(singleProduct.value?.price !== null && singleProduct.value?.price !== undefined )
-  return Math.round(singleProduct.value?.price - discountAmount.value).toFixed(2)
-  else
-  return "0"
-})
-
+//Final Cost Of The Product
+const finalCost = computed(() => {
+  if (
+    singleProduct.value?.price !== null &&
+    singleProduct.value?.price !== undefined &&
+    discountAmount.value !== undefined &&
+    discountAmount.value !== null
+  )
+    return Math.round(
+      singleProduct.value?.price - discountAmount.value
+    ).toFixed(2);
+  else return "0";
+});
 </script>
 
 <style scoped>
