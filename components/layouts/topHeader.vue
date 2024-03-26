@@ -31,17 +31,17 @@
                   <li>
                     <img
                       src="/lang/england.svg"
-                      alt=""
+                      alt="English"
                       width="24"
                       class="inline-block mr-2"
                     />
-                    <nuxt-link to="/my-profile">English</nuxt-link>
+                    <nuxt-link to="/">English</nuxt-link>
                   </li>
 
                   <li>
                     <img
                       src="/lang/turkey.svg"
-                      alt=""
+                      alt="Turkish"
                       width="24"
                       class="inline-block mr-2"
                     />
@@ -69,7 +69,7 @@
               >
                 <ul>
                   <li>
-                    <nuxt-link to="/my-profile">My Profile</nuxt-link>
+                    <nuxt-link to="/user-profile">My Profile</nuxt-link>
                   </li>
                   <li>
                     <nuxt-link to="/wishlist">Wishlist</nuxt-link>
