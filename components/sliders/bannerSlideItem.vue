@@ -11,11 +11,12 @@
     <span class="text-xl md:text-2xl lg:3xl xl:text-4xl font-semibold"
       >${{ props.reducedPrice }}</span
     >
-    <button
+    <nuxt-link
+      to="/categories"
       class="bg-tblack text-white px-6 py-2 md:px-12 md:py-3 mt-3 md:mt-5 rounded-md text-lg hover:bg-white hover:text-black delay-75"
     >
       Shop Now
-    </button>
+    </nuxt-link>
   </div>
 
   <div
