@@ -187,7 +187,7 @@
 
         <div class="mt-4">
           <button
-            class="bg-blue-500 text-white w-full py-3 hover:bg-black hover:text-white delay-76 ease-in duration-150"
+            class="bg-orange-500 text-white w-full py-3 hover:bg-black hover:text-white delay-76 ease-in duration-150"
           >
             Buy Now!
           </button>
@@ -523,7 +523,7 @@
                 />
                 <button
                   @click.prevent="addNewReview()"
-                  class="mt-6 bg-blue-500 text-white py-2 px-12 hover:bg-black transition-all delay-75 duration-75 rounded-md"
+                  class="mt-6 bg-orange-500 text-white py-2 px-12 hover:bg-black transition-all delay-75 duration-75 rounded-md"
                 >
                   Submit
                 </button>
