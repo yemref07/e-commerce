@@ -68,7 +68,7 @@
           </div>
 
           <div class="">
-            <button class="border text-tblack py-2 px-10" @click=" closeSession">
+            <button class="border text-tblack py-2 px-10" @click="closeSession">
               Logout
             </button>
           </div>
@@ -332,7 +332,7 @@
                 </td>
               </tr>
 
-       
+
             </tbody>
           </table>
         </div>
@@ -343,25 +343,32 @@
       <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack" v-if="activeTab === 4">
         <div class="flex flex-col gap-2">
           <h3 class="mb-3 md:text-xl lg:text-2xl font-semibold">My Activity Setting</h3>
-          <p class="text-sm md:w-2/3">Stay up to date with notification on activity that involves you including mentions, messages, replies to your bids, new items, sale and administrative updates</p>
-          
-        <label class="inline-flex items-center cursor-pointer mt-3">
-          <input type="checkbox" value="" class="sr-only peer">
-          <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"></div>
-          <span class="ms-2 text-sm">Like & Follows Notifications</span>
-        </label>
+          <p class="text-sm md:w-2/3">Stay up to date with notification on activity that involves you including
+            mentions, messages, replies to your bids, new items, sale and administrative updates</p>
 
-        <label class="inline-flex items-center cursor-pointer mt-3">
-          <input type="checkbox" value="" class="sr-only peer">
-          <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"></div>
-          <span class="ms-2 text-sm">Post, Comments & Replies Notifications</span>
-        </label>
+          <label class="inline-flex items-center cursor-pointer mt-3">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
+            </div>
+            <span class="ms-2 text-sm">Like & Follows Notifications</span>
+          </label>
 
-        <label class="inline-flex items-center cursor-pointer mt-3">
-          <input type="checkbox" value="" class="sr-only peer">
-          <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"></div>
-          <span class="ms-2 text-sm">New Product Notifications</span>
-        </label>
+          <label class="inline-flex items-center cursor-pointer mt-3">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
+            </div>
+            <span class="ms-2 text-sm">Post, Comments & Replies Notifications</span>
+          </label>
+
+          <label class="inline-flex items-center cursor-pointer mt-3">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
+            </div>
+            <span class="ms-2 text-sm">New Product Notifications</span>
+          </label>
 
         </div>
 
@@ -370,11 +377,15 @@
       <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack pb-5" v-if="activeTab === 5">
         <div class="flex flex-col gap-2">
           <h3 class="mb-3 md:text-xl lg:text-2xl font-semibold">Change Password</h3>
-          <Form @submit = "onSubmit" :validation-schema="passwordSchema ">
+          <Form @submit="onSubmit" :validation-schema="passwordSchema">
 
             <div class="mb-4 input md:w-3/4">
               <veeInput type="password" name="oldPassword" label="Old Password" placeholder="" />
-              <ErrorMessage name="oldPassword" class="text-sm text-orange-600" />
+              <ErrorMessage name="oldPassword" v-slot="{ message }">
+                <p class="text-sm text-orange-600">{{ message?.split(',')[0] }}</p>
+                <p class="text-sm text-orange-600">{{ message?.split(',')[1] }}</p>
+                <p class="text-sm text-orange-600">{{ message?.split(',')[2] }}</p>
+              </ErrorMessage>
             </div>
 
             <div class="mb-4 input md:w-3/4">
@@ -387,7 +398,8 @@
               <ErrorMessage name="confirmPassword" class="text-sm text-orange-600" />
             </div>
 
-            <button type="submit" class="px-10 py-2 text-white bg-orange-500 rounded-md mt-5 hover:bg-slate-900">Change Password</button>
+            <button type="submit" class="px-10 py-2 text-white bg-orange-500 rounded-md mt-5 hover:bg-slate-900">Change
+              Password</button>
           </Form>
         </div>
       </div>
@@ -412,9 +424,9 @@ const { userData } = storeToRefs(authStore);
 const { logout } = authStore;
 
 
-const closeSession = ():void => {
+const closeSession = (): void => {
   logout();
-  router.push({path:"/"})
+  router.push({ path: "/" })
 }
 
 //handle custom file loading logic
@@ -454,30 +466,43 @@ const isActive = (param: number): boolean => {
 
 
 //Password Changing
-const passwordValidationRule = (value:any) => {
+const passwordValidationRule = (value: any) => {
   if (!value) {
-      return "This field is required";
+    return "This field is required";
+  }
+
+  // if the field is not a valid password
+  const regex = /^(?=.*[0-9])(?=.*[A-Z]).{7}$/;
+
+  const errors = [];
+
+  if (!regex.test(value)) {
+    if (!/[0-9]/.test(value)) {
+      errors.push('At least one digit (0-9)');
+    }
+    if (!/[A-Z]/.test(value)) {
+      errors.push('At least one uppercase letter (A-Z)');
+    }
+    if (value.length !== 7) {
+      errors.push('Be exactly 7 characters long');
     }
 
-    // if the field is not a valid password
-    const regex = /^(?=.*[0-9])(?=.*[A-Z]).{7}$/;
-    if (!regex.test(value)) {
-      return "İt is not a valid password";
-    }
+    return errors.join('\n'); // Combine error messages with newlines
+  }
 
-    // All is good
-    return true;
+  // All is good
+  return true;
 }
 
-const confirmPasswordValRule = (value:any,context: any) => {
+const confirmPasswordValRule = (value: any, context: any) => {
   //Check firstly is it a valid password
   const passwordRuleResult = passwordValidationRule(value);
   if (passwordRuleResult !== true) {
-    return passwordRuleResult; 
+    return passwordRuleResult;
   }
 
   //check confirm and new are same if not return error message
-  if(context.form?.newPassword !== value){
+  if (context.form?.newPassword !== value) {
     return "Your passwords should match with each other";
   }
 
@@ -486,12 +511,12 @@ const confirmPasswordValRule = (value:any,context: any) => {
 }
 
 const passwordSchema = {
-  oldPassword:passwordValidationRule,
-  newPassword:passwordValidationRule,
-  confirmPassword:confirmPasswordValRule
+  oldPassword: passwordValidationRule,
+  newPassword: passwordValidationRule,
+  confirmPassword: confirmPasswordValRule
 }
 
-const onSubmit = function(values:any){
+const onSubmit = function (values: any) {
   alert(JSON.stringify(values, null, 2));
 }
 
@@ -508,7 +533,7 @@ const onSubmit = function(values:any){
   color: var(--torange);
 }
 
-.input :deep(input){
+.input :deep(input) {
   margin-bottom: 10px;
 }
 </style>
