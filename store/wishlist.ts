@@ -25,9 +25,14 @@ export const useWishlistStore = defineStore("wishlistStore",()=>{
     }
 
 
+    const wishCount = computed(() => {
+        return wishlist.value?.length ?? 0;
+      });
+
     return{
         addWishList,
         removeWishList,
-        wishlist
+        wishlist,
+        wishCount
     }
 })
