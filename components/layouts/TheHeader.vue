@@ -355,10 +355,8 @@ const { cartList, cartCount } = storeToRefs(cartStore);
 
 //Wish List Store
 const wishlistStore = useWishlistStore();
-const { wishlist } = storeToRefs(wishlistStore);
-const wishCount = computed(() => {
-  return wishlist.value?.length ?? 0;
-});
+const { wishlist,wishCount } = storeToRefs(wishlistStore);
+
 
 //Product Store
 const productStore = useProductsStore();
