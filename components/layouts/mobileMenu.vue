@@ -23,7 +23,7 @@
         <cartIcon :quantity="cartCount" />
       </nuxt-link>
 
-      <WishIcon />
+      <WishIcon :quantity="wishCount"/>
 
       <nuxt-link to="/user-profile" v-if="isAuthenticated">
         <Icon
@@ -261,6 +261,7 @@ import { storeToRefs } from "pinia";
 import { useProductsStore } from "~/store/products";
 import { useCartStore } from "~/store/cart";
 import { useAuthStore } from "~/store/auth";
+import { useWishlistStore } from "~/store/wishlist";
 
 const mobileVisible = ref(false);
 const menuCategory = reactive({ visibility: false });
@@ -276,6 +277,9 @@ const searchInput = ref(null);
 
 const cartStore = useCartStore();
 const { cartCount } = storeToRefs(cartStore);
+
+const wishlistStore = useWishlistStore()
+const { wishCount} = storeToRefs(wishlistStore)
 
 const authStore = useAuthStore()
 const {isAuthenticated} = storeToRefs(authStore)
