@@ -34,6 +34,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   modules: [
     "@pinia/nuxt",
+    '@pinia-plugin-persistedstate/nuxt',
     "nuxt-icon",
     "@stefanobartoletti/nuxt-social-share",
     "@nuxt/image",
@@ -73,5 +74,11 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     },
-  }
+  },
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: 'strict',
+    },
+    storage: 'localStorage'
+  },
 });
