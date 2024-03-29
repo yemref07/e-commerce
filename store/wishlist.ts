@@ -35,4 +35,4 @@ export const useWishlistStore = defineStore("wishlistStore",()=>{
         wishlist,
         wishCount
     }
-})
+},{ persist: true})

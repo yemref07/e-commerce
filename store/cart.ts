@@ -56,4 +56,4 @@ export const useCartStore = defineStore("cartStore", () => {
         cartCount,
         cartTotalCost
     }
-})
+},{ persist: true})

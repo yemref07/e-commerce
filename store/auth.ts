@@ -8,13 +8,13 @@ interface login {
 type Gender = "male" | "female" | "other";
 
 type user = {
-    readonly id:number,
+    readonly id: number,
     email: string,
     firstName: string,
     lastName: string,
     gender?: Gender,
     image?: string,
-    token:string,
+    token: string,
 }
 
 export const useAuthStore = defineStore('authStore', () => {
@@ -50,7 +50,7 @@ export const useAuthStore = defineStore('authStore', () => {
                 token.value = data.token;
                 isAuthenticated.value = true;
                 userData.value = data;
-                console.log('userData:',userData.value)
+                console.log('userData:', userData.value)
                 return true;
             }
 
@@ -82,5 +82,9 @@ export const useAuthStore = defineStore('authStore', () => {
         isAuthenticated,
         userData,
         errorMsg
+    }
+}, {
+    persist: {
+        paths: ['isAuthenticated'],
     }
 })
