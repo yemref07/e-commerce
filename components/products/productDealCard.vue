@@ -13,7 +13,7 @@
     "
   >
     <div class="border-b-2 relative">
-      <img :src="props.img" alt="" class="w-full h-auto" />
+      <NuxtImg loading="lazy" :src="props.img" alt="" class="w-full h-auto" />
       <button
         class="bg-tblack text-white d-block py-2 w-full btn-add"
         :class="{ 'btn-add-hover': hover }"
@@ -34,31 +34,38 @@
         </span>
       </h4>
       <div class="grid grid-cols-4 gap-5 mt-5">
-        <div class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center">
+        <div
+          class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center"
+        >
           <p class="text-lg">
             {{ countDown.days }}
           </p>
           <p class="text-muted text-sm">Days</p>
         </div>
-        <div class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center">
+        <div
+          class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center"
+        >
           <p class="text-lg">
             {{ countDown.hours }}
           </p>
           <p class="text-muted text-sm">Hours</p>
         </div>
-        <div class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center">
+        <div
+          class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center"
+        >
           <p class="text-lg">
             {{ countDown.min }}
           </p>
           <p class="text-muted text-sm">Minutes</p>
         </div>
-        <div class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center">
+        <div
+          class="border-2 border-gray-200 px-4 py-2 flex flex-col items-center justify-center"
+        >
           <p class="text-lg">
             {{ countDown.seconds }}
           </p>
           <p class="text-muted text-sm">Seconds</p>
         </div>
-  
       </div>
     </div>
     <productTool :hover="hover" />
@@ -72,7 +79,7 @@ const props = defineProps({
   title: String,
   img: String,
   price: Number,
-  productID:Number
+  productID: Number,
 });
 
 const hover = ref(false);
@@ -95,8 +102,8 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  clearInterval(countDown.value.intervalID)
-})
+  clearInterval(countDown.value.intervalID);
+});
 
 const updateCountDown = () => {
   const now = new Date().getTime();
@@ -104,15 +111,17 @@ const updateCountDown = () => {
   if (timeRemaining <= 0) {
     //Count down reach zero
     clearInterval(countDown.value.intervalID);
-  } 
-  else {
+  } else {
     countDown.value.days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    countDown.value.hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    countDown.value.min = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    countDown.value.hours = Math.floor(
+      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    countDown.value.min = Math.floor(
+      (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+    );
     countDown.value.seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
   }
 };
-
 </script>
 
 <style scoped>

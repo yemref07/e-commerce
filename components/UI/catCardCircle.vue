@@ -3,7 +3,7 @@
 
         <div class="flex flex-col justify-center items-center cat-circle rounded-full">
             <nuxt-link :to="link" class="cursor-pointer" :title="props.title">
-                <img :src="img" alt="Product Category 1" width="78" :alt="props.title">
+                <NuxtImg loading="lazy":src="img" alt="Product Category 1" width="78" :alt="props.title" />
             </nuxt-link>
         </div>
 

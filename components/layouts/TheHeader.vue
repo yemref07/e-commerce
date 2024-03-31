@@ -8,7 +8,8 @@
       <div class="flex py-5 items-center justify-between">
         <div class="basis-1/4 lg:basis-1/3">
           <nuxt-link to="/" title="Home Page">
-            <img
+            <NuxtImg
+              loading="lazy"
               src="/logos/commerce-logo.svg"
               alt="Dummy E-Commerce Logo"
               class="w-32 lg:w-40 xl:w-56"
@@ -55,7 +56,6 @@
         <div class="basis-1/4 lg:basis-1/3">
           <div class="flex items-center justify-end">
             <div class="">
-
               <nuxt-link
                 to="/user-profile"
                 title="User Profile"
@@ -76,7 +76,6 @@
                   class="ms-10 mr-3 cursor-pointer"
                 />
               </nuxt-link>
-
             </div>
 
             <div class="hidden xl:flex flex-col mr-10" v-if="isAuthenticated">
@@ -355,8 +354,7 @@ const { cartList, cartCount } = storeToRefs(cartStore);
 
 //Wish List Store
 const wishlistStore = useWishlistStore();
-const { wishlist,wishCount } = storeToRefs(wishlistStore);
-
+const { wishlist, wishCount } = storeToRefs(wishlistStore);
 
 //Product Store
 const productStore = useProductsStore();
@@ -376,6 +374,10 @@ const search = async () => {
   router.push({ path: "/search-result", query: { qr: searchInput.value } });
   searchInput.value = "";
 };
+
+const onSubmit = () => {
+  search()
+}
 
 //mega menu categories first part
 const catFirstpart = computed(() => {

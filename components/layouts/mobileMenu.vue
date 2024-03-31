@@ -3,7 +3,8 @@
 
     <div class="flex justify-start items-center">
       <nuxt-link to="/" title="Dummy E-Commerce Home Page" class="mr-3">
-        <img
+        <NuxtImg
+          loading="lazy"
           src="/logos/mobile-logo.svg"
           alt="Dummy Commerce Mobile Logo"
           width="110"
@@ -57,7 +58,8 @@
     <div class="flex flex-col px-8 py-20 relative">
       <div class="mb-10 flex flex-row justify-between items-center">
         <nuxt-link to="/" title="Dummy E-Commerce Home Page">
-          <img
+          <NuxtImg
+      loading="lazy"
             src="/logos/commerce-logo.svg"
             alt="Dummy Commerce Logo"
             width="180"
@@ -232,7 +234,8 @@
       @click="() => (searchModalVisibility = false)"
     />
     <nuxt-link to="/" title="Dummy E-Commerce Home Page">
-      <img
+      <NuxtImg
+      loading="lazy"
         src="/logos/commerce-logo.svg"
         alt="Dummy Commerce Logo"
         width="250"

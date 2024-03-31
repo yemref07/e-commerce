@@ -19,7 +19,8 @@
             :to="`/categories/${item.category}/${item.name}?productId=${item.id}`"
             class="cursor-pointer"
           >
-            <img :src="item.image" alt="Play Station 5 Console" width="100" />
+            <NuxtImg
+      loading="lazy" :src="item.image" alt="Play Station 5 Console" width="100" />
           </nuxt-link>
 
           <span class="text-tblack text-sm capitalize font-semibold">

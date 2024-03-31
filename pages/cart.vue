@@ -21,7 +21,8 @@
                 class="flex flex-col items-center md:items-start flex-wrap gap-4"
               >
                 <nuxt-link :to="`/categories/${item.category}/${item.name}?productId=${item.id}`" class="cursor-pointer">
-                  <img
+                  <NuxtImg
+      loading="lazy"
                     :src="item.image"
                     alt="Play Station 5 Console"
                     width="100"
@@ -84,7 +85,8 @@
                 >
               </div>
   
-              <img
+              <NuxtImg
+      loading="lazy"
                 src="/payment/payment-option.png"
                 alt="E-Commerce Payment Options"
                 class="w-full mt-5"

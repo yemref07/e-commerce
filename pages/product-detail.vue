@@ -5,7 +5,7 @@
         <div class="flex gap-5">
           <div class="flex flex-col space-y-3">
             <div class="">
-              <img
+              <NuxtImg loading="lazy"
                 src="/produc-detail-thumb-image/thumb1.jpg"
                 alt=""
                 width="78"
@@ -13,7 +13,7 @@
               />
             </div>
             <div class="">
-              <img
+              <NuxtImg loading="lazy"
                 src="/produc-detail-thumb-image/thumb2.jpg"
                 alt=""
                 width="78"
@@ -21,7 +21,7 @@
               />
             </div>
             <div class="">
-              <img
+              <NuxtImg loading="lazy"
                 src="/produc-detail-thumb-image/thumb3.jpg"
                 alt=""
                 width="78"
@@ -29,7 +29,7 @@
               />
             </div>
             <div class="">
-              <img
+              <NuxtImg loading="lazy"
                 src="/produc-detail-thumb-image/thumb4.jpg"
                 alt=""
                 width="78"
@@ -566,7 +566,7 @@ import colorSelectInput from "~/components/UI/colorSelectInput.vue";
 import customInput from "~/components/UI/customInput.vue";
 import { useCommentStore } from "../store/comment";
 import { storeToRefs } from "pinia";
-import ProductReviewCard from "../../components/products/product-review-card.vue";
+import ProductReviewCard from "~/components/products/product-review-card.vue";
 import alertError from "~/components/UI/alertError.vue";
 import alertNotification from "~/components/UI/alertNotification.vue";
 import alertSuccess from "~/components/UI/alertSuccess.vue";

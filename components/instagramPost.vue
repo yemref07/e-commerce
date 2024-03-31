@@ -14,7 +14,8 @@
         }
       "
     >
-      <img
+    <NuxtImg
+      loading="lazy"
         :src="item.img"
         alt=""
         class="rounded-md w-full h-auto"

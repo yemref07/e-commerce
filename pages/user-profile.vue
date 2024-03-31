@@ -46,7 +46,7 @@
 
           <div class="flex flex-row items-center">
             <div class="">
-              <img :src="userData?.image || '/users/male.png'" alt="User Profile Image" width="85"
+              <NuxtImg loading="lazy" :src="userData?.image || '/users/male.png'" alt="User Profile Image" width="85"
                 class="inline-block rounded-full" />
 
               <input type="file" class="hidden" ref="loadImage" @change="loadProfileImg" accept="image/*"></input>

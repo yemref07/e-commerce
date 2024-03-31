@@ -4,7 +4,8 @@
       class="grid md:grid-cols-2 lg:grid-cols-5 py-20 gap-10 md:gap-14 lg:gap-5 w-full"
     >
       <div class="lg:col-span-2">
-        <img src="/logos/commerce-logo.svg" alt="Dummy E-Commerce Logo" class="mb-5  w-44 md:w-60" />
+        <NuxtImg
+      loading="lazy" src="/logos/commerce-logo.svg" alt="Dummy E-Commerce Logo" class="mb-5  w-44 md:w-60" />
         <p class="md:w-3/4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit
           dignissimos ipsam quidem.

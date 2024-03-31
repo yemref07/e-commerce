@@ -2,17 +2,20 @@
   <Breadcrumb title="My Account" subtitle="Sign In" />
 
   <container class="lg:mt-20 md:mt-10 mt-6 relative z-50">
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-1.png"
       alt=""
       class="absolute right-0 top-5 opacity-25 lg:opacity-75"
     />
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-2.png"
       alt=""
       class="absolute left-0 top-1/2 opacity-25 lg:opacity-75"
     />
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-3.png"
       alt=""
       class="absolute opacity-25 lg:opacity-75"

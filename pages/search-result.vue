@@ -80,7 +80,8 @@
           </h3>
 
           <div class="flex flex-row gap-4 mt-4">
-            <img
+            <NuxtImg 
+              loading="lazy"
               src="/produc-detail-thumb-image/thumb1.jpg"
               alt="Popular Product"
               width="75"
@@ -99,7 +100,7 @@
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <img
+            <NuxtImg loading="lazy"
               src="/produc-detail-thumb-image/thumb1.jpg"
               alt="Popular Product"
               width="75"
@@ -118,7 +119,7 @@
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <img
+            <NuxtImg loading="lazy"
               src="/produc-detail-thumb-image/thumb1.jpg"
               alt="Popular Product"
               width="75"
@@ -142,12 +143,12 @@
             Popular Brands
           </h3>
           <div class="flex items-center mt-4 flex-wrap">
-            <img src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
-            <img src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
-            <img src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
-            <img src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
-            <img src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
-            <img src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
+            <NuxtImg loading="lazy" src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
           </div>
         </div>
       </div>
@@ -204,14 +205,15 @@
               :img="item.images[0]"
               :price="item.price"
               :rate="item.rating"
-              :review="item.stock"
+              :review="item.stock.toString()"
               :productID="item.id.toString()"
             />
           </div>
         </div>
 
         <div v-else class="grid justify-center items-center">
-          <img
+          <NuxtImg 
+            loading="lazy"
             src="/error/no-result.svg"
             alt="There is no result"
             width="500"

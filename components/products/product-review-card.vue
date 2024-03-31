@@ -1,12 +1,18 @@
 <template>
   <div class="flex flex-row justify-start items-center gap-5">
-    <img :src="props.imgSrc" alt="" width="60" class="rounded-full" />
+    <NuxtImg
+      loading="lazy"
+      :src="props.imgSrc"
+      alt=""
+      width="60"
+      class="rounded-full"
+    />
     <div class="p-2">
       <Icon
         name="solar:star-bold"
         size="16"
         class="text-tyellow block"
-        v-for="(item, index) in  parseInt(props.rate)"
+        v-for="(item, index) in parseInt(props.rate)"
         :key="index"
       />
 
@@ -19,7 +25,7 @@
       />
 
       <p class="text-sm font-semibold mt-2">
-        {{ name || 'John Doe'}}
+        {{ name || "John Doe" }}
         <span class="text-muted text-sm">{{ date }}</span>
       </p>
 
@@ -58,9 +64,9 @@ const props = defineProps({
 });
 
 //Calc Empty Start
-const emptyStars = computed(()=>{
-  return 5 - parseInt(props.rate)
-})
+const emptyStars = computed(() => {
+  return 5 - parseInt(props.rate);
+});
 </script>
 
 <style lang="css" scoped></style>

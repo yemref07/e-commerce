@@ -69,8 +69,6 @@
 </template>
 
 <script setup>
-const backgroundColor = ref(null);
-
 const props = defineProps({
   title1: String,
   title2: String,

@@ -50,20 +50,23 @@
       <div class="col-span-1 lg:col-span-1  flex flex-col space-y-5 lg:space-y-8">
 
         <div class="flex flex-col justify-end items-start">
-            <img src="/icons/location.svg" alt="" width="60" class="mb-2">
+            <NuxtImg
+      loading="lazy" src="/icons/location.svg" alt="" width="60" class="mb-2" />
             <h3 class="font-semibold text-xl mb-2">Location</h3>
             <a href="" class="text-tblack text-lg opacity-80">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
         </div>
 
         <div class="flex flex-col justify-end items-start">
-            <img src="/icons/email.svg" alt="" width="60" class="mb-2">
+            <NuxtImg
+      loading="lazy" src="/icons/email.svg" alt="" width="60" class="mb-2" />
             <h3 class="font-semibold text-xl mb-2">E-Mail</h3>
             <a href="" class="text-tblack text-lg opacity-80">ecommerce1@email.com</a>
             <a href="" class="text-tblack text-lg opacity-80">ecommerce2@email.com</a>
         </div>
 
         <div class="flex flex-col justify-end items-start">
-            <img src="/icons/phone.svg" alt="" width="60" class="mb-2">
+            <NuxtImg
+      loading="lazy" src="/icons/phone.svg" alt="" width="60" class="mb-2" />
             <h3 class="font-semibold text-xl mb-2">Phone</h3>
             <a href="tel:" class="text-tblack  text-lg opacity-80">+90 534 999 99 99</a>
             <a href="tel:" class="text-tblack text-lg opacity-80">+90 534 999 99 99</a>

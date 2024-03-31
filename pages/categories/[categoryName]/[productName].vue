@@ -9,13 +9,14 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-              <img
+            <NuxtImg 
+                loading="lazy"
                 :src="item"
                 :alt="getSEOTitle"
                 width="75"
                 height="auto"
                 @click="goToSlide(index)"
-              />
+            />
             </div>
           </div>
 
@@ -35,7 +36,7 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-              <img :src="item" :alt="getSEOTitle" />
+            <NuxtImg loading="lazy" :src="item" :alt="getSEOTitle" />
             </SplideSlide>
           </Splide>
         </div>
@@ -278,7 +279,7 @@
             <span class="text-tblack">Guaranteed safe & secure checkout</span>
           </div>
           <div class="">
-            <img src="/payment/payment-option.png" alt="" width="200" />
+            <NuxtImg loading="lazy" src="/payment/payment-option.png" alt="" width="200" />
           </div>
         </div>
 
@@ -539,12 +540,12 @@
       <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6">
         <ProductReviewCard
           v-for="(comment, index) in allComments"
-          :key="comment.postId"
-          :comment="comment.body"
+          :key="comment?.postId"
+          :comment="comment?.body"
           img-src="/users/male.png"
           rate="4"
           date="24 May"
-          :name="comment.user.username"
+          :name="comment?.user?.username"
         />
       </div>
 
