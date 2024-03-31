@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative" :style="{ backgroundColor: backgroundColor }">
+  <div class="w-full relative" :style="{ backgroundColor: bgColor }">
     <div class="container mx-auto px-10 lg:px-20 xl:px-32">
       <div class="slide flex flex-col justify-center items-center">
         <div class="grid lg:grid-cols-2">
@@ -78,14 +78,6 @@ const props = defineProps({
   img: String,
   bgColor: String,
   catLink: String,
-});
-
-const setBgColor = (color) => {
-  backgroundColor.value = color;
-};
-
-onMounted(() => {
-  setBgColor(props.bgColor);
 });
 </script>
 
