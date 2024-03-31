@@ -25,7 +25,7 @@ import { useWishlistStore } from '~/store/wishlist';
 
 const props = defineProps({
     hover:Boolean,
-    productID:Number,
+    productID:String,
     category:String,
     name:String,
     image:String,
@@ -45,7 +45,7 @@ const addProductToCart = () => {
             category:props.category,
             quantity:1,
             image:props.image,
-            price:parseFloat(props.price)
+            price:props.price
         })
     }
     else{

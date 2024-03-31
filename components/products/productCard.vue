@@ -83,7 +83,7 @@ const props = defineProps({
   price: Number,
   img: String,
   review:String,
-  productID:Number,
+  productID:String,
 });
 
 const setRateStar = (param) => {
