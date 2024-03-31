@@ -35,6 +35,7 @@
             class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center"
           >
             <NuxtPicture
+              loading="lazy"
               format="webp,png"
               :src="props.img"
               :alt="props.title1"
@@ -45,18 +46,21 @@
     </div>
 
     
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-2.png"
       alt=""
       class="w-40 absolute opacity-40 top-1/4 left-20"
     />
 
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-1.png"
       alt=""
       class="w-2/5 absolute grayscale opacity-20 top-0 right-0"
     />
-    <img
+    <NuxtImg
+      loading="lazy"
       src="/shape/slider-shape-4.png"
       alt=""
       class="w-2/5 absolute grayscale opacity-20 top-0 right-28"
