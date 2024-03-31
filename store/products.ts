@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import {object,string,number,array} from 'yup';
 
 interface productData {
-    id: number;
+    id: string;
     title: string;
     description: string;
     price: number;

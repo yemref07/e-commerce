@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 interface favorite{
     name: string,
-    id: number,
+    id: string,
     category: string,
     quantity: number,
     image: string,
@@ -18,7 +18,7 @@ export const useWishlistStore = defineStore("wishlistStore",()=>{
         wishlist.value.push(param)
     }
 
-    const removeWishList = (productID:number) => {
+    const removeWishList = (productID:string) => {
       wishlist.value =  wishlist.value.filter((item:favorite)=>{
             return item.id !== productID
         })

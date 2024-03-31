@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 interface product {
     name: string,
-    id: number,
+    id: string,
     category: string,
     quantity: number,
     image: string,
