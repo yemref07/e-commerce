@@ -22,7 +22,7 @@
           <Splide
             ref="splide"
             :options="{
-              height: '600px',
+              height: productImgHeight,
               direction: 'ttb',
               arrows: false,
               perPage: 1,
@@ -396,14 +396,16 @@
 
   <transition name="fade">
     <container class="mt-10" v-if="activeTab === 3">
+      
       <div class="grid lg:grid-cols-2">
-        <div class="col-span-1 items-baseline">
-          <div class="border-2 border-gray-200 py-10 px-8 w-fit">
-            <h3 class="text-tblack text-lg mb-2">Customer Reviews</h3>
+
+        <div class="lg:col-span-1 items-baseline">
+          <div class="md:border-2 border-gray-200 md:px-8 md:py-6 w-fit">
+            <h3 class="text-tblack text-xl mb-2 font-semibold">Customer Reviews</h3>
 
             <div class="mb-5">
               <span
-                class="text-tblack font-semibold text-4xl me-3 align-middle"
+                class="text-tblack font-semibold text-2xl lg:text-4xl me-3 align-middle"
                 >{{ singleProduct?.rating || "5" }}</span
               >
               <Icon
@@ -456,9 +458,9 @@
           </div>
         </div>
 
-        <div class="col-span-1 items-center justify-center content-center">
+        <div class="lg:col-span-1 mt-8 lg:mt-0">
           <div class="mb-5">
-            <h3 class="text-tblack lg:text-xl xl:text-3xl">
+            <h3 class="text-tblack text-xl xl:text-3xl font-semibold">
               Review This Product
             </h3>
             <p class="text-muted mt-3 text-sm mb-3">
@@ -531,6 +533,7 @@
             </div>
           </div>
         </div>
+
       </div>
 
       <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6">
@@ -563,7 +566,7 @@ import colorSelectInput from "~/components/UI/colorSelectInput.vue";
 import customInput from "~/components/UI/customInput.vue";
 import { useCommentStore } from "~/store/comment";
 import { storeToRefs } from "pinia";
-import ProductReviewCard from "../../components/products/product-review-card.vue";
+import ProductReviewCard from "~/components/products/product-review-card.vue";
 import alertError from "~/components/UI/alertError.vue";
 import alertNotification from "~/components/UI/alertNotification.vue";
 import alertSuccess from "~/components/UI/alertSuccess.vue";
@@ -574,6 +577,16 @@ import { useCartStore } from "~/store/cart";
 import { useWishlistStore } from "~/store/wishlist";
 
 const route = useRoute();
+
+const screenWidth = ref<number>(600)
+
+const productImgHeight = computed(()=>{
+  return  screenWidth.value > 991 ? 600 : 300;
+})
+
+onMounted(() => {
+  screenWidth.value = window.innerWidth;
+})
 
 //Comments Store
 const commentStore = useCommentStore();
@@ -727,7 +740,7 @@ const orderDetail = reactive({
 const productCoreData = computed(() => {
   const product = singleProduct.value;
   return {
-    id: product?.id ?? 0,
+    id: product?.id ?? "0",
     name: product?.title ?? "No Name",
     category: product?.category ?? "No Category",
     image: product?.images[0] ?? "No Image",
@@ -855,9 +868,7 @@ const finalCost = computed(() => {
 }
 
 .tab-active {
-  -webkit-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 1);
-  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 1);
+ border-bottom: 2px solid var(--tpurple);
 }
 
 .input-label {
