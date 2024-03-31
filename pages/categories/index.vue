@@ -45,16 +45,8 @@ onMounted(async () => {
 });
 
 const router = useRouter();
-const route = useRoute();
 
 const goCatProducts = async (category: string) => {
-  // await navigateTo({
-  //   name:"categories",
-  //   params: {
-  //     catName: category,
-  //   },
-  // });
-  // console.log(route.params,'route')
   if (router) {
     router.push({ name: "categories", params: { id: category } });
   }
