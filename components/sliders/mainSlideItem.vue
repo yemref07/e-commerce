@@ -34,16 +34,11 @@
           <div
             class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center"
           >
-            <img
+            <NuxtPicture
+              format="webp,png"
               :src="props.img"
               :alt="props.title1"
-              class="w-3/4 z-20"
-            />
-            <!-- <NuxtImg   
-              format="webp"
-              :src="props.img"
-              :alt="props.title1"
-              class="w-3/4 z-20" /> -->
+              class="w-3/4 z-20" />
           </div>
         </div>
       </div>
