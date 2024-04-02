@@ -9,7 +9,7 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-            <NuxtImg 
+            <img
                 loading="lazy"
                 :src="item"
                 :alt="getSEOTitle"
@@ -36,7 +36,7 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-            <NuxtImg loading="lazy" :src="item" :alt="getSEOTitle" />
+            <img :src="item" :alt="getSEOTitle" />
             </SplideSlide>
           </Splide>
         </div>
