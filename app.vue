@@ -16,7 +16,6 @@ onMounted(async ()=>{
   if(token.value && !userData.value){
     await getAuthUser()
   }
-  
 })
 
 </script>
