@@ -61,7 +61,7 @@
                 title="User Profile"
                 v-if="isAuthenticated"
               >
-                <NuxtImg
+                <img
                   loading="lazy"
                   :src="profileImg"
                   alt="User Profile Image"
