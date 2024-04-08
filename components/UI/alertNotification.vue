@@ -51,7 +51,6 @@ watch(
   (newValue, oldValue) => {
     if (newValue) {
       showNotification();
-      console.log('asdasd')
     } 
     else {
       Toast.close();
