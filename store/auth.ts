@@ -7,21 +7,12 @@ interface login {
 
 type Gender = "male" | "female" | "other";
 
-type user = {
-    readonly id: number,
-    email: string,
-    firstName: string,
-    lastName: string,
-    gender?: Gender,
-    image?: string,
-    token: string,
-}
 
 export const useAuthStore = defineStore('authStore', () => {
     const isAuthenticated = ref(false)
-    const token = useCookie('token', { maxAge: 60000, domain: "localhost", sameSite: 'lax' })
+    const token = useCookie('token', { maxAge: 3600, domain: "localhost", sameSite: 'lax' })
     const errorMsg = ref("")
-    const userData = ref<user>();
+    const userData = ref();
 
     const signIn = async (param: login) => {
         try {
@@ -39,9 +30,8 @@ export const useAuthStore = defineStore('authStore', () => {
 
             const data = await response.json()
 
-            //In some cases event can response status can be ok but we can get an error like invalid credentials with status code:400
+            //In some cases event can response status code can be ok but we can get an error like invalid credentials with status code:400
             if (!response.ok) {
-                console.log(data)
                 errorMsg.value = data.message;
                 return false;
             }
@@ -50,7 +40,6 @@ export const useAuthStore = defineStore('authStore', () => {
                 token.value = data.token;
                 isAuthenticated.value = true;
                 userData.value = data;
-                console.log('userData:', userData.value)
                 return true;
             }
 
@@ -75,13 +64,39 @@ export const useAuthStore = defineStore('authStore', () => {
         isAuthenticated.value = false;
     }
 
+    //İf token is already exist and session is not expire get userData with this token
+    const getAuthUser = async () => {
+        try {
+            const response = await fetch('https://dummyjson.com/auth/me', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token.value}`,
+                }
+            });
+
+            const data = await response.json()
+            userData.value = data;
+
+        }
+
+        catch (error: any) {
+            if (error?.message.includes('expired')) {
+                logout()
+            }
+            console.error(error)
+        }
+
+    }
+
 
     return {
         signIn,
         logout,
         isAuthenticated,
         userData,
-        errorMsg
+        errorMsg,
+        getAuthUser
     }
 }, {
     persist: {
