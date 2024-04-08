@@ -441,7 +441,6 @@ const acceptedImageExtensions = ref(['.jpg', '.jpeg', '.png', '.gif']);
 
 const isAllowedType = (file: any) => {
   const extension = file.name.split('.')[1].toLowerCase();
-  console.log(extension)
   return acceptedImageExtensions.value.includes(extension);
 };
 

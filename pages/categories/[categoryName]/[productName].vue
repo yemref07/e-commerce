@@ -782,7 +782,6 @@ const addProductToChart = () => {
 // Set desired color of product
 const setProductColor = (param: string) => {
   orderDetail.color = param;
-  console.log(param);
 };
 
 // İncrease producst quantity

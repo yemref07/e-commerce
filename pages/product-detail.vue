@@ -696,14 +696,12 @@ const addProductToChart = () =>{
 
 //Change active slide with using thumnail images
 const setThumb = function (splide: any) {
-  console.log(splide);
   console.log(splide?.root?.clientHeight, "client height");
 };
 
 // Set desired color of product
 const setProductColor = (param: string) => {
   orderDetail.color = param;
-  console.log(param);
 };
 
 // İncrease producst quantity
