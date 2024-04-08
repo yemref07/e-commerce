@@ -34,7 +34,7 @@
           <div
             class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center"
           >
-            <NuxtPicture
+            <NuxtImg
               loading="lazy"
               format="webp,png"
               :src="props.img"

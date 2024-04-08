@@ -38,7 +38,7 @@
         title2="Exclusive offer %10 off this week"
         catLink="/categories"
         bgColor="#115061"
-        img="/slider/slider-img-3.png"
+        img="/slider/slider-img-3.webp"
       />
     </swiper-slide>
   </swiper-container>
