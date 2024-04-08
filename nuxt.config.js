@@ -65,6 +65,7 @@ export default defineNuxtConfig({
   image: {
     // Options
     format: ['webp','jpg','avif','jpeg','png'],
+    provider: 'netlify',
     screens: {
       'xs': 320,
       'sm': 640,

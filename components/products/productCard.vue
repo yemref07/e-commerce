@@ -14,7 +14,7 @@
   >
     <div class="relative border-b-2 border-slate-100 p-5">
       <nuxt-link :to="`/categories/${props.cat}/${props.name}?productId=${props.productID}`" class="cursor-pointer">
-        <img :src="props.img" alt="" class="ml-auto mr-auto w-46 h-36" />
+        <NuxtImg :src="props.img" alt="" class="ml-auto mr-auto w-46 h-36" />
       </nuxt-link>
     </div>
     <div class="p-5">

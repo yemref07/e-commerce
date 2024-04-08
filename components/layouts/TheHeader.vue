@@ -61,7 +61,7 @@
                 title="User Profile"
                 v-if="isAuthenticated"
               >
-                <img
+                <NuxtImg
                   loading="lazy"
                   :src="profileImg"
                   alt="User Profile Image"
@@ -215,7 +215,8 @@
                           to="/categories/womens-dresses"
                           class="cursor-pointer"
                         >
-                          <img
+                          <NuxtImg
+                            loading="lazy"
                             src="/menu-product-image/women.jpg"
                             alt="product image1"
                             class="w-full h-auto rounded-md"
@@ -234,7 +235,8 @@
                           to="/categories/smartphones"
                           class="cursor-pointer"
                         >
-                          <img
+                          <NuxtImg
+                            loading="lazy"
                             src="/menu-product-image/phones.jpg"
                             alt="Smart Phones"
                             class="w-full h-auto rounded-md"
@@ -257,7 +259,8 @@
                           to="/categories/mens-shirts"
                           class="cursor-pointer"
                         >
-                          <img
+                          <NuxtImg
+                            loading="lazy"
                             src="/menu-product-image/man.jpg"
                             alt="product image 2"
                             class="w-full h-auto rounded-md"
@@ -272,7 +275,8 @@
 
                       <li class="relative mt-3">
                         <nuxt-link to="" class="cursor-pointer">
-                          <img
+                          <NuxtImg
+                            loading="lazy"
                             src="/menu-product-image/cameras.jpg"
                             alt="Smart Phones"
                             class="w-full h-auto rounded-md"
@@ -345,14 +349,13 @@ import cartSideBar from "~/components/layouts/cartSideBar.vue";
 import { useAuthStore } from "~/store/auth";
 
 //profile image
-const profileImg = computed(()=>{
-  if(userData.value){
-    return userData.value?.image
+const profileImg = computed(() => {
+  if (userData.value) {
+    return userData.value?.image;
+  } else {
+    return "/users/male.png";
   }
-  else{
-    return '/users/male.png'
-  }
-})
+});
 
 //User Auth Store Initializing
 const authStore = useAuthStore();
@@ -387,8 +390,8 @@ const search = async () => {
 };
 
 const onSubmit = () => {
-  search()
-}
+  search();
+};
 
 //mega menu categories first part
 const catFirstpart = computed(() => {

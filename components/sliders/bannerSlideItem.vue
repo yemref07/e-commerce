@@ -23,8 +23,14 @@
     class="flex flex-col items-end relative"
     :class="{ 'text-focus-in': props.isVisible }"
   >
-    <img :src="props.img" alt="" class="w-2/4 md:w-2/3 h-auto z-10 relative" />
-    <img
+    <NuxtImg
+      loading="lazy"
+      :src="props.img"
+      alt=""
+      class="w-2/4 md:w-2/3 h-auto z-10 relative"
+    />
+    <NuxtImg
+      loading="lazy"
       src="/product-banners/discount.png"
       alt=""
       class="absolute top-10 right-1/2 z-20"
@@ -45,10 +51,34 @@ const props = defineProps({
 </script>
 
 <style scoped>
+.text-focus-in {
+  -webkit-animation: text-focus-in 0.9s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: text-focus-in 0.9s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
 
-
-.text-focus-in{-webkit-animation:text-focus-in 0.9s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 0.9s cubic-bezier(.55,.085,.68,.53) both}
-
-
- @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(8px);filter:blur(8px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(8px);filter:blur(8px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
 </style>
