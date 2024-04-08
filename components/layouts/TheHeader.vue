@@ -63,10 +63,10 @@
               >
                 <NuxtImg
                   loading="lazy"
-                  :src="userData?.image"
+                  :src="profileImg"
                   alt="User Profile Image"
                   width="40"
-                  class="ms-10 mr-3 cursor-pointer"
+                  class="ms-10 mr-3 cursor-pointer rounded-full"
                 />
               </nuxt-link>
 
@@ -343,6 +343,16 @@ import { useCartStore } from "~/store/cart";
 import { useWishlistStore } from "~/store/wishlist";
 import cartSideBar from "~/components/layouts/cartSideBar.vue";
 import { useAuthStore } from "~/store/auth";
+
+//profile image
+const profileImg = computed(()=>{
+  if(userData.value){
+    return userData.value?.image
+  }
+  else{
+    return '/users/male.png'
+  }
+})
 
 //User Auth Store Initializing
 const authStore = useAuthStore();
