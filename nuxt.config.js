@@ -1,9 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  image: {
-    provider: "ipx",
-  },
-
   components: {
     global: true,
     dirs: [
@@ -12,7 +8,7 @@ export default defineNuxtConfig({
       "~/components/sliders",
       "~/components/products",
       "~/components/layouts",
-       'composables',
+      'composables',
     ],
   },
 
@@ -43,44 +39,50 @@ export default defineNuxtConfig({
     ['@nuxtjs/google-fonts', {
       families: {
         Poppins: {
-          wght: [100,200,300,400,500,600],
-          ital: [300,400]
+          wght: [100, 200, 300, 400, 500, 600],
+          ital: [300, 400]
         },
-        Lato : {
-          wght: [100,200,300,400,500,600],
-          ital: [300,400]
+        Lato: {
+          wght: [100, 200, 300, 400, 500, 600],
+          ital: [300, 400]
         },
 
       }
-  }],
+    }],
 
 
   ],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   image: {
-    // Options
-    format: ['webp','jpg','avif','jpeg','png'],
-    provider: 'netlify',
-    screens: {
-      'xs': 320,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536,
-      '2xl': 1536
+    domains: ['https://cdn.dummyjson.com'],
+    format: ['webp', 'jpg', 'avif', 'jpeg', 'png'],
+    providers: {
+      myProvider: {
+        name: 'dummy', // optional value to overrider provider name
+        provider: '~/providers/my-provider.ts', // Path to custom provider
+        options: {
+          baseURL: "https://cdn.dummyjson.com"
+        }
+      }
     },
-    domains:['https://cdn.dummyjson.com','https://robohash.org']
+    provider: 'netlify',
   },
+
   piniaPersistedstate: {
     cookieOptions: {
       sameSite: 'strict',
     },
     storage: 'localStorage'
   },
+
+  ssr:true
+
+  
 });
