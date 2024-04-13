@@ -5,7 +5,8 @@
         <div class="flex gap-5">
           <div class="flex flex-col space-y-3">
             <div class="">
-              <NuxtImg loading="lazy"
+              <NuxtImg
+                loading="lazy"
                 src="/produc-detail-thumb-image/thumb1.jpg"
                 alt=""
                 width="78"
@@ -13,7 +14,8 @@
               />
             </div>
             <div class="">
-              <NuxtImg loading="lazy"
+              <NuxtImg
+                loading="lazy"
                 src="/produc-detail-thumb-image/thumb2.jpg"
                 alt=""
                 width="78"
@@ -21,7 +23,8 @@
               />
             </div>
             <div class="">
-              <NuxtImg loading="lazy"
+              <NuxtImg
+                loading="lazy"
                 src="/produc-detail-thumb-image/thumb3.jpg"
                 alt=""
                 width="78"
@@ -29,7 +32,8 @@
               />
             </div>
             <div class="">
-              <NuxtImg loading="lazy"
+              <NuxtImg
+                loading="lazy"
                 src="/produc-detail-thumb-image/thumb4.jpg"
                 alt=""
                 width="78"
@@ -52,16 +56,32 @@
             aria-label="My Favorite Images"
           >
             <SplideSlide>
-              <img src="/produc-detail-thumb-image/big1.jpg" alt="Sample 1" />
+              <NuxtImg
+                loading="lazy"
+                src="/produc-detail-thumb-image/big1.jpg"
+                alt="Sample 1"
+              />
             </SplideSlide>
             <SplideSlide>
-              <img src="/produc-detail-thumb-image/big2.jpg" alt="Sample 2" />
+              <NuxtImg
+                loading="lazy"
+                src="/produc-detail-thumb-image/big2.jpg"
+                alt="Sample 2"
+              />
             </SplideSlide>
             <SplideSlide>
-              <img src="/produc-detail-thumb-image/big3.jpg" alt="Sample 3" />
+              <NuxtImg
+                loading="lazy"
+                src="/produc-detail-thumb-image/big3.jpg"
+                alt="Sample 3"
+              />
             </SplideSlide>
             <SplideSlide>
-              <img src="/produc-detail-thumb-image/big4.jpg" alt="Sample 4" />
+              <NuxtImg
+                loading="lazy"
+                src="/produc-detail-thumb-image/big4.jpg"
+                alt="Sample 4"
+              />
             </SplideSlide>
           </Splide>
         </div>
@@ -284,7 +304,12 @@
             <span class="text-tblack">Guaranteed safe & secure checkout</span>
           </div>
           <div class="">
-            <img src="/payment/payment-option.png" alt="" width="200" />
+            <NuxtImg
+              loading="lazy"
+              src="/payment/payment-option.png"
+              alt=""
+              width="200"
+            />
           </div>
         </div>
 
@@ -318,25 +343,25 @@
       </button>
     </div>
     <alertError
-        :title="errorModal.title"
-        :desc="errorModal.desc"
-        :confirm-btn="errorModal.confirmBtn"
-        :show="errorModal.isVisible"
-        :error-code="errorModal.errorCode"
-        @is-visible="errorModal.isVisible = false"
-      />
-      <alertSuccess
-        :title="successModal.title"
-        :desc="successModal.desc"
-        :show="successModal.isVisible"
-        @is-visible="successModal.isVisible = false"
-        :confirm-btn="successModal.confirmBtn"
-      />
-      <alertNotification
-        :title="notificationModal.title"
-        :show="notificationModal.isVisible"
-        @is-visible="notificationModal.isVisible = false"
-      />
+      :title="errorModal.title"
+      :desc="errorModal.desc"
+      :confirm-btn="errorModal.confirmBtn"
+      :show="errorModal.isVisible"
+      :error-code="errorModal.errorCode"
+      @is-visible="errorModal.isVisible = false"
+    />
+    <alertSuccess
+      :title="successModal.title"
+      :desc="successModal.desc"
+      :show="successModal.isVisible"
+      @is-visible="successModal.isVisible = false"
+      :confirm-btn="successModal.confirmBtn"
+    />
+    <alertNotification
+      :title="notificationModal.title"
+      :show="notificationModal.isVisible"
+      @is-visible="notificationModal.isVisible = false"
+    />
   </container>
 
   <transition name="fade">
@@ -510,11 +535,8 @@
                     placeholder="Write Your Message Here"
                     required
                   ></textarea>
-                  <p
-                    class="text-xs text-red-500 mt-2"
-                    v-if="review.msg === ''"
-                  >
-                    Message is required field 
+                  <p class="text-xs text-red-500 mt-2" v-if="review.msg === ''">
+                    Message is required field
                   </p>
                 </div>
 
@@ -536,7 +558,7 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6" >
+      <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6">
         <ProductReviewCard
           v-for="(comment, index) in allComments"
           :key="comment.postId"
@@ -646,10 +668,10 @@ const addNewReview = async () => {
       successModal.isVisible = true;
       successModal.desc =
         " Review is succesfully send , please continute contribute more review in the future";
-      review.msg = ""  
-      review.name = ""  
-      review.email = ""  
-      review.check = false 
+      review.msg = "";
+      review.name = "";
+      review.email = "";
+      review.check = false;
     }
   } else {
     errorModal.isVisible = true;
@@ -687,12 +709,12 @@ const orderDetail = reactive({
   quantity: 1,
 });
 
-const addProductToChart = () =>{
-  if(orderDetail.quantity > 0){
+const addProductToChart = () => {
+  if (orderDetail.quantity > 0) {
     notificationModal.isVisible = true;
-    notificationModal.title = "Product added to cart"
+    notificationModal.title = "Product added to cart";
   }
-}
+};
 
 //Change active slide with using thumnail images
 const setThumb = function (splide: any) {
