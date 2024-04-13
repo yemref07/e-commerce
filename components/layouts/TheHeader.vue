@@ -26,7 +26,7 @@
                 <input
                   type="text"
                   class="text-black focus:outline-none w-full"
-                  placeholder="Search For Products"
+                  placeholder="Search For Products Like Phone, Dress"
                   v-model="searchInput"
                 />
               </div>
