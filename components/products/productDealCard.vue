@@ -13,7 +13,7 @@
     "
   >
     <div class="border-b-2 relative">
-      <NuxtImg loading="lazy" :src="props.img" alt="" class="w-full h-auto" />
+      <NuxtImg loading="lazy" :src="props.img" alt="" class="w-full h-auto" provider="dummy"/>
       <button
         class="bg-tblack text-white d-block py-2 w-full btn-add"
         :class="{ 'btn-add-hover': hover }"

@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-row justify-start items-center gap-5">
     <NuxtImg
+      provider="dummy"
       loading="lazy"
       :src="props.imgSrc"
       alt=""

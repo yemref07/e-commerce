@@ -9,14 +9,15 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-            <NuxtImg
+              <NuxtImg
+                provider="dummy"
                 loading="lazy"
                 :src="item"
                 :alt="getSEOTitle"
                 width="75"
                 height="auto"
                 @click="goToSlide(index)"
-            />
+              />
             </div>
           </div>
 
@@ -36,8 +37,7 @@
               v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-            <NuxtImg
-                            loading="lazy" :src="item" :alt="getSEOTitle" />
+              <NuxtImg loading="lazy" :src="item" :alt="getSEOTitle"  provider="dummy"/>
             </SplideSlide>
           </Splide>
         </div>
@@ -280,7 +280,12 @@
             <span class="text-tblack">Guaranteed safe & secure checkout</span>
           </div>
           <div class="">
-            <NuxtImg loading="lazy" src="/payment/payment-option.png" alt="" width="200" />
+            <NuxtImg
+              loading="lazy"
+              src="/payment/payment-option.png"
+              alt=""
+              width="200"
+            />
           </div>
         </div>
 
@@ -398,12 +403,12 @@
 
   <transition name="fade">
     <container class="mt-10" v-if="activeTab === 3">
-      
       <div class="grid lg:grid-cols-2">
-
         <div class="lg:col-span-1 items-baseline">
           <div class="md:border-2 border-gray-200 md:px-8 md:py-6 w-fit">
-            <h3 class="text-tblack text-xl mb-2 font-semibold">Customer Reviews</h3>
+            <h3 class="text-tblack text-xl mb-2 font-semibold">
+              Customer Reviews
+            </h3>
 
             <div class="mb-5">
               <span
@@ -535,7 +540,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="grid lg:grid-cols-2 lg:mt-20 md:mt-10 mt-6">
@@ -580,15 +584,15 @@ import { useWishlistStore } from "~/store/wishlist";
 
 const route = useRoute();
 
-const screenWidth = ref<number>(600)
+const screenWidth = ref<number>(600);
 
-const productImgHeight = computed(()=>{
-  return  screenWidth.value > 991 ? 600 : 300;
-})
+const productImgHeight = computed(() => {
+  return screenWidth.value > 991 ? 600 : 300;
+});
 
 onMounted(() => {
   screenWidth.value = window.innerWidth;
-})
+});
 
 //Comments Store
 const commentStore = useCommentStore();
@@ -869,7 +873,7 @@ const finalCost = computed(() => {
 }
 
 .tab-active {
- border-bottom: 2px solid var(--tpurple);
+  border-bottom: 2px solid var(--tpurple);
 }
 
 .input-label {
