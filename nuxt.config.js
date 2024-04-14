@@ -12,6 +12,8 @@ export default defineNuxtConfig({
     ],
   },
 
+  plugins: ['~/plugins/runOnAppMount.js'],
+
   devtools: {
     enabled: true,
 
