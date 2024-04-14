@@ -10,7 +10,7 @@ type Gender = "male" | "female" | "other";
 
 export const useAuthStore = defineStore('authStore', () => {
     const isAuthenticated = ref(false)
-    const token = useCookie('token', { maxAge: 3600, domain: "https://dumy-commercee.netlify.app/", sameSite: 'lax' })
+    const token = useCookie('token', { maxAge: 3600, domain: ".netlify.app", sameSite: 'lax' })
     const errorMsg = ref("")
     const userData = ref();
 
