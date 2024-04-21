@@ -416,6 +416,15 @@ import { useAuthStore } from "../store/auth";
 import { ref } from 'vue'
 import veeInput from "~/components/UI/veeInput.vue";
 
+useHead({
+  title: 'User Profile | Dummy E-Commerce', //You can Set dynamic title based on user data
+  meta: [
+    { name: 'description', content: 'View and manage your profile on Dummy E-Commerce.' },
+    { name: 'robots', content: 'noindex, follow' }, 
+  ],
+})
+
+
 const router = useRouter()
 
 //Initializing auth store and getting user data

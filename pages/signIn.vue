@@ -143,6 +143,17 @@ import { useAuthStore } from "~/store/auth";
 import veeInput from "~/components/UI/veeInput.vue";
 import { storeToRefs } from "pinia";
 
+useHead({
+  title: 'Login | Dummy E-Commerce',
+  meta: [
+    { name: 'description', content: 'Login your account on Dummy E-Commerce for a smooth shopping experience.' },
+    { property: 'og:title', content: 'Login on Dummy E-Commerce' }, // Open Graph title
+    { property: 'og:description', content: 'Create your account for a smooth shopping experience.' }, // Open Graph description
+    { name: 'twitter:card', content: 'summary' }, // Twitter card type
+    { name: 'twitter:title', content: 'Login on Dummy E-Commerce' }, // Twitter title
+  ],
+})
+
 const router = useRouter();
 
 const authStore = useAuthStore();

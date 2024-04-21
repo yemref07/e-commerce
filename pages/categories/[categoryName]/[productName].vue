@@ -856,6 +856,18 @@ const finalCost = computed(() => {
     ).toFixed(2);
   else return "0";
 });
+
+
+useHead({
+  title: () => `${getSEOTitle.value} | Dummy E-Commerce`,
+  meta: [
+    { name: 'description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' },
+    { property: 'og:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Open Graph title
+    { property: 'og:description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' }, // Aligned Open Graph description
+    { name: 'twitter:card', content: 'summary' }, // Twitter card type
+    { name: 'twitter:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Twitter title
+  ],
+})
 </script>
 
 <style scoped>

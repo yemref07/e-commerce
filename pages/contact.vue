@@ -82,7 +82,15 @@ import Breadcrumb from "~/components/UI/breadcrumb.vue";
 import container from "~/components/UI/container.vue";
 import customCheckbox from "~/components/UI/customCheckbox.vue";
 import customInput from "~/components/UI/customInput.vue";
-
+useHead({
+  title: 'Contact Us | Dummy E-Commerce',
+  meta: [
+    { name: 'description', content: 'Get in touch with Dummy E-Commerce for inquiries and support.' },
+    { name: 'robots', content: 'index, follow' }, // Allow indexing for contact information
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }, // Responsive viewport
+    // Additional meta tags can be added as needed
+  ],
+})
 const form = ref({
   nameSurname: "",
   email: "",

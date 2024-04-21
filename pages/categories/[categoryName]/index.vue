@@ -153,15 +153,19 @@ import productCard from "~/components/products/productCard.vue";
 import { useProductsStore } from "~/store/products";
 
 const route = useRoute();
-const catName = ref();
+const catName = computed(()=>{
+  return route.params.categoryName
+});
 
 const productStore = useProductsStore();
 const { categoryProducts, allProductsCat } = storeToRefs(productStore);
 const { getProductsOfCategory, getAllProductsCat } = productStore;
 
 onMounted(async () => {
-  catName.value = route.params.categoryName;
+  //Get all products data in category
   await getProductsOfCategory(catName.value);
+
+  //For listing categories in sidebar
   await getAllProductsCat();
 });
 
@@ -205,6 +209,21 @@ const watchSort = watch(
     }
   }
 );
+
+const pageTitle = computed(()=>{
+  return route.params?.categoryName.replace(/-/g, " ") + " | Dummy E-Commerce"
+})
+
+useHead({
+  title: () => pageTitle.value,
+  meta: [
+    { name: 'description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' },
+    { property: 'og:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Open Graph title
+    { property: 'og:description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' }, // Aligned Open Graph description
+    { name: 'twitter:card', content: 'summary' }, // Twitter card type
+    { name: 'twitter:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Twitter title
+  ],
+})
 </script>
 
 <style lang="css" scoped></style>

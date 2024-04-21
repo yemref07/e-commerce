@@ -265,6 +265,10 @@ import dealSlider from "~/components/sliders/dealSlider.vue";
 import blogSlider from "~/components/sliders/blogSlider.vue";
 import { register } from "swiper/element/bundle";
 import bannerSlider from "~/components/sliders/bannerSlider.vue";
+useHead({
+  title: 'Dummy E-Commerce | Home',
+})
+
 register();
 const email = ref(null);
 

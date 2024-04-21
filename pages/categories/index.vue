@@ -34,6 +34,17 @@ import breadcrumb from "~/components/UI/breadcrumb.vue";
 import container from "~/components/UI/container.vue";
 import { useProductsStore } from "../../store/products";
 
+useHead({
+  title: 'Shop All Categories | Dummy E-Commerce',
+  meta: [
+    { name: 'description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' },
+    { property: 'og:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Open Graph title
+    { property: 'og:description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' }, // Aligned Open Graph description
+    { name: 'twitter:card', content: 'summary' }, // Twitter card type
+    { name: 'twitter:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Twitter title
+  ],
+})
+
 const productStore = useProductsStore();
 const { getAllProductsCat } = productStore;
 const { allProductsCat } = storeToRefs(productStore);

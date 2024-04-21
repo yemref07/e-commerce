@@ -150,6 +150,15 @@ import { storeToRefs } from "pinia";
 import breadcrumb from "~/components/UI/breadcrumb.vue";
 import container from "~/components/UI/container.vue";
 import { useCartStore } from "~/store/cart";
+useHead({
+  title: 'Your Cart | Dummy E-Commerce', 
+  meta: [
+    { name: 'description', content: 'Review your shopping cart on Dummy E-Commerce.' },
+    { name: 'robots', content: 'noindex, follow' },
+    { property: 'og:url', content: 'https://dumy-commercee.netlify.app/cart' }, // Open Graph URL (replace with your actual URL)
+    // Additional Open Graph and Twitter card tags can be added based on cart items
+  ],
+})
 
 const cartStore = useCartStore();
 const { removeCart, addCart } = cartStore;
