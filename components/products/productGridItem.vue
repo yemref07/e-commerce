@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-row border-b py-4 justify-start items-center">
         <div class="hover:scale-105 delay-200 transition-all ">
-            <NuxtImg loading="lazy" src="/product-demo-images/product-sm-1.jpg" alt="" class="w-full h-auto rounded-md" />
+            <NuxtImg loading="lazy" src="/product-demo-images/product-sm-1.jpg" alt="Product Demo" class="w-full h-auto rounded-md" />
         </div>
         <div class="flex flex-col ml-6">
             <span class="text-muted text-sm">Mobile Phone</span>
