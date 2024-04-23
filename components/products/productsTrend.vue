@@ -30,7 +30,8 @@
       <div class="flex gap-5">
         <div class="">
           <button
-            class="text-black text-base lg:text-xl"
+            :class="{'text-torange': activeTab === 1,'text-tblack' : activeTab !== 1}"
+            class="text-base lg:text-xl"
             @click="setActiveTab(1)"
           >
             Electronics
@@ -39,7 +40,8 @@
 
         <div class="">
           <button
-            class="text-muted text-base lg:text-xl"
+          :class="{'text-torange': activeTab === 2,'text-tblack' : activeTab !== 2}"
+            class="text-base lg:text-xl"
             @click="setActiveTab(2)"
           >
             Mens Clothing
@@ -48,7 +50,8 @@
 
         <div class="">
           <button
-            class="text-muted text-base lg:text-xl"
+            :class="{'text-torange': activeTab === 3,'text-tblack' : activeTab !== 3}"
+            class="text-base lg:text-xl"
             @click="setActiveTab(3)"
           >
             Womens Clothing
