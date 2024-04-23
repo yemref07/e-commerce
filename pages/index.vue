@@ -281,7 +281,8 @@ swiper-container::part(bullet-active) {
 }
 
 .product-bg-1 {
-  background: url(/product-banners/product-banner-1.jpg);
+  background-image: url("/product-banners/product-banner-1.webp") format("webp"); /* WebP for supporting browsers */
+  background-image: url("/product-banners/product-banner-1.jpg");  /* Fallback */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -291,7 +292,8 @@ swiper-container::part(bullet-active) {
   width: 100%;
 }
 .product-bg-2 {
-  background: url(/product-banners/product-banner-2.jpg);
+  background-image: url("/product-banners/product-banner-2.webp") format("webp"); /* WebP for supporting browsers */
+  background-image: url("/product-banners/product-banner-2.jpg");  /* Fallback */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
