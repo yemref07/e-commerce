@@ -77,6 +77,7 @@ export const useAuthStore = defineStore('authStore', () => {
 
             const data = await response.json()
             userData.value = data;
+            isAuthenticated.value = true;
 
         }
 
@@ -99,7 +100,7 @@ export const useAuthStore = defineStore('authStore', () => {
         getAuthUser
     }
 }, {
-    persist: {
-        paths: ['isAuthenticated'],
-    }
+    // persist: {
+    //     paths: ['isAuthenticated'],
+    // }
 })
