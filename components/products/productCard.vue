@@ -14,11 +14,11 @@
   >
     <div class="relative border-b-2 border-slate-100 p-5">
       <nuxt-link :to="`/categories/${props.cat}/${props.name}?productId=${props.productID}`" class="cursor-pointer">
-        <NuxtImg :src="props.img" alt="" class="ml-auto mr-auto w-46 h-36" provider="dummy" loading="lazy"/>
+        <NuxtImg :src="props.img" :alt="props.name" class="ml-auto mr-auto w-46 h-36" provider="dummy" loading="lazy"/>
       </nuxt-link>
     </div>
     <div class="p-5">
-      <nuxt-link :to="`/categories/${props.cat}/${props.name}`" class="cursor-pointer">
+      <nuxt-link :to="`/categories/${props.cat}/${props.name}`" class="cursor-pointer" :title="props.name">
         <span class="text-sm text-tpurple capitalize font-semibold">{{ props.cat.replace(/-/g, ' ') }}</span>
         <h3 class="font-semibold">{{ title }}</h3>
 
