@@ -213,6 +213,7 @@
                     <ul>
                       <li class="relative">
                         <nuxt-link
+                          title="Women Dresses"
                           to="/categories/womens-dresses"
                           class="cursor-pointer"
                         >
@@ -225,7 +226,8 @@
                         </nuxt-link>
 
                         <nuxt-link
-                          to=""
+                          
+                          to="/categories/womens-dresses"
                           class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
                           >Women Clothing</nuxt-link
                         >
@@ -233,6 +235,7 @@
 
                       <li class="relative mt-3">
                         <nuxt-link
+                          title="Smart Phones"
                           to="/categories/smartphones"
                           class="cursor-pointer"
                         >
@@ -245,6 +248,7 @@
                         </nuxt-link>
 
                         <nuxt-link
+                          title="Smart Phones"
                           to="/categories/smartphones"
                           class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
                           >Smart Phones</nuxt-link
@@ -257,17 +261,19 @@
                     <ul>
                       <li class="relative">
                         <nuxt-link
+                          title="Mens Shirts"
                           to="/categories/mens-shirts"
                           class="cursor-pointer"
                         >
-                          <NuxtImg
+                          <NuxtImg                          
                             loading="lazy"
                             src="/menu-product-image/man.jpg"
-                            alt="product image 2"
+                            alt="Mens Shirts"
                             class="w-full h-auto rounded-md"
                           />
                         </nuxt-link>
                         <nuxt-link
+                        title="Mens Shirts"
                           to="/categories/mens-shirts"
                           class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md font-semibold cursor-pointer"
                           >Man Clothing</nuxt-link
@@ -275,7 +281,7 @@
                       </li>
 
                       <li class="relative mt-3">
-                        <nuxt-link to="" class="cursor-pointer">
+                        <nuxt-link to="/categories/smartphones" class="cursor-pointer" title="Smart Phones">
                           <NuxtImg
                             loading="lazy"
                             src="/menu-product-image/cameras.jpg"
@@ -284,7 +290,8 @@
                           />
                         </nuxt-link>
                         <nuxt-link
-                          to=""
+                          title="Smart Phones"
+                          to="/categories/smartphones"
                           class="whitespace-nowrap text-white bg-tpurple px-6 py-1 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 first-line:text-md font-semibold cursor-pointer"
                           >Cameras</nuxt-link
                         >
