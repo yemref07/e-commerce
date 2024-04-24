@@ -21,7 +21,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-1.webp"
-        :preload="true"
+        :isPreload="true"
       />
     </swiper-slide>
     <swiper-slide>
@@ -31,7 +31,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-2.webp"
-        :preload="false"
+        :isPreload="false"
       />
     </swiper-slide>
     <swiper-slide>
@@ -41,7 +41,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-3.webp"
-        :preload="false"
+        :isPreload="false"
       />
     </swiper-slide>
   </swiper-container>
