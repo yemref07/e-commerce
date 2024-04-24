@@ -99,6 +99,11 @@ const props = defineProps({
   font-family: "Oregano Regular";
 }
 
+.btn-shop{
+  z-index: 999;
+  position: relative;
+}
+
 .btn-shop:hover {
   background-color: var(--tgreen);
   box-shadow: 0 0 0 1px white;
