@@ -18,7 +18,8 @@
       >
         <nuxt-link :to="`/categories/${item.category}/${item.name}?productId=${item.id}`" :title="item.name">
           <NuxtImg
-      loading="lazy"
+            provider="dummy"
+            loading="lazy"
             :src="item.image"
             alt=""
             class="w-16 rounded-md cursor-pointer"
