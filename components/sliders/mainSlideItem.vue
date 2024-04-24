@@ -35,7 +35,8 @@
             class="grid-item flex justify-start mt-12 lg:mt-0 lg:justify-end items-center"
           >
             <NuxtPicture
-              loading="lazy"
+              :loading=" props.isPreload ? 'eager' : 'lazy' "
+              :preload = "props.isPreload"
               format="webp,avif,jpg"
               :src="props.img"
               :alt="props.title1"
@@ -51,22 +52,25 @@
     </div>
 
     <NuxtImg
-      preload
+      :loading=" props.isPreload ? 'eager' : 'lazy' "
+      :preload = "props.isPreload"
       src="/shape/slider-shape-2.png"
-      alt=""
+      alt="Shape 2"
       class="w-40 absolute opacity-40 top-1/4 left-20"
     />
 
     <NuxtImg
-      preload
+      :loading=" props.isPreload ? 'eager' : 'lazy' "
+      :preload = "props.isPreload"
       src="/shape/slider-shape-1.png"
-      alt=""
+      alt="Shape 1"
       class="w-2/5 absolute grayscale opacity-20 top-0 right-0"
     />
     <NuxtImg
-      preload
+      :loading=" props.isPreload ? 'eager' : 'lazy' "
+      :preload = "props.isPreload"
       src="/shape/slider-shape-4.png"
-      alt=""
+      alt="Shape 4"
       class="w-2/5 absolute grayscale opacity-20 top-0 right-28"
     />
   </div>
@@ -79,6 +83,7 @@ const props = defineProps({
   img: String,
   bgColor: String,
   catLink: String,
+  isPreload:Boolean
 });
 </script>
 
