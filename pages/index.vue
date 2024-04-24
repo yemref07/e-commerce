@@ -21,6 +21,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-1.webp"
+        :preload="true"
       />
     </swiper-slide>
     <swiper-slide>
@@ -30,6 +31,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-2.webp"
+        :preload="false"
       />
     </swiper-slide>
     <swiper-slide>
@@ -39,6 +41,7 @@
         catLink="/categories"
         bgColor="#115061"
         img="/slider/slider-img-3.webp"
+        :preload="false"
       />
     </swiper-slide>
   </swiper-container>
@@ -282,7 +285,7 @@ swiper-container::part(bullet-active) {
 
 .product-bg-1 {
   background-image: url("/product-banners/product-banner-1.webp") format("webp"); /* WebP for supporting browsers */
-  background-image: url("/product-banners/product-banner-1.jpg");  /* Fallback */
+  background-image: url("/product-banners/product-banner-2.jpg");  /* Fallback */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
