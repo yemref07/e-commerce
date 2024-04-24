@@ -13,7 +13,9 @@ useSeoMeta({
   ogDescription: 'Welcome to a dummy e-commerce website, built solely for learning purposes.',
   ogImage: '/og-image.png',
   twitterCard: 'summary_large_image',
-  lang: 'en'
+  htmlAttrs: {
+      lang: 'en',
+    },
 })
 
 </script>
