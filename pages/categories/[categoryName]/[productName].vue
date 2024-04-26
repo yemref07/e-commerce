@@ -6,7 +6,7 @@
           <div class="flex flex-col space-y-6">
             <div
               class=""
-              v-for="(item, index) in singleProduct?.images"
+              v-for="(item, index) in productDetailImgs"
               :key="index"
             >
               <NuxtImg
@@ -34,7 +34,7 @@
             aria-label="My Favorite Images"
           >
             <SplideSlide
-              v-for="(item, index) in singleProduct?.images"
+              v-for="(item, index) in productDetailImgs"
               :key="index"
             >
               <NuxtImg loading="lazy" :src="item" :alt="getSEOTitle"  provider="dummy"/>
@@ -604,6 +604,14 @@ const initialCommentsLimit = ref(6);
 const productStore = useProductsStore();
 const { singleProduct } = storeToRefs(productStore);
 const { getSingleProduct } = productStore;
+
+//We remove the first element of singleProduct images because first image is an tiny thumnnail image , for small cards and etc..
+const productDetailImgs = computed(()=>{
+  if(singleProduct.value){
+    let length = singleProduct.value?.images.length
+    return singleProduct.value?.images.slice(1, length)
+  }
+})
 
 //Cart Store
 const cartStore = useCartStore();
