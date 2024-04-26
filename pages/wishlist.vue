@@ -16,11 +16,13 @@
       >
         <div class="flex flex-col items-center md:items-start flex-wrap gap-4">
           <nuxt-link
+            :alt="`${item.category} - ${item.name}`"
             :to="`/categories/${item.category}/${item.name}?productId=${item.id}`"
             class="cursor-pointer"
           >
             <NuxtImg
-      loading="lazy" :src="item.image" alt="Play Station 5 Console" width="100" />
+            provider="dummy"
+            loading="lazy" :src="item.image" alt="Play Station 5 Console" width="100" />
           </nuxt-link>
 
           <span class="text-tblack text-sm capitalize font-semibold">
