@@ -485,7 +485,7 @@
                     label="Your Email"
                     input-type="email"
                     v-model="review.email"
-                    class="w-2/3"
+                    class="w-full md:w-2/3"
                   />
                   <p
                     class="text-xs text-red-500 mt-2"
@@ -500,7 +500,7 @@
                     label="Your Name"
                     input-type="text"
                     v-model="review.name"
-                    class="w-2/3"
+                    class="w-full md:w-2/3"
                   />
                   <p
                     class="text-xs text-red-500 mt-2"
@@ -515,7 +515,7 @@
                     v-model="review.msg"
                     rows="4"
                     type="text"
-                    class="lg:w-2/3 border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-4"
+                    class="w-full lg:w-2/3 border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-4"
                     placeholder="Write Your Message Here"
                     required
                   ></textarea>
