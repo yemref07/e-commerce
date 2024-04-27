@@ -21,7 +21,7 @@
             provider="dummy"
             loading="lazy"
             :src="item.image"
-            alt=""
+            :alt="item.name"
             class="w-16 rounded-md cursor-pointer"
           />
         </nuxt-link>
