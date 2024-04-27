@@ -30,6 +30,12 @@
           <span class="text-base"> Notifications</span>
         </div>
 
+        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(6) }"
+          @click="setActive(6)">
+          <Icon name="fluent:payment-20-regular" size="22" :class="{ 'text-torange': isActive(5) }" />
+          <span class="text-base"> Payment Methods</span>
+        </div>
+
         <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(5) }"
           @click="setActive(5)">
           <Icon name="carbon:locked" size="22" :class="{ 'text-torange': isActive(5) }" />
@@ -404,6 +410,10 @@
         </div>
       </div>
 
+      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm"  v-if="activeTab === 6">
+        <cardPayment />
+      </div>
+
       <!-- tabs contents end-->
     </div>
   </container>
@@ -415,6 +425,7 @@ import container from "../components/UI/container.vue";
 import { useAuthStore } from "../store/auth";
 import { ref } from 'vue'
 import veeInput from "~/components/UI/veeInput.vue";
+import cardPayment from "~/components/user-profile/cardPayment.vue";
 
 useHead({
   title: 'User Profile | Dummy E-Commerce', //You can Set dynamic title based on user data
