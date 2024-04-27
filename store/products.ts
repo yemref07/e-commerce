@@ -100,6 +100,9 @@ export const useProductsStore = defineStore("productsStore", () => {
         }
 
         catch (error:any) {
+            if(error.message.includes("Product data couldn't fetch because Product with id")){
+                showError({ statusCode: 404, statusMessage: error.message })
+            }
             console.error('Error fetching or validating product data:', error.message);
             return false;
         }
@@ -181,6 +184,6 @@ export const useProductsStore = defineStore("productsStore", () => {
         getProductsOfCategory,
         categoryProducts,
         singleProduct,
-        searchResult
+        searchResult,
     };
 });
