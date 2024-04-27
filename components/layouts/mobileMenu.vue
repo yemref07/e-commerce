@@ -26,7 +26,7 @@
 
       <WishIcon :quantity="wishCount"/>
 
-      <nuxt-link to="/user-profile" v-if="isAuthenticated">
+      <nuxt-link to="/user-profile" v-if="isAuthenticated" title="user profile">
         <Icon
           name="solar:user-bold-duotone"
           size="28"
@@ -35,7 +35,7 @@
         />
       </nuxt-link>
 
-      <nuxt-link to="/signin" v-else>
+      <nuxt-link to="/signin" v-else title='sign in'>
         <Icon
           name="solar:user-bold-duotone"
           size="28"
