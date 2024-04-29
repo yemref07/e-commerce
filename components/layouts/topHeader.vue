@@ -1,6 +1,6 @@
 <template>
   <div class="hidden lg:block">
-    <div class="w-full bg-header-top relative z-10">
+    <div class="w-full bg-header-top relative">
       <div class="container mx-auto xl:px-40 text-white">
         <div class="flex py-1 justify-between">
           <div class="flex gap-3 items-center basis-2/4">
@@ -83,6 +83,7 @@ const toggleMenu = (param) => {
 <style scoped>
 .bg-header-top {
   background-color: #010f1c;
+  z-index: 999;
 }
 
 .sub-menu a:hover {
