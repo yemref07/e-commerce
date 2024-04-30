@@ -305,7 +305,7 @@
 
           <div class="">
             <nuxt-link
-              to="/"
+              to="/blog-posts"
               class="text-lg hover:text-orange-500 delay-75 duration-75"
             >
               Blog
