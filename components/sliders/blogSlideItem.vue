@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col gap-5 justify-center">
     <div class="relative">
-      <nuxt-link to="/">
+      <nuxt-link :to="`/blog-posts/${props.title}`">
         <NuxtImg
           loading="lazy"
-          :src="img"
-          :alt="props.title"
+          :src="props.img || '/blog-demo-images/place-holder.webp'"
+          :alt="props.title || 'Demo' "
           class="rounded-md"
           width="384"
           sizes="sm:220px, md:300px, lg:380px"
@@ -17,7 +17,7 @@
     </div>
 
     <div class="">
-      <nuxt-link to="/" :alt="props.title">
+      <nuxt-link :to="`/blog-posts/${props.title}`" :title="props.title || 'Dummy E-Commerce Blog'">
         <h3
           class="text-tblack text-xl lg:text-xl xl:text-2xl mb-2 font-semibold hover:text-orange-600 transition-all delay-50"
         >
@@ -26,11 +26,12 @@
       </nuxt-link>
       <span class="text-muted">
         <Icon name="ph:tag-light" class="text-torange" size="20" />
-        {{ tag }}</span
+        {{ tag  || 'Demo'}}</span
       >
-      <p class="mt-3">{{ shortDecs }}...</p>
+      <p class="mt-3">{{ shortDecs || 'Demo' }}...</p>
       <nuxt-link
-        to="/"
+        :title="props.title || 'Dummy E-Commerce Blog'"
+        :to="`/blog-posts/${props.title}`"
         class="bg-white border-2 mt-3 rounded-md inline-block border-slate-200 px-6 py-2 hover:bg-orange-500 hover:text-white transition-all delay-75 hover:border-orange-500"
       >
         Read More
@@ -50,7 +51,9 @@ const props = defineProps({
 });
 
 const shortDecs = computed(() => {
-  return props.desc.substring(0, 100);
+  if(props.desc){
+    return props.desc.substring(0, 100);
+  }
 });
 </script>
 
