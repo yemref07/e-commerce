@@ -3,7 +3,8 @@
 
   <container class="mt-16 text-tblack">
     <div class="grid lg:grid-cols-6 xl:grid-cols-6 gap-6 lg:gap-2">
-      <div class="lg:col-span-1 xl:col-span-1">
+
+      <div class="order-2 lg:order-1 lg:col-span-1 xl:col-span-1">
         <div class="flex flex-col">
           <h3 class="font-medium text-base text-tblack">Price Filter</h3>
 
@@ -103,7 +104,7 @@
         </div>
       </div>
 
-      <div class="lg:col-span-5 xl:col-span-5 lg:ml-12">
+      <div class="order-1 lg:order-2 lg:col-span-5 xl:col-span-5 lg:ml-12">
         <div class="flex flex-row justify-start lg:justify-between items-start gap-4 flex-wrap g:gap-0">
           <div class="text-muted">
             <h3>
@@ -140,6 +141,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </container>
 </template>
