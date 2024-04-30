@@ -221,6 +221,11 @@
         class="absolute text-tblack right-5 top-5"
         @click="closeMobile"
       />
+
+      <div class="flex justify-start items-center mt-6 gap-4">
+        <NuxtImg loading="lazy" src="/lang/england.svg" alt="" width="32" class="" />
+        <NuxtImg loading="lazy" src="/lang/turkey.svg" alt="" width="32" class="" />
+      </div>
     </div>
   </div>
   <div
