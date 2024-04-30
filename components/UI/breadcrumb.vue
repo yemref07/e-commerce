@@ -13,7 +13,7 @@
           'text-center': alignment === 'center',
         }"
       >
-        <h1 class="text-tblack font-semibold text-xl md:text-2xl lg:text-4xl">
+        <h1 class="text-tblack font-semibold text-xl md:text-2xl lg:text-4x capitalize">
           {{ title }}
         </h1>
         <p class="text-muted text-lg capitalize">
