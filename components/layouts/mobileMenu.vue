@@ -199,7 +199,7 @@
           </div>
 
           <div class="border-b-2 py-2">
-            <nuxt-link to="/blog" class="text-lg" title="Dummy E-Commerce Blog"
+            <nuxt-link to="/blog-posts" class="text-lg" title="Dummy E-Commerce Blog"
               >Blog</nuxt-link
             >
           </div>
