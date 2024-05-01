@@ -54,7 +54,7 @@
             <nuxt-link to="/" title="Home" class="hover:text-orange-500 duration-75">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/about" title="Dummy E-Commerce About" class="hover:text-orange-500 duration-75">About</nuxt-link>
+            <nuxt-link to="/" title="Dummy E-Commerce About" class="hover:text-orange-500 duration-75">About</nuxt-link>
           </li>
           <li>
             <nuxt-link to="/" title="Dummy E-Commerce Blog" class="hover:text-orange-500 duration-75">Blog</nuxt-link>

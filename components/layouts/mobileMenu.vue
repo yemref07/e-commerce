@@ -155,7 +155,7 @@
 
           <div class="border-b-2 py-2">
             <nuxt-link
-              to="/about"
+              to="/"
               class="text-lg"
               title="Dummy E-Commerce About"
               >About</nuxt-link
