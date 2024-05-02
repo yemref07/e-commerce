@@ -135,26 +135,25 @@
               <h3 class="text-tblack text-lg lg:text-xl">Categories</h3>
               <ul class="text-gray-600 mt-4">
                 <li class="mt-2">
-                  <Icon name="iconamoon:arrow-right-2-thin" class="mr-2" size="20" color="#ff685e" />
+                  <Icon name="solar:arrow-right-bold-duotone" class="mr-2" size="18" color="#ff685e" />
                   Lorem, ipsum dolor.
                 </li>
                 <li class="mt-2">
-                  <Icon name="iconamoon:arrow-right-2-thin" class="mr-2" size="20" color="#ff685e" />
+                  <Icon name="solar:arrow-right-bold-duotone" class="mr-2" size="18" color="#ff685e" />
                   Lorem, ipsum dolor.
                 </li>
                 <li class="mt-2">
-                  <Icon name="iconamoon:arrow-right-2-thin" class="mr-2" size="20" color="#ff685e" />
+                  <Icon name="solar:arrow-right-bold-duotone" class="mr-2" size="18" color="#ff685e" />
                   Lorem, ipsum dolor.
                 </li>
                 <li class="mt-2">
-                  <Icon name="iconamoon:arrow-right-2-thin" class="mr-2" size="20" color="#ff685e" />
+                  <Icon name="solar:arrow-right-bold-duotone" class="mr-2" size="18" color="#ff685e" />
                   Lorem, ipsum dolor.
                 </li>
                 <li class="mt-2">
-                  <Icon name="iconamoon:arrow-right-2-thin" class="mr-2" size="20" color="#ff685e" />
+                  <Icon name="solar:arrow-right-bold-duotone" class="mr-2" size="18" color="#ff685e" />
                   Lorem, ipsum dolor.
                 </li>
-            
               </ul>
             </div>
 
