@@ -12,9 +12,9 @@
       </div>
 
       <div
-        class="grid grid-cols-4 justify-between items-center mt-4 gap-4 border-b pb-5"
         v-for="(item, index) in cartList"
         :key="index"
+        class="grid grid-cols-4 justify-between items-center mt-4 gap-4 border-b pb-5 overflow-x-auto"
       >
         <nuxt-link :to="`/categories/${item.category}/${item.name}?productId=${item.id}`" :title="item.name">
           <NuxtImg
@@ -74,7 +74,7 @@
   <div
     class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 opacity-50 z-40"
     :class="{ 'translate-x-full': !cartVisibility}"
-  ></div>
+  />
 </template>
 
 <script setup lang="ts">

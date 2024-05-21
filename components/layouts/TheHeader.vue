@@ -24,11 +24,11 @@
             >
               <div class="basis-2/4 text-sm items-center">
                 <input
+                  v-model="searchInput"
                   type="text"
                   class="text-black focus:outline-none w-full"
                   placeholder="Search For Products Like Phone, Dress"
-                  v-model="searchInput"
-                />
+                >
               </div>
 
               <div class="basis-2/4 grow">
@@ -57,9 +57,9 @@
           <div class="flex items-center justify-end">
             <div class="">
               <nuxt-link
+                v-if="isAuthenticated"
                 to="/user-profile"
                 title="User Profile"
-                v-if="isAuthenticated"
               >
                 <NuxtImg
                   provider="dummy"
@@ -71,7 +71,7 @@
                 />
               </nuxt-link>
 
-              <nuxt-link to="/signin" v-else title="Sıgn In">
+              <nuxt-link v-else to="/signin" title="Sıgn In">
                 <Icon
                   name="carbon:user"
                   size="32"
@@ -80,7 +80,7 @@
               </nuxt-link>
             </div>
 
-            <div class="hidden xl:flex flex-col mr-10" v-if="isAuthenticated">
+            <div v-if="isAuthenticated" class="hidden xl:flex flex-col mr-10">
               <nuxt-link
                 to="/user-profile"
                 class="cursor-pointer"
@@ -93,7 +93,7 @@
               </nuxt-link>
             </div>
 
-            <div class="hidden xl:flex flex-col mr-10" v-else>
+            <div v-else class="hidden xl:flex flex-col mr-10">
               <nuxt-link
                 to="/signin"
                 class="cursor-pointer"
@@ -166,9 +166,9 @@
                   <div class="">
                     <ul>
                       <li
-                        class="font-medium text-lg mb-4"
                         v-for="(cat, index) in catFirstpart"
                         :key="index"
+                        class="font-medium text-lg mb-4"
                       >
                         <nuxt-link
                           :to="`/categories/${cat}`"
@@ -189,9 +189,9 @@
                   <div class="">
                     <ul>
                       <li
-                        class="font-medium text-lg mb-4"
                         v-for="(cat, index) in catSecondpart"
                         :key="index"
+                        class="font-medium text-lg mb-4"
                       >
                         <nuxt-link
                           :to="`/categories/${cat}`"
@@ -334,7 +334,7 @@
 
           <div class="">
             <span class="text-sm font-semibold">Hot Line:</span>
-            <br />
+            <br >
             <a href="tel:5555555">+90 212 554 65 48</a>
           </div>
         </div>
@@ -355,6 +355,8 @@ import { useCartStore } from "~/store/cart";
 import { useWishlistStore } from "~/store/wishlist";
 import cartSideBar from "~/components/layouts/cartSideBar.vue";
 import { useAuthStore } from "~/store/auth";
+
+import { useCartSideBar } from "~/store/cartSideBar";
 
 //profile image
 const profileImg = computed(() => {
@@ -403,7 +405,7 @@ const onSubmit = () => {
 
 //mega menu categories first part
 const catFirstpart = computed(() => {
-  let chunk = Math.ceil(allProductsCat.value.length / 2);
+  const chunk = Math.ceil(allProductsCat.value.length / 2);
 
   if (chunk !== 0) {
     return allProductsCat.value.slice(0, chunk);
@@ -412,7 +414,7 @@ const catFirstpart = computed(() => {
 
 //mega menu categories second part
 const catSecondpart = computed(() => {
-  let chunk = Math.ceil(allProductsCat.value.length / 2);
+  const chunk = Math.ceil(allProductsCat.value.length / 2);
 
   if (chunk !== 0) {
     return allProductsCat.value.slice(chunk);
@@ -432,8 +434,6 @@ const toggleMegaMenu = (param: boolean) => {
 router.afterEach((to, from) => {
   toggleMegaMenu(false);
 });
-
-import { useCartSideBar } from "~/store/cartSideBar";
 const { showSideBar } = useCartSideBar();
 </script>
 

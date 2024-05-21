@@ -10,35 +10,36 @@
           </h2>
         </div>
         <customInput
-          inputType="text"
+          v-model="form.nameSurname"
+          input-type="text"
           placeholder="Name Surname"
           label="Your Name"
-          v-model="form.nameSurname"
         />
         <customInput
-          inputType="email"
+          v-model="form.email"
+          input-type="email"
           placeholder="demo@email.com"
           label="Your Email"
-          v-model="form.email"
         />
         <customInput
-          inputType="text"
+          v-model="form.subject"
+          input-type="text"
           placeholder="Write your subject"
           label="Subject"
-          v-model="form.subject"
         />
 
         <div class="relative mt-5">
           <label class="textarea-label text-sm font-medium text-gray-700">Your Message</label>
           <textarea
+            v-model="form.message"
             class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4 py-12"
             type="text"
             placeholder="Write your message here..."
-            v-model="form.message"
-          ></textarea>
+          />
         </div>
 
-        <customCheckbox v-model="form.cacheInfo" 
+        <customCheckbox
+v-model="form.cacheInfo" 
         label="Save my name, email, and website in this browser for the next time I comment."/>
 
         <div class="">

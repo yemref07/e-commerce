@@ -93,7 +93,8 @@ export default defineNuxtConfig({
     storage: 'localStorage'
   },
 
-  ssr:true
+  ssr:true,
 
-  
+
+
 });

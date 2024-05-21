@@ -5,7 +5,7 @@
       <span
         class="bg-yellow-500 h-3 block"
         :style="{ width: rateBarWidth }"
-      ></span>
+      />
     </div>
     <span class="text-muted text-sm">{{ rateAmount }} Review</span>
   </div>

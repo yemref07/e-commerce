@@ -6,8 +6,8 @@
         </div>
 
         <div class="tool border-b-2 p-2">
-            <Icon name="ph:heart" size="28" v-if="!wishStatus" @click="addProductToWishList"/>
-            <Icon name="ph:heart-fill" size="28" v-else color="red" @click="removeFromWishlist"/>
+            <Icon v-if="!wishStatus" name="ph:heart" size="28" @click="addProductToWishList"/>
+            <Icon v-else name="ph:heart-fill" size="28" color="red" @click="removeFromWishlist"/>
         </div>
         
         <nuxt-link :to="`/categories/${category}/${name}?${productID}`">

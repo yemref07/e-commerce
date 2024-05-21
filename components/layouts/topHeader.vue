@@ -11,7 +11,8 @@
           <div class="flex space-x-5 items-center basis-2/4 justify-end divide-x">
 
             <div class="px-2 relative">
-              <div class=" cursor-pointer" @click="() => {
+              <div
+class=" cursor-pointer" @click="() => {
                 toggleMenu(langMenu)
               }">
                 <span class="mr-2">
@@ -21,11 +22,13 @@
                 <Icon name="teenyicons:down-solid" size="12" color="white" />
               </div>
 
-              <div :class="{ hidden: !langMenu.visibility }"
+              <div
+:class="{ hidden: !langMenu.visibility }"
                 class="absolute top-full bg-white text-black px-4 py-3 mt-1 rounded-sm shadow-md sub-menu">
                 <ul class="space-y-2">
                   <li>
-                    <NuxtImg loading="lazy" src="/lang/england.svg" alt="English" width="24"
+                    <NuxtImg
+loading="lazy" src="/lang/england.svg" alt="English" width="24"
                       class="inline-block mr-2" />
                     <nuxt-link to="/">English</nuxt-link>
                   </li>
@@ -39,14 +42,16 @@
             </div>
 
             <div class="px-6 relative">
-              <div class="cursor-pointer" @click="() => {
+              <div
+class="cursor-pointer" @click="() => {
                   toggleMenu(profileMenu);
                 }
                 ">
                 <span class="mr-2">Settings</span>
                 <Icon name="teenyicons:down-solid" size="12" color="white" />
               </div>
-              <div :class="{ hidden: !profileMenu.visibility }"
+              <div
+:class="{ hidden: !profileMenu.visibility }"
                 class="absolute top-full bg-white text-black px-4 py-3 right-3 mt-1 rounded-sm shadow-md sub-menu">
                 <ul>
                   <li>

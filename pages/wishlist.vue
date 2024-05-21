@@ -1,7 +1,7 @@
 <template>
   <breadcrumb title="Wishlist" subtitle="Wish List" />
-  <container class="mt-10" v-if="wishlist.length > 0">
-    <div class="mb-10 md:mb-5" v-for="(item, index) in wishlist" :key="index">
+  <container v-if="wishlist.length > 0" class="mt-10">
+    <div v-for="(item, index) in wishlist" :key="index" class="mb-10 md:mb-5">
       <div
         class="flex flex-row bg-gray-200 py-2 px-4 md:px-10 justify-between items-center rounded-t-md text-xs md:text-sm"
       >
@@ -35,8 +35,8 @@
         <span class=""> - {{ item.quantity }} -</span>
 
         <button
-        @click="addCart(item)"
-          class="cursor-pointer bg-orange-500 hover:bg-slate-900 transition-all delay-75 text-white px-4 py-2 rounded-md hidden md:block"
+        class="cursor-pointer bg-orange-500 hover:bg-slate-900 transition-all delay-75 text-white px-4 py-2 rounded-md hidden md:block"
+          @click="addCart(item)"
         >
           Add Cart
         </button>
@@ -50,8 +50,8 @@
       </div>
 
       <button
-      @click="addCart(item)"
-        class="w-full cursor-pointer bg-orange-500 hover:bg-slate-900 transition-all delay-75 text-white px-10 py-3 rounded-md md:hidden"
+      class="w-full cursor-pointer bg-orange-500 hover:bg-slate-900 transition-all delay-75 text-white px-10 py-3 rounded-md md:hidden"
+        @click="addCart(item)"
       >
         Add Cart
       </button>

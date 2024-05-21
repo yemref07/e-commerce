@@ -8,9 +8,9 @@
       :type="inputType"
       class="border border-gray-200 text-tblack text-sm rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500 block w-full p-4 "
       :placeholder="placeholder"
-      @input="$emit('update:modelValue', $event.target.value)"
       required
-    />
+      @input="$emit('update:modelValue', $event.target.value)"
+    >
   </div>
 </template>
 

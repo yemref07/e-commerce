@@ -65,18 +65,18 @@
 
       <div class="flex justify-center items-center gap-5">
         <div class="grow">
-          <hr class="h-px my-8 bg-gray-600 border-0" />
+          <hr class="h-px my-8 bg-gray-600 border-0" >
         </div>
         <div class="text-muted">Or Sign In With Email</div>
         
         <div class="grow">
-          <hr class="h-px my-8 bg-gray-600 border-0" />
+          <hr class="h-px my-8 bg-gray-600 border-0" >
         </div>
       </div>
       
-      <span class="text-red-500 text-base text-center capitalize bg-red-100 w-1/2 mx-auto py-2 rounded-md" v-if="errorMsg">  {{ errorMsg }} </span>
+      <span v-if="errorMsg" class="text-red-500 text-base text-center capitalize bg-red-100 w-1/2 mx-auto py-2 rounded-md">  {{ errorMsg }} </span>
       
-      <Form @submit="handleSubmit" :validation-schema="signInSchema">
+      <Form :validation-schema="signInSchema" @submit="handleSubmit">
         <div class="flex flex-col gap-5">
           <div class="relative">
             <veeInput
@@ -110,14 +110,14 @@
                   'checkbox-checked checked': isChecked,
                   checkbox: !isChecked,
                 }"
-              ></span>
+              />
               <label class="text-sm font-medium text-gray-700 ms-6"
                 >Remember Me</label
               >
               <span
                 class="absolute left-0 right-0 top-0 bottom-0"
                 @click="checkInput"
-              ></span>
+              />
             </div>
             <nuxt-link to="">Forget Password?</nuxt-link>
           </div>

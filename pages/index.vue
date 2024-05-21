@@ -18,30 +18,30 @@
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/categories"
-        bgColor="#115061"
+        cat-link="/categories"
+        bg-color="#115061"
         img="/slider/slider-img-1.webp"
-        :isPreload="true"
+        :is-preload="true"
       />
     </swiper-slide>
     <swiper-slide>
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/categories"
-        bgColor="#115061"
+        cat-link="/categories"
+        bg-color="#115061"
         img="/slider/slider-img-2.webp"
-        :isPreload="false"
+        :is-preload="false"
       />
     </swiper-slide>
     <swiper-slide>
       <slideItem
         title1="The Best Electronic Devices"
         title2="Exclusive offer %10 off this week"
-        catLink="/categories"
-        bgColor="#115061"
+        cat-link="/categories"
+        bg-color="#115061"
         img="/slider/slider-img-3.webp"
-        :isPreload="false"
+        :is-preload="false"
       />
     </swiper-slide>
   </swiper-container>
@@ -169,11 +169,11 @@
               stroke-width="4"
               stroke-miterlimit="3.8637"
               stroke-linecap="round"
-            ></path>
+            />
           </svg>
         </div>
         <div class="grow hidden lg:block">
-          <hr class="w-2/3 mx-auto bg-white h-1" />
+          <hr class="w-2/3 mx-auto bg-white h-1" >
         </div>
         <div class="">
           <nuxt-link
@@ -198,13 +198,13 @@
     <div class="flex flex-row items-center mb-20 justify-between">
       <div class="">
         <h2 class="text-tblack font-semibold text-xl lg:text-3xl">
-          Latest News <br />
+          Latest News <br >
           & Articles
         </h2>
       </div>
 
       <div class="grow hidden lg:block">
-        <hr class="w-3/4 ml-auto bg-gray-100 h-1 mr-12" />
+        <hr class="w-3/4 ml-auto bg-gray-100 h-1 mr-12" >
       </div>
 
       <div class="">
@@ -240,12 +240,12 @@
 
         <div class="mt-5 md:mt-0">
           <input
-            type="text"
             v-model="email"
+            type="text"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-md focus:outline-none rounded-l-md inline-block h-10 md:h-16 px-2 md:px-6 w-2/3"
             placeholder="johndoe@email.com"
             required
-          />
+          >
           <button
             class="bg-tblack text-white h-10 md:h-16 rounded-r-md inline-block text-sm px-2 md:px-6"
           >

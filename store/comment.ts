@@ -2,10 +2,10 @@ import { defineStore } from "pinia";
 
 
 interface comment {
-    msg: String,
-    name: String,
-    email: String
-    rate: Number
+    msg: string,
+    name: string,
+    email: string
+    rate: number
 }
 
 export const useCommentStore = defineStore('commentStore', () => {

@@ -4,15 +4,15 @@
       props.label
     }}</label>
     <input
-      :name="name"
       :id="name"
+      :name="name"
       :type="type"
       :value="inputValue"
       :placeholder="placeholder"
+      class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4 mb-2"
       @input="handleChange"
       @blur="handleBlur"
-      class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4 mb-2"
-    />
+    >
   </div>
 </template>
 

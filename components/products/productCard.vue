@@ -59,7 +59,7 @@
     <productTool 
     :hover="toolHover" 
 
-    :productID="props.productID" 
+    :product-i-d="props.productID" 
     :category = "props.cat"
     :name="props.name"
     :image="props.img"

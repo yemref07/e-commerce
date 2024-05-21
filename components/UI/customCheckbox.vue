@@ -2,12 +2,12 @@
   <div class="label-remember relative">
     <span
       :class="{ 'checkbox-checked checked': isChecked, 'checkbox': !isChecked }"
-    ></span>
+    />
     <label class="text-sm font-medium text-gray-700 ms-6">{{ label }}</label>
     <span
       class="absolute left-0 right-0 top-0 bottom-0"
       @click="checkInput"
-    ></span>
+    />
   </div>
 </template>
 

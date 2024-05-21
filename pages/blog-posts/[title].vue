@@ -18,7 +18,8 @@
           <p class="inline">Com 09</p>
         </div>
 
-        <nuxt-img src="/blog-demo-images/blog-detail.jpg" sizes="sm:400px, md:600px, lg:800px"
+        <nuxt-img
+src="/blog-demo-images/blog-detail.jpg" sizes="sm:400px, md:600px, lg:800px"
           class="rounded-md mt-4 w-full" />
 
         <div class="mt-6 lg:mt-14 text-gray-500 leading-relaxed">
@@ -36,7 +37,7 @@
             aspernatur, asperiores optio maxime excepturi ut quo rerum, aperiam
             illo sapiente dicta dolorem.
           </p>
-          <br />
+          <br >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cum
             expedita ea, harum ut vitae suscipit doloribus porro molestias

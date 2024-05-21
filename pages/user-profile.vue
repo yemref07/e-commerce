@@ -6,37 +6,43 @@
       <div
         class="md:col-span-1 lg:col-span-1 flex justify-start flex-row flex-wrap md:flex-col gap-1 shadow-sm text-tblack rounded-md">
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(1) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(1) }"
           @click="setActive(1)">
           <Icon name="carbon:user-profile" size="22" :class="{ 'text-torange': isActive(1) }" />
           <span class="text-base"> Profile</span>
         </div>
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(2) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(2) }"
           @click="setActive(2)">
           <Icon name="carbon:location" size="22" :class="{ 'text-torange': isActive(2) }" />
           <span class="text-base"> Address</span>
         </div>
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(3) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(3) }"
           @click="setActive(3)">
           <Icon name="carbon:list" size="22" :class="{ 'text-torange': isActive(3) }" />
           <span class="text-base"> My Orders</span>
         </div>
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(4) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(4) }"
           @click="setActive(4)">
           <Icon name="carbon:notification" size="22" :class="{ 'text-torange': isActive(4) }" />
           <span class="text-base"> Notifications</span>
         </div>
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(6) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(6) }"
           @click="setActive(6)">
           <Icon name="fluent:payment-20-regular" size="22" :class="{ 'text-torange': isActive(5) }" />
           <span class="text-base"> Payment Methods</span>
         </div>
 
-        <div class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(5) }"
+        <div
+class="flex gap-4 items-center cursor-pointer py-4 px-3" :class="{ 'active-tab': isActive(5) }"
           @click="setActive(5)">
           <Icon name="carbon:locked" size="22" :class="{ 'text-torange': isActive(5) }" />
           <span class="text-base"> Change Password</span>
@@ -47,17 +53,19 @@
       <!-- tabs contents start -->
 
       <!-- Profile Tab -->
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm" v-if="activeTab === 1">
+      <div v-if="activeTab === 1" class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm">
         <div class="flex flex-row justify-between items-center gap-2">
 
           <div class="flex flex-row items-center">
             <div class="">
-              <NuxtImg loading="lazy" :src="userData?.image || '/users/male.png'" alt="User Profile Image" width="85"
+              <NuxtImg
+loading="lazy" :src="userData?.image || '/users/male.png'" alt="User Profile Image" width="85"
                 class="inline-block rounded-full" provider="dummy" />
 
-              <input type="file" class="hidden" ref="loadImage" @change="loadProfileImg" accept="image/*"></input>
-              <Icon @click="openFileInput" name="material-symbols-light:add-a-photo-outline" size="28"
-                class="text-white bg-orange-500 rounded-full p-1 cursor-pointer hover:bg-orange-300" />
+              <input ref="loadImage" type="file" class="hidden" accept="image/*" @change="loadProfileImg"></input>
+              <Icon
+name="material-symbols-light:add-a-photo-outline" size="28" class="text-white bg-orange-500 rounded-full p-1 cursor-pointer hover:bg-orange-300"
+                @click="openFileInput" />
 
             </div>
 
@@ -155,7 +163,7 @@
       </div>
 
       <!-- Address Tab -->
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm" v-if="activeTab === 2">
+      <div v-if="activeTab === 2" class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm">
 
         <div class="grid md:grid-cols-2">
 
@@ -272,7 +280,7 @@
       </div>
 
       <!-- My Orders Tab -->
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm overflow-hidden" v-if="activeTab === 3">
+      <div v-if="activeTab === 3" class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm overflow-hidden">
         <div class="relative overflow-x-auto">
           <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
             <thead class="text-xs text-white uppercase bg-orange-500  ">
@@ -346,7 +354,7 @@
       </div>
 
       <!-- My Notifications Tab -->
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack" v-if="activeTab === 4">
+      <div v-if="activeTab === 4" class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack">
         <div class="flex flex-col gap-2">
           <h3 class="mb-3 md:text-xl lg:text-2xl font-semibold">My Activity Setting</h3>
           <p class="text-sm md:w-2/3">Stay up to date with notification on activity that involves you including
@@ -355,24 +363,21 @@
           <label class="inline-flex items-center cursor-pointer mt-3">
             <input type="checkbox" value="" class="sr-only peer">
             <div
-              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
-            </div>
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"/>
             <span class="ms-2 text-sm">Like & Follows Notifications</span>
           </label>
 
           <label class="inline-flex items-center cursor-pointer mt-3">
             <input type="checkbox" value="" class="sr-only peer">
             <div
-              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
-            </div>
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"/>
             <span class="ms-2 text-sm">Post, Comments & Replies Notifications</span>
           </label>
 
           <label class="inline-flex items-center cursor-pointer mt-3">
             <input type="checkbox" value="" class="sr-only peer">
             <div
-              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500">
-            </div>
+              class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-orange-500"/>
             <span class="ms-2 text-sm">New Product Notifications</span>
           </label>
 
@@ -380,14 +385,14 @@
 
       </div>
 
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack pb-5" v-if="activeTab === 5">
+      <div v-if="activeTab === 5" class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm text-tblack pb-5">
         <div class="flex flex-col gap-2">
           <h3 class="mb-3 md:text-xl lg:text-2xl font-semibold">Change Password</h3>
-          <Form @submit="onSubmit" :validation-schema="passwordSchema">
+          <Form :validation-schema="passwordSchema" @submit="onSubmit">
 
             <div class="mb-4 input md:w-3/4">
               <veeInput type="password" name="oldPassword" label="Old Password" placeholder="" />
-              <ErrorMessage name="oldPassword" v-slot="{ message }">
+              <ErrorMessage v-slot="{ message }" name="oldPassword">
                 <p class="text-sm text-orange-600">{{ message?.split(',')[0] }}</p>
                 <p class="text-sm text-orange-600">{{ message?.split(',')[1] }}</p>
                 <p class="text-sm text-orange-600">{{ message?.split(',')[2] }}</p>
@@ -410,7 +415,7 @@
         </div>
       </div>
 
-      <div class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm"  v-if="activeTab === 6">
+      <div v-if="activeTab === 6"  class="md:col-span-2 lg:col-span-3 mt-10 md:mt-0 shadow-sm">
         <cardPayment />
       </div>
 

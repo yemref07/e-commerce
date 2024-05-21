@@ -10,19 +10,19 @@
     />
     <div class="p-2">
       <Icon
+        v-for="(item, index) in parseInt(props.rate)"
+        :key="index"
         name="solar:star-bold"
         size="16"
         class="text-tyellow block"
-        v-for="(item, index) in parseInt(props.rate)"
-        :key="index"
       />
 
       <Icon
+        v-for="(item, index) in emptyStars"
+        :key="index"
         name="solar:star-bold"
         size="16"
         class="block text-gray-300"
-        v-for="(item, index) in emptyStars"
-        :key="index"
       />
 
       <p class="text-sm font-semibold mt-2">

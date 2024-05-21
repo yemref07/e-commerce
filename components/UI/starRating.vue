@@ -1,9 +1,10 @@
 <template>
   <Icon
+    v-for="(item, index) in 5"
+    :key="index"
     name="solar:star-bold"
     size="24"
     class="inline-block hover:text-yellow-500 cursor-pointer"
-    v-for="(item, index) in 5"
     :class="{
       'text-yellow-500': item <= rateData.rate,
       'text-muted': rateData.rate < item,
@@ -11,7 +12,6 @@
     @click="emitRate(item)"
     @mouseover="setRate(item)"
     @mouseout="resetRating()"
-    :key="index"
   />
 </template>
 

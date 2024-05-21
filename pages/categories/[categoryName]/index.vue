@@ -9,8 +9,9 @@
           <h3 class="font-medium text-base text-tblack">Price Filter</h3>
 
           <div class="relative mb-6">
-            <input type="range" value="1000" min="100" max="1500"
-              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-400" />
+            <input
+type="range" value="1000" min="100" max="1500"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-400" >
             <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">$100</span>
             <span
               class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">$500</span>
@@ -46,8 +47,9 @@
           </h3>
 
           <ul class="leading-8 text-sm overflow-y-auto h-48 mt-4">
-            <li class="capitalize cursor-pointer hover:text-orange-500" v-for="(item, index) in allProductsCat"
-              :key="index">
+            <li
+v-for="(item, index) in allProductsCat" :key="index"
+              class="capitalize cursor-pointer hover:text-orange-500">
               <icon name="ph:dot-duotone" class="text-torange" size="24" />
               <nuxt-link :to="`/categories/${item}`">
                 {{ item }}
@@ -64,7 +66,7 @@
           <div class="flex flex-row gap-4 mt-4">
             <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
             <div class="">
-              <Icon name="solar:star-bold" size="14" class="text-tyellow" v-for="(item, index) in 5" :key="index" />
+              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
@@ -73,7 +75,7 @@
           <div class="flex flex-row gap-4 mt-4">
             <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
             <div class="">
-              <Icon name="solar:star-bold" size="14" class="text-tyellow" v-for="(item, index) in 5" :key="index" />
+              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
@@ -82,7 +84,7 @@
           <div class="flex flex-row gap-4 mt-4">
             <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
             <div class="">
-              <Icon name="solar:star-bold" size="14" class="text-tyellow" v-for="(item, index) in 5" :key="index" />
+              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
@@ -114,19 +116,22 @@
           </div>
 
           <div class="w-48" @mouseleave="toggleSortInput(false)">
-            <div class="border px-6 py-2 bg-slate-50 rounded-md cursor-pointer flex justify-between items-center"
+            <div
+class="border px-6 py-2 bg-slate-50 rounded-md cursor-pointer flex justify-between items-center"
               @mouseenter="toggleSortInput(true)">
               <span> {{ sortInput.selectedValue }} </span>
               <icon name="lucide:arrow-up-down" class="text-tblack" size="16" />
             </div>
 
-            <div class="bg-white border transition-all z-20 absolute w-48" :class="{
+            <div
+class="bg-white border transition-all z-20 absolute w-48" :class="{
     'visible opacity-100': sortInput.isVisible,
     'invisible opacity-0': !sortInput.isVisible,
   }">
               <ul class="leading-8 text-sm ms-6 py-3 cursor-pointer">
-                <li v-for="(item, index) in sortInput.sortCriterias" :key="index" @click="setSortingCriteria(item)"
-                  class="hover:text-orange-500 transition-colors duration-75">
+                <li
+v-for="(item, index) in sortInput.sortCriterias" :key="index" class="hover:text-orange-500 transition-colors duration-75"
+                  @click="setSortingCriteria(item)">
                   {{ item }}
                 </li>
               </ul>
@@ -136,8 +141,9 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12 lg:mt-4">
           <div v-for="(item, index) in categoryProducts" :key="index">
-            <productCard :cat="item.category" :name="item.title" :img="item.images[0]" :price="item.price"
-              :rate="item.rating" :review="item.stock.toString()" :productID="item.id.toString()" />
+            <productCard
+:cat="item.category" :name="item.title" :img="item.images[0]" :price="item.price"
+              :rate="item.rating" :review="item.stock.toString()" :product-i-d="item.id.toString()" />
           </div>
         </div>
       </div>

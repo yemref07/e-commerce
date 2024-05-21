@@ -62,11 +62,11 @@
 
       <div class="flex justify-center items-center gap-5">
         <div class="grow">
-          <hr class="h-px my-8 bg-gray-600 border-0" />
+          <hr class="h-px my-8 bg-gray-600 border-0" >
         </div>
         <div class="text-muted">Or Sign Up With Email</div>
         <div class="grow">
-          <hr class="h-px my-8 bg-gray-600 border-0" />
+          <hr class="h-px my-8 bg-gray-600 border-0" >
         </div>
       </div>
 
@@ -81,7 +81,7 @@
             class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
             placeholder="John Doe"
             required
-          />
+          >
         </div>
 
         <div class="relative">
@@ -94,7 +94,7 @@
             class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
             placeholder="john@mail.com"
             required
-          />
+          >
         </div>
 
         <div class="relative">
@@ -107,32 +107,32 @@
             class="border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
             placeholder="Min. 6 Character"
             required
-          />
+          >
         </div>
 
         <div class="flex justify-start items-center">
           <div class="label-remember relative">
-            <input type="checkbox" v-model="isChecked" class="hidden" />
+            <input v-model="isChecked" type="checkbox" class="hidden" >
             <span
               :class="{
                 'checkbox-checked checked': isChecked,
                 checkbox: !isChecked,
               }"
-            ></span>
+            />
             <label class="text-sm font-medium text-gray-700 ms-6"
               >I accept the terms of the Service & Privacy Policy.</label
             >
             <span
               class="absolute left-0 right-0 top-0 bottom-0"
               @click="checkInput"
-            ></span>
+            />
           </div>
         </div>
 
         <div class="mt-5">
           <button
-            @click="singIn"
             class="cursor-pointer px-8 py-3 bg-tblack text-lg text-white w-full rounded-md hover:bg-orange-600 transition-all delay-75"
+            @click="singIn"
           >
             Sign Up
           </button>

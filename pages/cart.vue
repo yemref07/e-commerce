@@ -1,10 +1,10 @@
 <template>
   <breadcrumb title="Shopping Cart" subtitle="Cart" alignment="" />
-  <div class="" v-if="cartList.length > 0">
+  <div v-if="cartList.length > 0" class="">
     <container class="mt-10">
       <div class="grid md:grid-cols-5 gap-10">
         <div class="md:col-span-3 lg:col-span-4">
-          <div class="mb-5" v-for="(item, index) in cartList" :key="index">
+          <div v-for="(item, index) in cartList" :key="index" class="mb-5">
             <div
               class="flex flex-row bg-gray-200 py-2 px-4 md:px-10 justify-between items-center rounded-t-md text-sm"
             >
@@ -70,7 +70,7 @@
 
               <div class="flex flex-row justify-between items-center mt-3">
                 <span>Shipping:</span>
-                <span class="font-semibold" v-if="cartList.length > 0"
+                <span v-if="cartList.length > 0" class="font-semibold"
                   >{{ shippingCost }}$</span
                 >
               </div>
@@ -80,8 +80,8 @@
               >
                 <span>Discount:</span>
                 <span
-                  class="font-semibold text-torange"
                   v-if="cartList.length > 0"
+                  class="font-semibold text-torange"
                 >
                   - {{ discountAmount }}$</span
                 >

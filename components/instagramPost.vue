@@ -28,7 +28,7 @@
         <icon name="mdi:instagram" class="text-white" size="24" />
       </div>
 
-      <div class="overlay"></div>
+      <div class="overlay"/>
     </div>
   </div>
 </template>

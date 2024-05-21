@@ -26,7 +26,7 @@
 
       <WishIcon :quantity="wishCount"/>
 
-      <nuxt-link to="/user-profile" v-if="isAuthenticated" title="user profile">
+      <nuxt-link v-if="isAuthenticated" to="/user-profile" title="user profile">
         <Icon
           name="solar:user-bold-duotone"
           size="28"
@@ -35,7 +35,7 @@
         />
       </nuxt-link>
 
-      <nuxt-link to="/signin" v-else title='sign in'>
+      <nuxt-link v-else to="/signin" title='sign in'>
         <Icon
           name="solar:user-bold-duotone"
           size="28"
@@ -187,9 +187,9 @@
               :class="{ hidden: !menuProduct.visibility }"
             >
               <li
-                class="py-1 capitalize text-base"
                 v-for="(item, index) in allProductsCat"
                 :key="index"
+                class="py-1 capitalize text-base"
               >
                 <nuxt-link :to="`/categories/${item}`" :title="item">
                   {{ item.replace(/-/g, " ") }}
@@ -248,16 +248,16 @@
     </nuxt-link>
 
     <input
-      type="text"
       ref="searchInput"
+      v-model="searchText"
+      type="text"
       placeholder="Type Here..."
       class="px-5 rounded-md w-3/4 mt-10 py-4"
-      v-model="searchText"
-    />
+    >
 
     <div
-      @click="search"
       class="bg-torange text-center text-lg rounded-md text-white py-2 w-3/4"
+      @click="search"
     >
       Search Product
     </div>

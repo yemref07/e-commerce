@@ -16,7 +16,7 @@
         img="/product-banners/product-banner-3.png"
         price=1200
         reduced-price="900"
-        productID="lorem"
+        product-i-d="lorem"
         :is-visible="setActiveSlide(0)"
       />
     </swiper-slide>
@@ -30,7 +30,7 @@
         img="/product-banners/product-banner-3.png"
         price="1200"
         reduced-price="900"
-        productID="lorem"
+        product-i-d="lorem"
         :is-visible="setActiveSlide(1)"
       />
     </swiper-slide>
@@ -44,7 +44,7 @@
         img="/product-banners/product-banner-3.png"
         price="1200"
         reduced-price="900"
-        productID="lorem"
+        product-i-d="lorem"
         :is-visible="setActiveSlide(2)"
       />
     </swiper-slide>

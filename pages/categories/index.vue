@@ -7,9 +7,9 @@
   <container class="mt-10">
     <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
       <div
-        class="col-span-1 justify-center items-center"
         v-for="(item, index) in allCategories"
         :key="index"
+        class="col-span-1 justify-center items-center"
       >
         <nuxt-link :to="`categories/${item}`">
           <div

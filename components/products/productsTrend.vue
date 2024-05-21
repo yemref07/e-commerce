@@ -19,12 +19,12 @@
             stroke-width="4"
             stroke-miterlimit="3.8637"
             stroke-linecap="round"
-          ></path>
+          />
         </svg>
       </div>
 
       <div class="grow">
-        <hr class="w-2/3 mx-auto" />
+        <hr class="w-2/3 mx-auto" >
       </div>
 
       <div class="flex gap-5">
@@ -65,14 +65,14 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
 
-      <div class="" v-for="(item, index) in electronics?.products" :key="index">
+      <div v-for="(item, index) in electronics?.products" :key="index" class="">
         <productCard
           :cat="item.category"
           :name="item.title"
           :rate="item.rating"
           :price="item.price"
           :img="item.images[0]"
-          :productID="item.id"
+          :product-i-d="item.id"
           review="200+"
         />
       </div>
@@ -82,9 +82,9 @@
       v-else-if="activeTab === 2"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
-      <div class="" v-for="(item, index) in mensCloth?.products" :key="index">
+      <div v-for="(item, index) in mensCloth?.products" :key="index" class="">
         <productCard
-          :productID="item.id"
+          :product-i-d="item.id"
           :cat="item.category"
           :name="item.title"
           :rate="item.rating"
@@ -98,9 +98,9 @@
       v-else
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5"
     >
-      <div class="" v-for="(item, index) in womensCloth?.products" :key="index">
+      <div v-for="(item, index) in womensCloth?.products" :key="index" class="">
         <productCard
-          :productID="item.id"
+          :product-i-d="item.id"
           :cat="item?.category"
           :name="item?.title"
           :rate="item?.rating"

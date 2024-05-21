@@ -8,13 +8,13 @@
           >Card number:</label
         >
         <input
+          v-model="creditCardData.cardNumber"
           type="text"
-          @click="hideBackCard"
           class="flex h-10 w-full rounded-md border-2 bg-background px-4 py-1.5 text-lg ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-orange-600 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 undefined"
           maxlength="19"
           placeholder="XXXX XXXX XXXX XXXX"
-          v-model="creditCardData.cardNumber"
-        />
+          @click="hideBackCard"
+        >
       </div>
       <div class="flex gap-x-2 mb-4">
         <div class="block">
@@ -22,26 +22,26 @@
             >Exp. date:</label
           >
           <input
+            v-model="creditCardData.expDate"
             type="text"
-            @click="hideBackCard"
             class="flex h-10 w-full rounded-md border-2 bg-background px-4 py-1.5 text-lg ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-orange-600 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 undefined"
             maxlength="5"
             placeholder="MM/YY"
-            v-model="creditCardData.expDate"
-          />
+            @click="hideBackCard"
+          >
         </div>
         <div class="block">
           <label class="text-neutral-800 font-bold text-sm mb-2 block"
             >CCV:</label
           >
           <input
+            v-model="creditCardData.ccv"
             type="text"
-            @click="showBackCard"
             class="flex h-10 w-full rounded-md border-2 bg-background px-4 py-1.5 text-lg ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-orange-600 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 undefined"
             maxlength="3"
             placeholder="123"
-            v-model="creditCardData.ccv"
-          />
+            @click="showBackCard"
+          >
         </div>
       </div>
       <div class="mb-4">
@@ -49,12 +49,12 @@
           >Card Holder:</label
         >
         <input
+          v-model="creditCardData.cardHolder"
           type="text"
-          @click="hideBackCard"
           class="flex h-10 w-full rounded-md border-2 bg-background px-4 py-1.5 text-lg ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-orange-600 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 undefined"
           placeholder="John Doe"
-          v-model="creditCardData.cardHolder"
-        />
+          @click="hideBackCard"
+        >
       </div>
     </div>
     <div class="w-full lg:w-1/2 lg:pl-8">
@@ -140,10 +140,10 @@
               class="relative object-cover w-full h-full rounded-xl"
             />
             <div class="w-full absolute top-8">
-              <div class="bg-black h-10"></div>
+              <div class="bg-black h-10"/>
               <div class="px-8 mt-5">
                 <div class="flex space-between">
-                  <div class="flex-1 h-8 bg-red-100"></div>
+                  <div class="flex-1 h-8 bg-red-100"/>
                   <p
                     class="bg-white text-black flex items-center pl-4 pr-2 w-14"
                   >

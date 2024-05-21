@@ -5,9 +5,9 @@
         <div class="flex gap-5">
           <div class="flex flex-col space-y-6">
             <div
-              class=""
               v-for="(item, index) in productDetailImgs"
               :key="index"
+              class=""
             >
               <NuxtImg
                 provider="dummy"
@@ -52,12 +52,12 @@
         </h1>
 
         <div class="flex flex-row justify-start items-center gap-3 mt-5">
-          <div class="" v-if="stockStatus">
+          <div v-if="stockStatus" class="">
             <span class="bg-sky-100 px-3 py-2 mt-2 rounded-md text-blue-800">
               in stock
             </span>
           </div>
-          <div class="" v-else>
+          <div v-else class="">
             <span class="bg-red-100 px-3 py-2 mt-2 rounded-md text-red-400">
               off stock
             </span>
@@ -65,18 +65,18 @@
 
           <div class="flex items-center">
             <Icon
+              v-for="(item, index) in productRating"
+              :key="index"
               name="solar:star-bold"
               size="16"
               class="text-tyellow"
-              v-for="(item, index) in productRating"
-              :key="index"
             />
             <Icon
+              v-for="(item, index) in emptyStars"
+              :key="index"
               name="solar:star-bold"
               size="16"
               class="text-gray-400"
-              v-for="(item, index) in emptyStars"
-              :key="index"
             />
           </div>
           <div class="">
@@ -118,30 +118,30 @@
         <div class="mt-4 flex items-center">
           <span class="text-lg font-medium mr-4">Color:</span>
 
-          <div @click="setProductColor('#7393B3')" class="mr-2">
+          <div class="mr-2" @click="setProductColor('#7393B3')">
             <colorSelectInput
-              inputColor="#7393B3"
+              input-color="#7393B3"
               :selected-color="orderDetail.color"
             />
           </div>
 
-          <div @click="setProductColor('#ffc0cb')" class="mr-2">
+          <div class="mr-2" @click="setProductColor('#ffc0cb')">
             <colorSelectInput
-              inputColor="#ffc0cb"
+              input-color="#ffc0cb"
               :selected-color="orderDetail.color"
             />
           </div>
 
-          <div @click="setProductColor('#ff7373')" class="mr-2">
+          <div class="mr-2" @click="setProductColor('#ff7373')">
             <colorSelectInput
-              inputColor="#ff7373"
+              input-color="#ff7373"
               :selected-color="orderDetail.color"
             />
           </div>
 
-          <div @click="setProductColor('#b0e0e6')" class="mr-2">
+          <div class="mr-2" @click="setProductColor('#b0e0e6')">
             <colorSelectInput
-              inputColor="#b0e0e6"
+              input-color="#b0e0e6"
               :selected-color="orderDetail.color"
             />
           </div>
@@ -223,7 +223,7 @@
           </div>
         </div>
 
-        <div class="mt-6 border-b border-gray-200"></div>
+        <div class="mt-6 border-b border-gray-200"/>
 
         <div class="mt-8 flex flex-col text-gray-700 text-sm gap-2">
           <div class="">
@@ -289,7 +289,7 @@
           </div>
         </div>
 
-        <input type="color" class="hidden" v-model="orderDetail.color" />
+        <input v-model="orderDetail.color" type="color" class="hidden" >
       </div>
     </div>
   </container>
@@ -298,22 +298,22 @@
     <div class="flex flex-row justify-center info-tab-container">
       <button
         class="text-base lg:text-lg xl:text-xl info-tab"
-        @click="changeActiveTab(1)"
         :class="{ 'tab-active': isActiveTab(1) }"
+        @click="changeActiveTab(1)"
       >
         Description
       </button>
       <button
         class="text-base lg:text-lg xl:text-xl mx-12 info-tab"
-        @click="changeActiveTab(2)"
         :class="{ 'tab-active': isActiveTab(2) }"
+        @click="changeActiveTab(2)"
       >
         Additional Information
       </button>
       <button
         class="text-base lg:text-lg xl:text-xl info-tab"
-        @click="changeActiveTab(3)"
         :class="{ 'tab-active': isActiveTab(3) }"
+        @click="changeActiveTab(3)"
       >
         Reviews
       </button>
@@ -330,8 +330,8 @@
       :title="successModal.title"
       :desc="successModal.desc"
       :show="successModal.isVisible"
-      @is-visible="successModal.isVisible = false"
       :confirm-btn="successModal.confirmBtn"
+      @is-visible="successModal.isVisible = false"
     />
     <alertNotification
       :title="notificationModal.title"
@@ -341,7 +341,7 @@
   </container>
 
   <transition name="fade">
-    <container class="mt-10" v-if="activeTab === 1">
+    <container v-if="activeTab === 1" class="mt-10">
       <div class="flex flex-col lg:px-10 xl:px-20">
         <h2 class="text-lg capitalize">
           {{ singleProduct?.category || "Category" }}
@@ -384,8 +384,8 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
           <thead class="text-xs text-gray-600 uppercase bg-gray-300">
             <tr>
-              <th scope="col" class="px-24 py-3"></th>
-              <th scope="col" class="px-12 py-3"></th>
+              <th scope="col" class="px-24 py-3"/>
+              <th scope="col" class="px-12 py-3"/>
             </tr>
           </thead>
           <tbody>
@@ -402,7 +402,7 @@
   </transition>
 
   <transition name="fade">
-    <container class="mt-10" v-if="activeTab === 3">
+    <container v-if="activeTab === 3" class="mt-10">
       <div class="grid lg:grid-cols-2">
         <div class="lg:col-span-1 items-baseline">
           <div class="md:border-2 border-gray-200 md:px-8 md:py-6 w-fit">
@@ -416,18 +416,18 @@
                 >{{ singleProduct?.rating || "5" }}</span
               >
               <Icon
+                v-for="(item, index) in productRating"
+                :key="index"
                 name="solar:star-bold"
                 size="16"
                 class="text-tyellow"
-                v-for="(item, index) in productRating"
-                :key="index"
               />
               <Icon
+                v-for="(item, index) in emptyStars"
+                :key="index"
                 name="solar:star-bold"
                 size="16"
                 class="text-gray-400"
-                v-for="(item, index) in emptyStars"
-                :key="index"
               />
               <span class="ms-2">200 (reviews)</span>
             </div>
@@ -482,14 +482,14 @@
               <form>
                 <div class="mb-6">
                   <customInput
+                    v-model="review.email"
                     label="Your Email"
                     input-type="email"
-                    v-model="review.email"
                     class="w-full md:w-2/3"
                   />
                   <p
-                    class="text-xs text-red-500 mt-2"
                     v-if="review.email === ''"
+                    class="text-xs text-red-500 mt-2"
                   >
                     Email is required field
                   </p>
@@ -497,14 +497,14 @@
 
                 <div class="mb-6">
                   <customInput
+                    v-model="review.name"
                     label="Your Name"
                     input-type="text"
-                    v-model="review.name"
                     class="w-full md:w-2/3"
                   />
                   <p
-                    class="text-xs text-red-500 mt-2"
                     v-if="review.name === ''"
+                    class="text-xs text-red-500 mt-2"
                   >
                     Name is required field
                   </p>
@@ -518,21 +518,21 @@
                     class="w-full lg:w-2/3 border border-gray-200 text-tblack text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-4"
                     placeholder="Write Your Message Here"
                     required
-                  ></textarea>
-                  <p class="text-xs text-red-500 mt-2" v-if="review.msg === ''">
+                  />
+                  <p v-if="review.msg === ''" class="text-xs text-red-500 mt-2">
                     Message is required field
                   </p>
                 </div>
 
                 <customCheckbox
-                  class="mt-6"
                   v-model="review.check"
+                  class="mt-6"
                   label="Save my name, email, and website in this browser for the next time I comment."
                   @check="(param) => (review.check = param)"
                 />
                 <button
-                  @click.prevent="addNewReview()"
                   class="mt-6 bg-orange-500 text-white py-2 px-12 hover:bg-black transition-all delay-75 duration-75 rounded-md"
+                  @click.prevent="addNewReview()"
                 >
                   Submit
                 </button>
@@ -555,8 +555,8 @@
       </div>
 
       <button
-        @click="getMoreComments(12)"
         class="py-2 px-10 border-2 text-black text-center mx-auto mt-12 block w-full hover:text-orange-500 rounded-sm"
+        @click="getMoreComments(12)"
       >
         See More Comments
       </button>
@@ -608,7 +608,7 @@ const { getSingleProduct } = productStore;
 //We remove the first element of singleProduct images because first image is an tiny thumnnail image , for small cards and etc..
 const productDetailImgs = computed(()=>{
   if(singleProduct.value){
-    let length = singleProduct.value?.images.length
+    const length = singleProduct.value?.images.length
     return singleProduct.value?.images.slice(1, length)
   }
 })

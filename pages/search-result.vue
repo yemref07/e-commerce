@@ -13,7 +13,7 @@
               min="100"
               max="1500"
               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-400"
-            />
+            >
             <span
               class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6"
               >$100</span
@@ -62,9 +62,9 @@
 
           <ul class="leading-8 text-sm overflow-y-auto h-48 mt-4">
             <li
-              class="capitalize cursor-pointer hover:text-orange-500"
               v-for="(item, index) in allProductsCat"
               :key="index"
+              class="capitalize cursor-pointer hover:text-orange-500"
             >
               <icon name="ph:dot-duotone" class="text-torange" size="24" />
               <nuxt-link :to="`/categories/${item}`" :title="item">
@@ -88,11 +88,11 @@
             />
             <div class="">
               <Icon
+                v-for="(item, index) in 5"
+                :key="index"
                 name="solar:star-bold"
                 size="14"
                 class="text-tyellow"
-                v-for="(item, index) in 5"
-                :key="index"
               />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
@@ -100,18 +100,19 @@
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <NuxtImg loading="lazy"
+            <NuxtImg
+loading="lazy"
               src="/produc-detail-thumb-image/thumb1.jpg"
               alt="Popular Product"
               width="75"
             />
             <div class="">
               <Icon
+                v-for="(item, index) in 5"
+                :key="index"
                 name="solar:star-bold"
                 size="14"
                 class="text-tyellow"
-                v-for="(item, index) in 5"
-                :key="index"
               />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
@@ -119,18 +120,19 @@
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <NuxtImg loading="lazy"
+            <NuxtImg
+loading="lazy"
               src="/produc-detail-thumb-image/thumb1.jpg"
               alt="Popular Product"
               width="75"
             />
             <div class="">
               <Icon
+                v-for="(item, index) in 5"
+                :key="index"
                 name="solar:star-bold"
                 size="14"
                 class="text-tyellow"
-                v-for="(item, index) in 5"
-                :key="index"
               />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
@@ -184,8 +186,8 @@
                 <li
                   v-for="(item, index) in sortInput.sortCriterias"
                   :key="index"
-                  @click="setSortingCriteria(item)"
                   class="hover:text-orange-500 transition-colors duration-75"
+                  @click="setSortingCriteria(item)"
                 >
                   {{ item }}
                 </li>
@@ -206,7 +208,7 @@
               :price="item.price"
               :rate="item.rating"
               :review="item.stock.toString()"
-              :productID="item.id.toString()"
+              :product-i-d="item.id.toString()"
             />
           </div>
         </div>
