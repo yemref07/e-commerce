@@ -5,7 +5,7 @@
         <div class="flex gap-5">
           <div class="flex flex-col space-y-6">
             <div
-              v-for="(item, index) in productDetailImgs"
+              v-for="(item, index) in singleProduct?.images"
               :key="index"
               class=""
             >
@@ -34,10 +34,15 @@
             aria-label="My Favorite Images"
           >
             <SplideSlide
-              v-for="(item, index) in productDetailImgs"
+              v-for="(item, index) in singleProduct?.images"
               :key="index"
             >
-              <NuxtImg loading="lazy" :src="item" :alt="getSEOTitle"  provider="dummy"/>
+              <NuxtImg
+                loading="lazy"
+                :src="item"
+                :alt="getSEOTitle"
+                provider="dummy"
+              />
             </SplideSlide>
           </Splide>
         </div>
@@ -81,7 +86,7 @@
           </div>
           <div class="">
             <span class="text-muted"
-              >{{ singleProduct?.stock || 0 }} Review</span
+              >{{ singleProduct?.reviews.length || 0 }} Review</span
             >
           </div>
         </div>
@@ -223,7 +228,7 @@
           </div>
         </div>
 
-        <div class="mt-6 border-b border-gray-200"/>
+        <div class="mt-6 border-b border-gray-200" />
 
         <div class="mt-8 flex flex-col text-gray-700 text-sm gap-2">
           <div class="">
@@ -235,7 +240,7 @@
           </div>
 
           <div class="">
-            <span>Brand: {{ singleProduct?.brand || "brand name" }}</span>
+            <span>Brand: {{ singleProduct?.brand || "No Brand" }}</span>
           </div>
         </div>
 
@@ -263,7 +268,7 @@
 
         <div class="mt-6 flex flex-row justify-start items-center">
           <Icon name="charm:circle-tick" size="18" class="text-gray-600 me-2" />
-          <span class="text-sm text-gray-600">30 days easy returns</span>
+          <span class="text-sm text-gray-600"> {{ singleProduct?.returnPolicy || "No Return Policy" }}</span>
         </div>
 
         <div class="mt-2 flex flex-row justify-start items-center">
@@ -289,7 +294,7 @@
           </div>
         </div>
 
-        <input v-model="orderDetail.color" type="color" class="hidden" >
+        <input v-model="orderDetail.color" type="color" class="hidden" />
       </div>
     </div>
   </container>
@@ -384,8 +389,8 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
           <thead class="text-xs text-gray-600 uppercase bg-gray-300">
             <tr>
-              <th scope="col" class="px-24 py-3"/>
-              <th scope="col" class="px-12 py-3"/>
+              <th scope="col" class="px-24 py-3" />
+              <th scope="col" class="px-12 py-3" />
             </tr>
           </thead>
           <tbody>
@@ -567,7 +572,7 @@
 <script setup lang="ts">
 import container from "~/components/UI/container.vue";
 import "@splidejs/splide/css";
-import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import colorSelectInput from "~/components/UI/colorSelectInput.vue";
 import customInput from "~/components/UI/customInput.vue";
 import { useCommentStore } from "~/store/comment";
@@ -605,14 +610,6 @@ const productStore = useProductsStore();
 const { singleProduct } = storeToRefs(productStore);
 const { getSingleProduct } = productStore;
 
-//We remove the first element of singleProduct images because first image is an tiny thumnnail image , for small cards and etc..
-const productDetailImgs = computed(()=>{
-  if(singleProduct.value){
-    const length = singleProduct.value?.images.length
-    return singleProduct.value?.images.slice(1, length)
-  }
-})
-
 //Cart Store
 const cartStore = useCartStore();
 const { addCart } = cartStore;
@@ -622,10 +619,7 @@ const wishlistStore = useWishlistStore();
 const { addWishList, removeWishList } = wishlistStore;
 const { wishlist } = storeToRefs(wishlistStore);
 
-const getImageHeight = computed(() => {
-  return 1;
-});
-
+//Initialize Modals
 const errorModal = reactive({
   isVisible: false,
   title: "Opps",
@@ -646,6 +640,8 @@ const notificationModal = reactive({
   title: "",
 });
 
+
+// Get Related Products Data and Load Comments
 onMounted(async () => {
   //get product data with using product id
   // Check if productId is not null and is a string
@@ -737,6 +733,7 @@ const isActiveTab = (param: number) => {
   }
 };
 
+//Active order color
 const isActiveColor = (param: string) => {
   if (param === orderDetail.color) {
     return true;
@@ -745,12 +742,13 @@ const isActiveColor = (param: string) => {
   }
 };
 
+//Detail of the order like quantity , color , etc
 const orderDetail = reactive({
   color: "",
   quantity: 1,
 });
 
-//Products Cart Data
+//Products Cart Data - Its contain essential data for adding wish or cart
 const productCoreData = computed(() => {
   const product = singleProduct.value;
   return {
@@ -865,17 +863,27 @@ const finalCost = computed(() => {
   else return "0";
 });
 
-
 useHead({
   title: () => `${getSEOTitle.value} | Dummy E-Commerce`,
   meta: [
-    { name: 'description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' },
-    { property: 'og:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Open Graph title
-    { property: 'og:description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' }, // Aligned Open Graph description
-    { name: 'twitter:card', content: 'summary' }, // Twitter card type
-    { name: 'twitter:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Twitter title
+    {
+      name: "description",
+      content:
+        "Explore a wide variety of products across all categories on Dummy E-Commerce.",
+    },
+    { property: "og:title", content: "Shop All Categories | Dummy E-Commerce" }, // Consistent Open Graph title
+    {
+      property: "og:description",
+      content:
+        "Explore a wide variety of products across all categories on Dummy E-Commerce.",
+    }, // Aligned Open Graph description
+    { name: "twitter:card", content: "summary" }, // Twitter card type
+    {
+      name: "twitter:title",
+      content: "Shop All Categories | Dummy E-Commerce",
+    }, // Consistent Twitter title
   ],
-})
+});
 </script>
 
 <style scoped>
