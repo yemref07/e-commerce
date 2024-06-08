@@ -82,10 +82,10 @@
             <veeInput
               type="text"
               name="username"
-              placeholder="Demo User: kminchelle"
+              placeholder="Demo User: emilys"
               label="Username"
               success-message="its valid"
-              value="kminchelle"
+              value="emilys"
             />
             <ErrorMessage name="username" class="text-sm text-orange-600" />
           </div>
@@ -95,9 +95,9 @@
               type="password"
               name="password"
               label="Password"
-              placeholder="Password: 0lelplR"
+              placeholder="Password: emilyspass"
               success-message="Its valid"
-              value="0lelplR"
+              value="emilyspass"
             />
             <ErrorMessage name="password" class="text-sm text-orange-600" />
           </div>
@@ -193,7 +193,8 @@ const signInSchema = {
     }
 
     // if the field is not a valid password
-    const regex = /^(?=.*[0-9])(?=.*[A-Z]).{7}$/;
+    // const regex = /^(?=.*[0-9])(?=.*[A-Z]).{10}$/;
+    const regex = /^[A-Za-z]{10}$/;
     if (!regex.test(value)) {
       return "İt is not a valid password";
     }
