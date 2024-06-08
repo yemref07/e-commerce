@@ -1,7 +1,7 @@
 <template>
   <div
     ref="sidebar"
-    class="fixed top-0 z-50 right-0 h-screen overflow-y-auto duration-100 transition-transform bg-white w-80 px-4 py-10 drop-shadow-md"
+    class="fixed top-0 z-50 right-0 h-screen overflow-y-auto duration-100 transition-transform bg-white w-80 px-4 py-10 drop-shadow-md sidebar"
     :class="{ 'translate-x-full': !cartVisibility }"
   >
     <div class="flex flex-col">
@@ -72,7 +72,7 @@
     </div>
   </div>
   <div
-    class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 opacity-50 z-40"
+    class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 opacity-50 overlay"
     :class="{ 'translate-x-full': !cartVisibility}"
   />
 </template>
@@ -97,4 +97,11 @@ onClickOutside(sidebar, (event) => hideSideBar());
 
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.sidebar{
+  z-index: 10000;
+}
+.overlay{
+  z-index: 9999;
+}
+</style>

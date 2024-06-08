@@ -1,7 +1,7 @@
 <template>
   <topHeader />
   <!-- main nav -->
-  <nav class="sticky top-0 bg-white" style="z-index:999999">
+  <nav class="sticky top-0 bg-white" style="z-index:999">
     <div
       class="container mx-auto px-5 lg:px-10 xl:px-10 2xl:px-20 hidden lg:block"
     >
