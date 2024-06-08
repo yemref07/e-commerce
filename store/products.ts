@@ -2,18 +2,45 @@ import { defineStore } from "pinia";
 import {object,string,number,array} from 'yup';
 
 interface productData {
-    id: string;
+    id: number;
     title: string;
     description: string;
+    category: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: string;
-    category: string;
+    tags: string[];
+    brand?: string;
+    sku: string;
+    weight: number;
+    dimensions: {
+      width: number;
+      height: number;
+      depth: number;
+    };
+    warrantyInformation: string;
+    shippingInformation: string;
+    availabilityStatus: string;
+    reviews: {
+      rating: number;
+      comment: string;
+      date: string;
+      reviewerName: string;
+      reviewerEmail: string;
+    }[];
+    returnPolicy: string;
+    minimumOrderQuantity: number;
+    meta: {
+      createdAt: string;
+      updatedAt: string;
+      barcode: string;
+      qrCode: string;
+    };
     thumbnail: string;
     images: string[];
-}
+  }
+  
 
 const productSchema = object().shape({
     id: number().required(),
@@ -23,7 +50,6 @@ const productSchema = object().shape({
     discountPercentage: number().required(),
     rating: number().required(),
     stock: number().required(),
-    brand: string().required(),
     category: string().required(),
     thumbnail: string().required(),
     images: array().of(string()).required(),
@@ -47,12 +73,12 @@ export const useProductsStore = defineStore("productsStore", () => {
     const getAllProductsCat = async () => {
         loadStatus.value = true;
         try {
-            const response = await fetch("https://dummyjson.com/products/categories");
+            const response = await fetch("https://dummyjson.com/products/category-list");
             const data = await response.json();
 
-            //check reponse status because non-200 responses won't throw JavaScript errors by default
+            //check response status because non-200 responses won't throw JavaScript errors by default
             if (!response.ok) {
-                throw new Error("Failed to fetch products categiroes");
+                throw new Error("Failed to fetch products categories");
                 return false;
             }
 
@@ -67,7 +93,9 @@ export const useProductsStore = defineStore("productsStore", () => {
             }
 
             return true;
-        } catch (error) {
+        } 
+        
+        catch (error) {
             console.error(error, "all products can not fetch");
         }
 
