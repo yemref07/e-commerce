@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="pt-5 mt-8 absolute bottom-10 right-0 left-0 px-4">
+      <div class="pt-5 mt-8 px-4" :class="{'absolute bottom-10 right-0 left-0 ': cartList.length < 4 }">
 
         <div class="flex justify-between mb-5 text-sm">
           <span class="">Subtotal:</span>
@@ -64,8 +64,6 @@
           </nuxt-link>
           <button class="px-10 py-2 bg-gray-200 text-tblack w-full">Checkout</button>
         </div>
-
-
 
       </div>
 

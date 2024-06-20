@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 interface favorite{
     name: string,
-    id: string,
+    id: string | number,
     category: string,
     quantity: number,
     image: string,

@@ -10,7 +10,7 @@
             <Icon v-else name="ph:heart-fill" size="28" color="red" @click="removeFromWishlist"/>
         </div>
         
-        <nuxt-link :to="`/categories/${category}/${name}?${productID}`">
+        <nuxt-link :to="`/categories/${category}/${name}?productId=${productID}`">
             <div class="tool p-2">
                 <Icon name="solar:eye-broken" class="" size="28" />
             </div>
