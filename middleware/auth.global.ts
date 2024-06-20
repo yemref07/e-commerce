@@ -11,6 +11,12 @@ export default defineNuxtRouteMiddleware ( async (to, from) => {
   // Returning a value with redirection logic (like navigateTo) tells Nuxt 3 to immediately interrupt the middleware chain and perform the redirection.
   // so because of the in below we returning the navigateTo function
   
+
+  // In some cases maybe users can delete the cookie of the web app for this case we need the logout the user
+  if (!token.value && isAuthenticated.value) {
+    logout();
+  }
+
   if (token.value && !isAuthenticated.value) {
     await getAuthUser();
   }
