@@ -3,24 +3,39 @@
 
   <container class="mt-16 text-tblack">
     <div class="grid lg:grid-cols-6 xl:grid-cols-6 gap-6 lg:gap-2">
-
       <div class="order-2 lg:order-1 lg:col-span-1 xl:col-span-1">
         <div class="flex flex-col">
           <h3 class="font-medium text-base text-tblack">Price Filter</h3>
 
           <div class="relative mb-6">
             <input
-type="range" value="1000" min="100" max="1500"
-              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-400" >
-            <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">$100</span>
+              type="range"
+              value="1000"
+              min="100"
+              max="1500"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-400"
+            />
             <span
-              class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">$500</span>
+              class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6"
+              >$100</span
+            >
             <span
-              class="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">$1K</span>
-            <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">$1.5K</span>
+              class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6"
+              >$500</span
+            >
+            <span
+              class="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6"
+              >$1K</span
+            >
+            <span
+              class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6"
+              >$1.5K</span
+            >
           </div>
 
-          <button class="px-6 py-3 md:py-1 bg-gray-100 mt-4 w-full md:w-fit ml-auto">
+          <button
+            class="px-6 py-3 md:py-1 bg-gray-100 mt-4 w-full md:w-fit ml-auto"
+          >
             Filter
           </button>
         </div>
@@ -48,8 +63,10 @@ type="range" value="1000" min="100" max="1500"
 
           <ul class="leading-8 text-sm overflow-y-auto h-48 mt-4">
             <li
-v-for="(item, index) in allProductsCat" :key="index"
-              class="capitalize cursor-pointer hover:text-orange-500">
+              v-for="(item, index) in allProductsCat"
+              :key="index"
+              class="capitalize cursor-pointer hover:text-orange-500"
+            >
               <icon name="ph:dot-duotone" class="text-torange" size="24" />
               <nuxt-link :to="`/categories/${item}`">
                 {{ item }}
@@ -64,27 +81,60 @@ v-for="(item, index) in allProductsCat" :key="index"
           </h3>
 
           <div class="flex flex-row gap-4 mt-4">
-            <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
+            <NuxtImg
+              loading="lazy"
+              src="/produc-detail-thumb-image/thumb1.jpg"
+              alt=""
+              width="75"
+            />
             <div class="">
-              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
+              <Icon
+                v-for="(item, index) in 5"
+                :key="index"
+                name="solar:star-bold"
+                size="14"
+                class="text-tyellow"
+              />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
+            <NuxtImg
+              loading="lazy"
+              src="/produc-detail-thumb-image/thumb1.jpg"
+              alt=""
+              width="75"
+            />
             <div class="">
-              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
+              <Icon
+                v-for="(item, index) in 5"
+                :key="index"
+                name="solar:star-bold"
+                size="14"
+                class="text-tyellow"
+              />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
           </div>
 
           <div class="flex flex-row gap-4 mt-4">
-            <NuxtImg loading="lazy" src="/produc-detail-thumb-image/thumb1.jpg" alt="" width="75" />
+            <NuxtImg
+              loading="lazy"
+              src="/produc-detail-thumb-image/thumb1.jpg"
+              alt=""
+              width="75"
+            />
             <div class="">
-              <Icon v-for="(item, index) in 5" :key="index" name="solar:star-bold" size="14" class="text-tyellow" />
+              <Icon
+                v-for="(item, index) in 5"
+                :key="index"
+                name="solar:star-bold"
+                size="14"
+                class="text-tyellow"
+              />
               <h4 class="text-sm mt-2 font-semibold">Apple iPad Air</h4>
               <span class="text-tblack text-sm">$70.00</span>
             </div>
@@ -96,18 +146,56 @@ v-for="(item, index) in allProductsCat" :key="index"
             Popular Brands
           </h3>
           <div class="flex items-center mt-4 flex-wrap">
-            <NuxtImg loading="lazy" src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
-            <NuxtImg loading="lazy" src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
-            <NuxtImg loading="lazy" src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
-            <NuxtImg loading="lazy" src="/popular-brands/6.svg" alt="" width="90" class="p-3" />
-            <NuxtImg loading="lazy" src="/popular-brands/4.svg" alt="" width="90" class="p-3" />
-            <NuxtImg loading="lazy" src="/popular-brands/2.svg" alt="" width="90" class="p-3" />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/6.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/4.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/2.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/6.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/4.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
+            <NuxtImg
+              loading="lazy"
+              src="/popular-brands/2.svg"
+              alt=""
+              width="90"
+              class="p-3"
+            />
           </div>
         </div>
       </div>
 
       <div class="order-1 lg:order-2 lg:col-span-5 xl:col-span-5 lg:ml-12">
-        <div class="flex flex-row justify-start lg:justify-between items-start gap-4 flex-wrap g:gap-0">
+        <div
+          class="flex flex-row justify-start lg:justify-between items-start gap-4 flex-wrap g:gap-0"
+        >
           <div class="text-muted">
             <h3>
               Showing {{ categoryProducts?.length }} results for
@@ -117,21 +205,27 @@ v-for="(item, index) in allProductsCat" :key="index"
 
           <div class="w-48" @mouseleave="toggleSortInput(false)">
             <div
-class="border px-6 py-2 bg-slate-50 rounded-md cursor-pointer flex justify-between items-center"
-              @mouseenter="toggleSortInput(true)">
+              class="border px-6 py-2 bg-slate-50 rounded-md cursor-pointer flex justify-between items-center"
+              @mouseenter="toggleSortInput(true)"
+            >
               <span> {{ sortInput.selectedValue }} </span>
               <icon name="lucide:arrow-up-down" class="text-tblack" size="16" />
             </div>
 
             <div
-class="bg-white border transition-all z-20 absolute w-48" :class="{
-    'visible opacity-100': sortInput.isVisible,
-    'invisible opacity-0': !sortInput.isVisible,
-  }">
+              class="bg-white border transition-all z-20 absolute w-48"
+              :class="{
+                'visible opacity-100': sortInput.isVisible,
+                'invisible opacity-0': !sortInput.isVisible,
+              }"
+            >
               <ul class="leading-8 text-sm ms-6 py-3 cursor-pointer">
                 <li
-v-for="(item, index) in sortInput.sortCriterias" :key="index" class="hover:text-orange-500 transition-colors duration-75"
-                  @click="setSortingCriteria(item)">
+                  v-for="(item, index) in sortInput.sortCriterias"
+                  :key="index"
+                  class="hover:text-orange-500 transition-colors duration-75"
+                  @click="setSortingCriteria(item)"
+                >
                   {{ item }}
                 </li>
               </ul>
@@ -139,15 +233,22 @@ v-for="(item, index) in sortInput.sortCriterias" :key="index" class="hover:text-
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12 lg:mt-4">
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12 lg:mt-4"
+        >
           <div v-for="(item, index) in categoryProducts" :key="index">
             <productCard
-:cat="item.category" :name="item.title" :img="item.images[0]" :price="item.price"
-              :rate="item.rating" :review="item.stock.toString()" :product-i-d="item.id.toString()" />
+              :cat="item.category"
+              :name="item.title"
+              :img="item.images[0]"
+              :price="item.price"
+              :rate="item.rating"
+              :review="item.stock.toString()"
+              :product-i-d="item.id.toString()"
+            />
           </div>
         </div>
       </div>
-
     </div>
   </container>
 </template>
@@ -161,8 +262,8 @@ import productCard from "~/components/products/productCard.vue";
 import { useProductsStore } from "~/store/products";
 
 const route = useRoute();
-const catName = computed(()=>{
-  return route.params.categoryName
+const catName = computed(() => {
+  return route.params.categoryName;
 });
 
 const productStore = useProductsStore();
@@ -218,20 +319,31 @@ const watchSort = watch(
   }
 );
 
-const pageTitle = computed(()=>{
-  return route.params?.categoryName.replace(/-/g, " ") + " | Dummy E-Commerce"
-})
+const pageTitle = computed(() => {
+  return route.params?.categoryName.replace(/-/g, " ") + " | Dummy E-Commerce";
+});
 
 useHead({
   title: () => pageTitle.value,
   meta: [
-    { name: 'description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' },
-    { property: 'og:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Open Graph title
-    { property: 'og:description', content: 'Explore a wide variety of products across all categories on Dummy E-Commerce.' }, // Aligned Open Graph description
-    { name: 'twitter:card', content: 'summary' }, // Twitter card type
-    { name: 'twitter:title', content: 'Shop All Categories | Dummy E-Commerce' }, // Consistent Twitter title
+    {
+      name: "description",
+      content:
+        "Explore a wide variety of products across all categories on Dummy E-Commerce.",
+    },
+    { property: "og:title", content: "Shop All Categories | Dummy E-Commerce" }, // Consistent Open Graph title
+    {
+      property: "og:description",
+      content:
+        "Explore a wide variety of products across all categories on Dummy E-Commerce.",
+    }, // Aligned Open Graph description
+    { name: "twitter:card", content: "summary" }, // Twitter card type
+    {
+      name: "twitter:title",
+      content: "Shop All Categories | Dummy E-Commerce",
+    }, // Consistent Twitter title
   ],
-})
+});
 </script>
 
 <style lang="css" scoped></style>
