@@ -1,13 +1,13 @@
 <template>
     <div class="flex flex-col border toolbox rounded-md  items-center  justify-center" :class="{'toolbox-hover': hover}">
 
-        <div class="tool border-b-2 p-2">
-            <Icon name="clarity:shopping-cart-line" class="" size="28" @click="addProductToCart" />
+        <div class="tool border-b-2 p-2" @click="addProductToCart">
+            <Icon name="clarity:shopping-cart-line" class="" size="28" />
         </div>
 
-        <div class="tool border-b-2 p-2">
-            <Icon v-if="!wishStatus" name="ph:heart" size="28" @click="addProductToWishList"/>
-            <Icon v-else name="ph:heart-fill" size="28" color="red" @click="removeFromWishlist"/>
+        <div class="tool border-b-2 p-2" @click="wishHandler">
+            <Icon v-if="!wishStatus" name="ph:heart" size="28"/>
+            <Icon v-else name="ph:heart-fill" size="28" color="red"/>
         </div>
         
         <nuxt-link :to="`/categories/${category}/${name}?productId=${productID}`">
@@ -16,12 +16,20 @@
             </div>
         </nuxt-link>
     </div>
+
+    <alertNotification
+      :title="notificationModal.title"
+      :show="notificationModal.isVisible"
+      @is-visible="notificationModal.isVisible = false"
+    />
+    
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '~/store/cart';
 import { useWishlistStore } from '~/store/wishlist';
+import alertNotification from '~/components/UI/alertNotification.vue'
 
 const props = defineProps({
     hover:Boolean,
@@ -47,6 +55,9 @@ const addProductToCart = () => {
             image:props.image,
             price:props.price
         })
+
+        notificationModal.title = "Product added to cart";
+        notificationModal.isVisible = true;
     }
     else{
         console.error("This product does not have an essential data for adding to cart")
@@ -63,6 +74,8 @@ const { wishlist} = storeToRefs(wishlistStore)
 const removeFromWishlist = () => {
     if(props.productID){
         removeWishList(props.productID)
+        notificationModal.title = "Product removed";
+        notificationModal.isVisible = true;
     }
     else{
         console.error("This product does not have an proper ID")
@@ -79,6 +92,8 @@ const addProductToWishList = () => {
             image:props.image,
             price:props.price
         })
+        notificationModal.title = "Product added to wishlist";
+        notificationModal.isVisible = true;
     }
     else{
         console.error("This product does not have an essential data for adding to wishlist")
@@ -91,6 +106,22 @@ const wishStatus = computed(()=>{
     })
 })
 
+const wishHandler = () => {
+
+    if(wishStatus.value){
+       return removeFromWishlist();
+    }
+
+    else{
+        addProductToWishList();
+    }
+}
+
+
+const notificationModal = reactive({
+  isVisible: false,
+  title: "",
+})
 
 </script>
 
