@@ -61,7 +61,7 @@
             </button>
 
             <div
-              class="border-gray-200 border px-5 py-8 mt-5 rounded-md text-tblack text-sm"
+              class="border-gray-200 border px-3 xl:px-5 py-8 mt-5 rounded-md text-tblack text-sm"
             >
               <div class="flex flex-row justify-between items-center">
                 <span>Product Total:</span>
@@ -88,9 +88,9 @@
               </div>
 
               <div class="flex flex-row justify-between items-center mt-3">
-                <span class="text-lg">Cart Total:</span>
-                <span class="font-semibold text-lg text-tpurple"
-                  >{{ cartTotal }}.00$</span
+                <span class="text-sm xl:text-lg ">Cart Total:</span>
+                <span class="font-semibold text-sm xl:text-lg text-tpurple"
+                  >{{ Math.round(cartTotal) }}.00$</span
                 >
               </div>
 
